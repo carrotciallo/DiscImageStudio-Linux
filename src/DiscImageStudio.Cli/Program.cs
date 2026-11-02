@@ -34,6 +34,16 @@ internal static class Program
                 return PrintHelp();
             }
 
+            if (command == "burn-devices")
+            {
+                return BurnCommands.PrintDevices();
+            }
+
+            if (command == "burn")
+            {
+                return BurnCommands.Burn(arguments.Skip(1).ToArray());
+            }
+
             DiscJobRequest request = new(command, arguments.Skip(1));
             ImmediateProgress progress = new(value =>
             {
@@ -99,6 +109,13 @@ internal static class Program
 
         Console.WriteLine(
             """
+
+            Host commands (Linux burning):
+              burn-devices        List optical drives and the burning tools on PATH.
+              burn --device /dev/srN --image IMAGE.iso [--blank] [--verify] [--speed N] [--yes]
+              burn --device /dev/srN --cue TRACK.cue [--blank] [--speed N] [--yes]
+                                  Without --yes, burn only probes the media and prints
+                                  the plan; nothing is written.
 
             Blu-ray: bd-info exports parameters; bd-probe exports raw payload tests;
             bd-encode exports one ECC cluster; bd-generate maps dark to 3T and light to 6T run-count bias.

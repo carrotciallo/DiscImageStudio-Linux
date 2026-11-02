@@ -130,6 +130,15 @@ dotnet run --project src/DvdImageSolver --configuration Release -- selftest
 
 `DiscImageStudio.Cli` 提供与统一程序相同的光盘命令（solve / simulate / cd-generate / bd-generate 等，见下文命令行一节）；GUI 与 IMAPI2 流式刻录仍为 Windows 功能。
 
+Linux 刻录由宿主命令外挂系统工具完成（ISO 用 xorriso、CD 的 CUE 用 cdrdao）：
+
+```bash
+dotnet run --project src/DiscImageStudio.Cli -- burn-devices
+dotnet run --project src/DiscImageStudio.Cli -- burn --device /dev/sr0 --image IMAGE.iso --verify --yes
+```
+
+不带 `--yes` 时只探测介质并打印刻录计划（干跑）；介质非空白时默认拒绝写入，擦除需显式 `--blank`；`--verify` 会在刻后读回并比对 SHA-256。
+
 ## 命令行
 
 统一程序不带参数时将打开 GUI，而带参数时作为自动化工具使用：

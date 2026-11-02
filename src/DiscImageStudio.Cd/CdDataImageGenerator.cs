@@ -1,7 +1,5 @@
 using System.Diagnostics;
 using System.IO;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using DiscImageStudio.Core;
 using DiscImageStudio.Iso;
 
@@ -284,12 +282,8 @@ public static class CdDataImageGenerator
             }
             string fullPath = Path.GetFullPath(path);
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath)!);
-            BitmapSource bitmap = BitmapSource.Create(size, size, 96, 96, PixelFormats.Bgra32,
-                null, pixels, size * 4);
-            PngBitmapEncoder encoder = new();
-            encoder.Frames.Add(BitmapFrame.Create(bitmap));
             using FileStream output = File.Create(fullPath);
-            encoder.Save(output);
+            PortableImageCodec.WritePngBgra32(output, pixels, size, size);
         }
     }
 

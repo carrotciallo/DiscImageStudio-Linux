@@ -449,7 +449,16 @@ internal static class IsoImageWriter
     }
 
     internal static bool TryMarkSparse(SafeFileHandle handle)
-        => DeviceIoControl(
+    {
+        // FSCTL_SET_SPARSE is a Windows-only courtesy: elsewhere a seek past
+        // EOF already leaves the unwritten range sparse, so there is nothing
+        // to request (and returning false was already tolerated by callers).
+        if (!OperatingSystem.IsWindows())
+        {
+            return false;
+        }
+
+        return DeviceIoControl(
             handle,
             FsctlSetSparse,
             IntPtr.Zero,
@@ -458,6 +467,7 @@ internal static class IsoImageWriter
             0,
             out _,
             IntPtr.Zero);
+    }
 
     [DllImport("kernel32.dll", SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]

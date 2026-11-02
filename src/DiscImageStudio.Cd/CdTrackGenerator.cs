@@ -1,7 +1,5 @@
 using System.Diagnostics;
 using System.IO;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using DiscImageStudio.Core;
 
 namespace DiscImageStudio.Cd;
@@ -636,19 +634,8 @@ public static class CdTrackGenerator
     {
         EnsureParentDirectory(outputPath);
         int stride = checked(size * 4);
-        BitmapSource bitmap = BitmapSource.Create(
-            size,
-            size,
-            96,
-            96,
-            PixelFormats.Bgra32,
-            palette: null,
-            pixels,
-            stride);
-        PngBitmapEncoder encoder = new();
-        encoder.Frames.Add(BitmapFrame.Create(bitmap));
         using FileStream output = new(outputPath, FileMode.Create, FileAccess.Write, FileShare.None);
-        encoder.Save(output);
+        PortableImageCodec.WritePngBgra32(output, pixels, size, size, stride);
     }
 
     private static void ValidatePreview(int outputSize, int samplesPerSector)

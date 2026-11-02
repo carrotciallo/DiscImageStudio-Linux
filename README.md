@@ -118,6 +118,18 @@ dotnet run --project tests/DiscImageStudio.ArchitectureTests --configuration Rel
 
 版本规则、CI 生成 EXE、Release 草稿检查、MSIX 打包与签名流程见[发布指南](docs/RELEASING.md)。
 
+### Linux 命令行
+
+生成引擎与命令行宿主可在 Linux 上运行（需要 .NET 10 SDK）：
+
+```bash
+dotnet build src/DiscImageStudio.Cli --configuration Release
+dotnet run --project src/DiscImageStudio.Cli --configuration Release -- help
+dotnet run --project src/DvdImageSolver --configuration Release -- selftest
+```
+
+`DiscImageStudio.Cli` 提供与统一程序相同的光盘命令（solve / simulate / cd-generate / bd-generate 等，见下文命令行一节）；GUI 与 IMAPI2 流式刻录仍为 Windows 功能。
+
 ## 命令行
 
 统一程序不带参数时将打开 GUI，而带参数时作为自动化工具使用：

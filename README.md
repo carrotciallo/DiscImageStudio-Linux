@@ -1,5 +1,7 @@
 # Disc Image Studio for Linux
 
+简体中文 | [English](README.en.md)
+
 DiscImageStudio 的 Linux 移植：在 CD / DVD / 蓝光光盘的盘面上刻蚀出肉眼可见的图像（DiscT@2 式盘面绘图）。
 
 基于上游 [JiaFeiMiao-K-Cat/DiscImageStudio](https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio)（GPL-3.0）移植：核心算法跨平台化（图像解码改用 StbImageSharp，PNG 编码改用自带实现，引擎去除 WPF 依赖），并补上 Linux 的命令行宿主、刻录通道与 Avalonia 图形界面。Windows 的 WPF 界面不在本仓库范围内。

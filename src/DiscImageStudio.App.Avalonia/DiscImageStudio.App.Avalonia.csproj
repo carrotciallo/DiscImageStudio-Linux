@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <AssemblyName>DiscImageStudio.Gui</AssemblyName>
+    <RootNamespace>DiscImageStudio.Gui</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.0" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.0" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DiscImageStudio.Core\DiscImageStudio.Core.csproj" />
+    <ProjectReference Include="..\DiscImageStudio.Cd\DiscImageStudio.Cd.csproj" />
+    <ProjectReference Include="..\DiscImageStudio.Dvd\DiscImageStudio.Dvd.csproj" />
+    <ProjectReference Include="..\DiscImageStudio.BluRay\DiscImageStudio.BluRay.csproj" />
+    <ProjectReference Include="..\DiscImageStudio.Cli\DiscImageStudio.Cli.csproj" />
+  </ItemGroup>
+</Project>

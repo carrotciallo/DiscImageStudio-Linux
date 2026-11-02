@@ -139,6 +139,14 @@ dotnet run --project src/DiscImageStudio.Cli -- burn --device /dev/sr0 --image I
 
 不带 `--yes` 时只探测介质并打印刻录计划（干跑）；介质非空白时默认拒绝写入，擦除需显式 `--blank`；`--verify` 会在刻后读回并比对 SHA-256。
 
+另有 Avalonia 图形界面（生成 / 读回预览 / 刻录三页，复用同一命令目录与刻录闸门）：
+
+```bash
+dotnet run --project src/DiscImageStudio.App.Avalonia --configuration Release
+```
+
+它覆盖核心流程；WPF 版的工程文件与标定会话工作区未在此实现。
+
 ## 命令行
 
 统一程序不带参数时将打开 GUI，而带参数时作为自动化工具使用：

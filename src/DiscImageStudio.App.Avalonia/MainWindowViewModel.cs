@@ -1,0 +1,300 @@
+using System.Collections.ObjectModel;
+using Avalonia.Media.Imaging;
+using Avalonia.Threading;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using DiscImageStudio.BluRay;
+using DiscImageStudio.Cd;
+using DiscImageStudio.Cli;
+using DiscImageStudio.Core;
+using DiscImageStudio.Dvd;
+
+namespace DiscImageStudio.Gui;
+
+/// <summary>
+/// Avalonia front-end over the same module catalog as the command-line host:
+/// generation and preview jobs run through DiscModuleCatalog, and burning is
+/// delegated to the CLI host's BurnCommands so the tool invocations and the
+/// media-safety gates exist exactly once. This covers the core loop
+/// (image → generate → readback preview → burn); the WPF app's project-file
+/// and calibration-session workspaces are not replicated here.
+/// </summary>
+public partial class MainWindowViewModel : ObservableObject
+{
+    private static readonly DiscModuleCatalog Modules = new(
+    [
+        new CdDiscModule(),
+        new DvdDiscModule(),
+        new BluRayDiscModule((path, token) => BluRayImageLoader.Load(path, token)),
+    ]);
+
+    private CancellationTokenSource? _jobCancellation;
+
+    [ObservableProperty]
+    private string _imagePath = string.Empty;
+
+    [ObservableProperty]
+    private int _discTypeIndex = 1;
+
+    [ObservableProperty]
+    private string _cdOutput = "disc.wav";
+
+    [ObservableProperty]
+    private string _dvdSectors = "100352";
+
+    [ObservableProperty]
+    private string _dvdOutput = "disc.iso";
+
+    [ObservableProperty]
+    private string _bdSectors = "32000";
+
+    [ObservableProperty]
+    private string _bdOutput = "disc-bd.iso";
+
+    [ObservableProperty]
+    private bool _isBusy;
+
+    [ObservableProperty]
+    private string _logText = string.Empty;
+
+    [ObservableProperty]
+    private string _statusText = "就绪";
+
+    [ObservableProperty]
+    private string _innerRadiusMm = "24";
+
+    [ObservableProperty]
+    private string _outerRadiusMm = "58";
+
+    [ObservableProperty]
+    private Bitmap? _sourcePreview;
+
+    [ObservableProperty]
+    private Bitmap? _resultPreview;
+
+    [ObservableProperty]
+    private string _burnSource = string.Empty;
+
+    [ObservableProperty]
+    private int _selectedDriveIndex = -1;
+
+    [ObservableProperty]
+    private bool _burnBlank;
+
+    [ObservableProperty]
+    private bool _burnVerify;
+
+    [ObservableProperty]
+    private bool _burnReallyWrite;
+
+    [ObservableProperty]
+    private string _burnLogText = string.Empty;
+
+    public ObservableCollection<string> DriveItems { get; } = [];
+
+    private readonly List<string> _driveNodes = [];
+
+    public bool IsCd => DiscTypeIndex == 0;
+
+    public bool IsDvd => DiscTypeIndex == 1;
+
+    public bool IsBd => DiscTypeIndex == 2;
+
+    partial void OnDiscTypeIndexChanged(int value)
+    {
+        OnPropertyChanged(nameof(IsCd));
+        OnPropertyChanged(nameof(IsDvd));
+        OnPropertyChanged(nameof(IsBd));
+    }
+
+    partial void OnImagePathChanged(string value)
+    {
+        SourcePreview = LoadBitmap(value);
+    }
+
+    public MainWindowViewModel()
+    {
+        RefreshDrives();
+    }
+
+    [RelayCommand]
+    private async Task GenerateAsync()
+    {
+        if (string.IsNullOrWhiteSpace(ImagePath) || !File.Exists(ImagePath))
+        {
+            AppendLog("error: 先选择一个存在的源图像文件。");
+            return;
+        }
+
+        (string command, string[] args) = DiscTypeIndex switch
+        {
+            0 => ("cd-generate", new string[] { "--input", ImagePath, "--output", CdOutput }),
+            2 => ("bd-generate", new string[] { "--input", ImagePath, "--output", BdOutput, "--total-sectors", BdSectors }),
+            _ => ("solve", new string[] { "--image", ImagePath, "--iso-output", DvdOutput, "--total-sectors", DvdSectors }),
+        };
+        await RunJobAsync(command, args);
+    }
+
+    [RelayCommand]
+    private async Task RenderPreviewAsync()
+    {
+        string previewPath = Path.Combine(Path.GetTempPath(), "discimage-preview.png");
+        int exit;
+        if (IsCd)
+        {
+            exit = await RunJobAsync(
+                "cd-preview-warp", ["--input", ImagePath, "--output", previewPath]);
+        }
+        else if (IsDvd)
+        {
+            if (!File.Exists(DvdOutput))
+            {
+                AppendLog("error: 先生成 DVD ISO 再渲染读回模拟。");
+                return;
+            }
+
+            exit = await RunJobAsync(
+                "simulate",
+                ["--iso", DvdOutput, "--output", previewPath,
+                 "--inner-radius-mm", InnerRadiusMm, "--outer-radius-mm", OuterRadiusMm]);
+        }
+        else
+        {
+            AppendLog("BD 暂无读回预览命令，可先查看左侧源图。");
+            return;
+        }
+
+        if (exit == 0)
+        {
+            ResultPreview = LoadBitmap(previewPath);
+        }
+    }
+
+    [RelayCommand]
+    private void Cancel() => _jobCancellation?.Cancel();
+
+    [RelayCommand]
+    private void RefreshDrives()
+    {
+        DriveItems.Clear();
+        _driveNodes.Clear();
+        foreach ((string node, string vendor, string model) in BurnCommands.EnumerateDrives("/sys/block"))
+        {
+            _driveNodes.Add(node);
+            DriveItems.Add($"{node} — {vendor} {model}".TrimEnd());
+        }
+
+        SelectedDriveIndex = DriveItems.Count > 0 ? 0 : -1;
+        if (DriveItems.Count == 0)
+        {
+            DriveItems.Add("（未检测到光驱）");
+        }
+    }
+
+    [RelayCommand]
+    private async Task BurnAsync()
+    {
+        if (SelectedDriveIndex < 0 || SelectedDriveIndex >= _driveNodes.Count)
+        {
+            AppendBurnLog("error: 先选择一台光驱。");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(BurnSource) || !File.Exists(BurnSource))
+        {
+            AppendBurnLog("error: 先选择要刻录的 ISO 或 CUE 文件。");
+            return;
+        }
+
+        List<string> args = ["--device", _driveNodes[SelectedDriveIndex]];
+        args.Add(Path.GetExtension(BurnSource).Equals(".cue", StringComparison.OrdinalIgnoreCase)
+            ? "--cue"
+            : "--image");
+        args.Add(BurnSource);
+        if (BurnBlank)
+        {
+            args.Add("--blank");
+        }
+
+        if (BurnVerify)
+        {
+            args.Add("--verify");
+        }
+
+        if (BurnReallyWrite)
+        {
+            args.Add("--yes");
+        }
+
+        AppendBurnLog(BurnReallyWrite ? "开始刻录…" : "干跑：只探测介质并打印计划。");
+        int exit = await Task.Run(
+            () => BurnCommands.BurnCore([.. args], AppendBurnLogFromThread, AppendBurnLogFromThread));
+        AppendBurnLog(exit == 0 ? "刻录命令完成。" : $"刻录命令失败（退出码 {exit}）。");
+    }
+
+    private async Task<int> RunJobAsync(string command, string[] args)
+    {
+        IsBusy = true;
+        StatusText = $"运行 {command}…";
+        _jobCancellation = new CancellationTokenSource();
+        Progress<DiscJobProgress> progress = new(item =>
+        {
+            if (!string.IsNullOrWhiteSpace(item.Message))
+            {
+                AppendLog(item.Message);
+            }
+        });
+        try
+        {
+            DiscJobResult result = await Task.Run(() => Modules.ExecuteAsync(
+                new DiscJobRequest(command, args), progress, _jobCancellation.Token)
+                .GetAwaiter().GetResult());
+            if (!string.IsNullOrWhiteSpace(result.Summary))
+            {
+                AppendLog(result.Summary);
+            }
+
+            StatusText = result.ExitCode == 0
+                ? $"{command} 完成"
+                : $"{command} 失败（退出码 {result.ExitCode}）";
+            return result.ExitCode;
+        }
+        catch (OperationCanceledException)
+        {
+            AppendLog("已取消。");
+            StatusText = "已取消";
+            return 130;
+        }
+        catch (Exception exception)
+        {
+            AppendLog($"error: {exception.Message}");
+            StatusText = "出错";
+            return 1;
+        }
+        finally
+        {
+            IsBusy = false;
+            _jobCancellation.Dispose();
+            _jobCancellation = null;
+        }
+    }
+
+    private void AppendLog(string line) => LogText += line + "\n";
+
+    private void AppendBurnLog(string line) => BurnLogText += line + "\n";
+
+    private void AppendBurnLogFromThread(string line)
+        => Dispatcher.UIThread.Post(() => AppendBurnLog(line));
+
+    private static Bitmap? LoadBitmap(string path)
+    {
+        try
+        {
+            return File.Exists(path) ? new Bitmap(path) : null;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+}

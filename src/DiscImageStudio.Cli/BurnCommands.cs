@@ -11,7 +11,7 @@ namespace DiscImageStudio.Cli;
 /// state is probed first — a non-blank disc is refused unless --blank was
 /// given, and an unreadable state is always refused.
 /// </summary>
-internal static class BurnCommands
+public static class BurnCommands
 {
     internal static int PrintDevices()
     {
@@ -36,7 +36,7 @@ internal static class BurnCommands
         return 0;
     }
 
-    internal static List<(string Node, string Vendor, string Model)> EnumerateDrives(string sysBlockRoot)
+    public static List<(string Node, string Vendor, string Model)> EnumerateDrives(string sysBlockRoot)
     {
         List<(string, string, string)> drives = [];
         if (!Directory.Exists(sysBlockRoot))
@@ -55,7 +55,11 @@ internal static class BurnCommands
         return drives;
     }
 
-    internal static int Burn(string[] arguments)
+    public static int Burn(string[] arguments)
+        => BurnCore(arguments, Console.WriteLine, Console.Error.WriteLine);
+
+    public static int BurnCore(
+        string[] arguments, Action<string> info, Action<string> error)
     {
         string? device = FindOption(arguments, "device");
         string? image = FindOption(arguments, "image");
@@ -68,12 +72,12 @@ internal static class BurnCommands
             || (image is null) == (cue is null)
             || (verify && cue is not null))
         {
-            Console.Error.WriteLine(
+            error(
                 "usage: burn --device /dev/srN (--image IMAGE.iso | --cue TRACK.cue) "
                 + "[--blank] [--verify] [--speed N] [--yes]");
             if (verify && cue is not null)
             {
-                Console.Error.WriteLine("--verify is only supported for ISO images.");
+                error("--verify is only supported for ISO images.");
             }
 
             return 1;
@@ -82,55 +86,55 @@ internal static class BurnCommands
         string sourcePath = Path.GetFullPath(image ?? cue!);
         if (!File.Exists(sourcePath))
         {
-            Console.Error.WriteLine($"error: source not found: {sourcePath}");
+            error($"error: source not found: {sourcePath}");
             return 1;
         }
 
         string mediaTool = "xorriso";
         if (FindTool(mediaTool) is null)
         {
-            Console.Error.WriteLine("error: required tool 'xorriso' was not found on PATH.");
+            error("error: required tool 'xorriso' was not found on PATH.");
             return 1;
         }
 
         if (cue is not null && FindTool("cdrdao") is null)
         {
-            Console.Error.WriteLine("error: required tool 'cdrdao' was not found on PATH.");
+            error("error: required tool 'cdrdao' was not found on PATH.");
             return 1;
         }
 
         MediaState state = ProbeMedia(device);
-        Console.WriteLine($"device: {device}");
-        Console.WriteLine($"source: {sourcePath} ({new FileInfo(sourcePath).Length} bytes)");
-        Console.WriteLine($"media: {Describe(state)}");
+        info($"device: {device}");
+        info($"source: {sourcePath} ({new FileInfo(sourcePath).Length} bytes)");
+        info($"media: {Describe(state)}");
         if (blank)
         {
-            Console.WriteLine("plan: blank media first (xorriso -blank as_needed)");
+            info("plan: blank media first (xorriso -blank as_needed)");
         }
 
-        Console.WriteLine(image is not null
+        info(image is not null
             ? $"plan: write ISO with xorriso (cdrecord emulation, DAO)"
             : "plan: write CD track with cdrdao (DAO)");
         if (verify)
         {
-            Console.WriteLine("plan: read back and compare SHA-256 after writing");
+            info("plan: read back and compare SHA-256 after writing");
         }
 
         if (!yes)
         {
-            Console.WriteLine("dry run: nothing was written. Pass --yes to burn.");
+            info("dry run: nothing was written. Pass --yes to burn.");
             return 0;
         }
 
         if (state == MediaState.Unknown)
         {
-            Console.Error.WriteLine("error: media state could not be determined; refusing to write.");
+            error("error: media state could not be determined; refusing to write.");
             return 1;
         }
 
         if (state != MediaState.Blank && !blank)
         {
-            Console.Error.WriteLine(
+            error(
                 "error: media is not blank. Pass --blank to erase rewritable media first.");
             return 1;
         }
@@ -140,7 +144,7 @@ internal static class BurnCommands
             int blankExit = RunTool(mediaTool, ["-outdev", device, "-blank", "as_needed"]);
             if (blankExit != 0)
             {
-                Console.Error.WriteLine($"error: blanking failed (exit {blankExit}).");
+                error($"error: blanking failed (exit {blankExit}).");
                 return blankExit;
             }
         }
@@ -172,14 +176,14 @@ internal static class BurnCommands
 
         if (writeExit != 0)
         {
-            Console.Error.WriteLine($"error: writing failed (exit {writeExit}).");
+            error($"error: writing failed (exit {writeExit}).");
             return writeExit;
         }
 
-        Console.WriteLine("write completed.");
+        info("write completed.");
         if (verify && image is not null)
         {
-            return VerifyIso(device, sourcePath) ? 0 : 1;
+            return VerifyIso(device, sourcePath, info, error) ? 0 : 1;
         }
 
         return 0;
@@ -226,10 +230,10 @@ internal static class BurnCommands
         return MediaState.Unknown;
     }
 
-    private static bool VerifyIso(string device, string imagePath)
+    private static bool VerifyIso(string device, string imagePath, Action<string> info, Action<string> error)
     {
         long length = new FileInfo(imagePath).Length;
-        Console.WriteLine($"verifying {length} bytes read back from {device} ...");
+        info($"verifying {length} bytes read back from {device} ...");
         using FileStream source = File.OpenRead(imagePath);
         using FileStream disc = new(device, FileMode.Open, FileAccess.Read, FileShare.Read);
         byte[] sourceHash = SHA256.HashData(source);
@@ -248,12 +252,12 @@ internal static class BurnCommands
 
         if (read != buffer.Length)
         {
-            Console.Error.WriteLine($"error: short read from device ({read} of {length} bytes).");
+            error($"error: short read from device ({read} of {length} bytes).");
             return false;
         }
 
         bool match = SHA256.HashData(buffer).SequenceEqual(sourceHash);
-        Console.WriteLine(match
+        info(match
             ? "verify: SHA-256 match, the disc holds exactly the image bytes."
             : "verify: SHA-256 MISMATCH, the disc differs from the image.");
         return match;

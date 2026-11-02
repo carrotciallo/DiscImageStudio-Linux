@@ -10,7 +10,7 @@ namespace DiscImageStudio.Cli;
 /// resource limits, encoded-space Rec. 709 weights and straight-alpha-over-white
 /// compositing, with the portable decoder standing in for WPF imaging.
 /// </summary>
-internal static class BluRayImageLoader
+public static class BluRayImageLoader
 {
     private const long MaxFileBytes = 256L * 1024 * 1024;
     private const long MaxPixels = 64L * 1024 * 1024;

@@ -120,6 +120,8 @@ dotnet run --project tests/DiscImageStudio.ArchitectureTests --configuration Rel
 
 ### Linux 命令行
 
+> 注：本分支的 Linux 移植（二期刻录、三期图形界面）暂时未验证——尚未经真实光驱实刻检验，验证完成后会更新此说明。
+
 生成引擎与命令行宿主可在 Linux 上运行（需要 .NET 10 SDK）：
 
 ```bash

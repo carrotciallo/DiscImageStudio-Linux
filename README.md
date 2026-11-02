@@ -6,10 +6,10 @@
 
 <h2>全能的光盘盘面可见图像生成与刻录工具</h2>
 
-Disc Image Studio 是一个运行在 Windows 的光盘盘面图像生成与刻录工具，帮助您使用**任何**刻录光驱在**任何** DVD / CD / 蓝光 光盘上刻蚀出肉眼可见的图像。
+Disc Image Studio 是一个运行在 Windows 与 Linux 的光盘盘面图像生成与刻录工具，帮助您使用**任何**刻录光驱在**任何** DVD / CD / 蓝光 光盘上刻蚀出肉眼可见的图像。
 
 ![.NET 版本](https://img.shields.io/badge/.NET-10.0-512bd4?style=flat-square)
-![运行平台](https://img.shields.io/badge/Platform-Windows%2010%2F11-0078d6?style=flat-square)
+![运行平台](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-0078d6?style=flat-square)
 ![开发语言](https://img.shields.io/badge/Language-C%23-68217A?style=flat-square)
 ![GitHub Repo size](https://img.shields.io/github/repo-size/JiaFeiMiao-K-Cat/DiscImageStudio?style=flat-square&color=3cb371)
 ![贡献欢迎](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)

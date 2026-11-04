@@ -15,7 +15,7 @@
                 </StackPanel>
                 <Border Grid.Row="1" Background="#FF202020" CornerRadius="4"
                         HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Canvas x:Name="DesignSurface" Width="480" Height="480"
+                    <Canvas x:Name="DesignSurface" Width="480" Height="480" Background="Transparent"
                             PointerPressed="Design_PointerPressed" PointerMoved="Design_PointerMoved"
                             PointerReleased="Design_PointerReleased" PointerWheelChanged="Design_PointerWheelChanged"
                             AutomationProperties.Name="设计画布">

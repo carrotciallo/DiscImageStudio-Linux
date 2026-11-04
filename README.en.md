@@ -12,7 +12,7 @@ Ported from upstream [JiaFeiMiao-K-Cat/DiscImageStudio](https://github.com/JiaFe
 
 - **Cross-platform core**: the Core plus the CD / DVD / Blu-ray engines — the same solver and encoding algorithms as upstream, targeting .NET 10.
 - **Command line** (`src/DiscImageStudio.Cli`): the full generate / preview / burn workflow.
-- **GUI** (`src/DiscImageStudio.App.Avalonia`): Generate / Preview / Burn pages, sharing the same command catalog and burning implementation as the CLI. The .discproj project and calibration-session workspaces of the WPF app were not ported.
+- **GUI** (`src/DiscImageStudio.App.Avalonia`): Generate / Preview / Burn pages, plus a simple Design page: a single layer placed in millimetres (drag to move, wheel or slider to scale, rotate), with guide circles marking the data ring; the composed 4096x4096 export feeds straight into generation. Shares the same command catalog and burning implementation as the CLI. The multi-layer .discproj projects and calibration-session workspaces of the WPF app were not ported.
 - **Burning**: shells out to `xorriso` (ISO writing and media blanking) and `cdrdao` (CUE track writing) instead of reimplementing the MMC layer.
 
 ## Requirements

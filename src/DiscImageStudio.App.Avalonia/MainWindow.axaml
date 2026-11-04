@@ -5,7 +5,51 @@
         x:DataType="vm:MainWindowViewModel"
         Title="Disc Image Studio (Linux)"
         Width="1120" Height="740">
-    <TabControl Margin="8">
+    <TabControl x:Name="MainTabs" Margin="8">
+        <TabItem Header="设计">
+            <Grid RowDefinitions="Auto,*,Auto" Margin="8" RowSpacing="10">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Button Content="打开图片…" Click="BrowseDesignImage_Click"
+                            AutomationProperties.Name="打开设计图片" />
+                    <TextBlock Text="{Binding DesignImagePath}" VerticalAlignment="Center" Opacity="0.7" />
+                </StackPanel>
+                <Border Grid.Row="1" Background="#FF202020" CornerRadius="4"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Canvas x:Name="DesignSurface" Width="480" Height="480"
+                            PointerPressed="Design_PointerPressed" PointerMoved="Design_PointerMoved"
+                            PointerReleased="Design_PointerReleased" PointerWheelChanged="Design_PointerWheelChanged"
+                            AutomationProperties.Name="设计画布">
+                        <Ellipse Width="480" Height="480" Fill="#FF2B2B2B" IsHitTestVisible="False" />
+                        <Image Source="{Binding DesignBitmap}" Width="{Binding DesignDisplayWidth}"
+                               Height="{Binding DesignDisplayHeight}"
+                               Canvas.Left="{Binding DesignDisplayLeft}" Canvas.Top="{Binding DesignDisplayTop}"
+                               RenderTransformOrigin="50%,50%" IsHitTestVisible="False">
+                            <Image.RenderTransform>
+                                <RotateTransform Angle="{Binding DesignRotationDeg}" />
+                            </Image.RenderTransform>
+                        </Image>
+                        <Ellipse Width="464" Height="464" Canvas.Left="8" Canvas.Top="8"
+                                 Stroke="#66FFFFFF" StrokeThickness="1" StrokeDashArray="4,3" IsHitTestVisible="False" />
+                        <Ellipse Width="192" Height="192" Canvas.Left="144" Canvas.Top="144"
+                                 Stroke="#66FFFFFF" StrokeThickness="1" StrokeDashArray="4,3" IsHitTestVisible="False" />
+                        <Ellipse Width="60" Height="60" Canvas.Left="210" Canvas.Top="210"
+                                 Stroke="#99FFFFFF" StrokeThickness="1" IsHitTestVisible="False" />
+                    </Canvas>
+                </Border>
+                <Grid Grid.Row="2" ColumnDefinitions="Auto,170,Auto,170,Auto,Auto,Auto" ColumnSpacing="10">
+                    <TextBlock Text="缩放" VerticalAlignment="Center" />
+                    <Slider Grid.Column="1" Minimum="10" Maximum="400" Value="{Binding DesignScalePercent}"
+                            AutomationProperties.Name="设计缩放" />
+                    <TextBlock Grid.Column="2" Text="旋转°" VerticalAlignment="Center" />
+                    <Slider Grid.Column="3" Minimum="-180" Maximum="180" Value="{Binding DesignRotationDeg}"
+                            AutomationProperties.Name="设计旋转" />
+                    <Button Grid.Column="4" Content="居中重置" Command="{Binding ResetDesignCommand}" />
+                    <Button Grid.Column="5" Content="铺满盘面" Command="{Binding FitDesignCommand}" />
+                    <Button Grid.Column="6" Content="导出并送去生成" Click="ExportDesign_Click"
+                            AutomationProperties.Name="导出设计图" />
+                </Grid>
+            </Grid>
+        </TabItem>
         <TabItem Header="生成">
             <Grid RowDefinitions="Auto,Auto,Auto,Auto,*,Auto" Margin="8" RowSpacing="10">
                 <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">

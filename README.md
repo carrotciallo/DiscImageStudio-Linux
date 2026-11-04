@@ -12,7 +12,7 @@ DiscImageStudio 的 Linux 移植：在 CD / DVD / 蓝光光盘的盘面上刻蚀
 
 - **跨平台核心**：Core 与 CD / DVD / 蓝光三个引擎，与上游同一套求解与编码算法，目标框架 .NET 10。
 - **命令行**（`src/DiscImageStudio.Cli`）：生成、预览、刻录全流程。
-- **图形界面**（`src/DiscImageStudio.App.Avalonia`）：生成 / 预览 / 刻录三页，与命令行共用同一套命令目录与刻录实现。上游 WPF 的 .discproj 工程与标定会话工作区未移植。
+- **图形界面**（`src/DiscImageStudio.App.Avalonia`）：生成 / 预览 / 刻录三页之外，另有简版设计页：单图层按毫米摆位（拖动移位、滚轮或滑杆缩放、旋转），盘面参考圈标示数据环范围，导出 4096×4096 合成图后直接送去生成；与命令行共用同一套命令目录与刻录实现。上游 WPF 的多图层 .discproj 工程与标定会话工作区未移植。
 - **刻录**：外挂 `xorriso`（ISO 写入与介质擦除）与 `cdrdao`（CUE 音轨写入），不重造 MMC 协议层。
 
 ## 环境要求

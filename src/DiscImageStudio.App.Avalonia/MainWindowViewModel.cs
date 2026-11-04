@@ -90,6 +90,112 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty]
     private string _burnLogText = string.Empty;
 
+    [ObservableProperty]
+    private string _designImagePath = string.Empty;
+
+    [ObservableProperty]
+    private Bitmap? _designBitmap;
+
+    [ObservableProperty]
+    private double _designTranslateXMm;
+
+    [ObservableProperty]
+    private double _designTranslateYMm;
+
+    [ObservableProperty]
+    private double _designScale = 1.0;
+
+    [ObservableProperty]
+    private double _designRotationDeg;
+
+    /// <summary>Layer size at scale 1.0 in millimetres: at import, the image's larger
+    /// dimension spans the content ring diameter (2 x 58 mm), mirroring the WPF app.</summary>
+    public double DesignBaseWidthMm { get; private set; }
+
+    public double DesignBaseHeightMm { get; private set; }
+
+    // The design surface shows 120 mm across 480 px, i.e. 4 px per mm.
+    public double DesignDisplayWidth => DesignBaseWidthMm * DesignScale * 4.0;
+
+    public double DesignDisplayHeight => DesignBaseHeightMm * DesignScale * 4.0;
+
+    public double DesignDisplayLeft => 240.0 + DesignTranslateXMm * 4.0 - DesignDisplayWidth / 2.0;
+
+    public double DesignDisplayTop => 240.0 + DesignTranslateYMm * 4.0 - DesignDisplayHeight / 2.0;
+
+    public double DesignScalePercent
+    {
+        get => DesignScale * 100.0;
+        set => DesignScale = Math.Clamp(value, 5.0, 800.0) / 100.0;
+    }
+
+    partial void OnDesignScaleChanged(double value)
+    {
+        OnPropertyChanged(nameof(DesignScalePercent));
+        RaiseDesignLayout();
+    }
+
+    partial void OnDesignTranslateXMmChanged(double value) => RaiseDesignLayout();
+
+    partial void OnDesignTranslateYMmChanged(double value) => RaiseDesignLayout();
+
+    private void RaiseDesignLayout()
+    {
+        OnPropertyChanged(nameof(DesignDisplayWidth));
+        OnPropertyChanged(nameof(DesignDisplayHeight));
+        OnPropertyChanged(nameof(DesignDisplayLeft));
+        OnPropertyChanged(nameof(DesignDisplayTop));
+    }
+
+    /// <summary>Loads the design-page image and resets its placement.</summary>
+    public void LoadDesignImage(string path)
+    {
+        DesignImagePath = path;
+        DesignBitmap = LoadBitmap(path);
+        if (DesignBitmap is null)
+        {
+            DesignBaseWidthMm = 0;
+            DesignBaseHeightMm = 0;
+        }
+        else
+        {
+            double width = DesignBitmap.PixelSize.Width;
+            double height = DesignBitmap.PixelSize.Height;
+            double mmPerPixel = 116.0 / Math.Max(width, height);
+            DesignBaseWidthMm = width * mmPerPixel;
+            DesignBaseHeightMm = height * mmPerPixel;
+        }
+
+        DesignTranslateXMm = 0;
+        DesignTranslateYMm = 0;
+        DesignScale = 1.0;
+        DesignRotationDeg = 0;
+        RaiseDesignLayout();
+    }
+
+    [RelayCommand]
+    private void ResetDesign()
+    {
+        DesignTranslateXMm = 0;
+        DesignTranslateYMm = 0;
+        DesignScale = 1.0;
+        DesignRotationDeg = 0;
+    }
+
+    [RelayCommand]
+    private void FitDesign()
+    {
+        if (DesignBaseWidthMm <= 0 || DesignBaseHeightMm <= 0)
+        {
+            return;
+        }
+
+        // Cover the whole 120 mm disc square with the image's smaller side.
+        DesignScale = 120.0 / Math.Min(DesignBaseWidthMm, DesignBaseHeightMm);
+        DesignTranslateXMm = 0;
+        DesignTranslateYMm = 0;
+    }
+
     public ObservableCollection<string> DriveItems { get; } = [];
 
     private readonly List<string> _driveNodes = [];

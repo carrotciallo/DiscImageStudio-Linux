@@ -1,5 +1,7 @@
 using System.Buffers.Binary;
 using System.IO.Compression;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 using StbImageSharp;
 
 namespace DiscImageStudio.Core;
@@ -17,16 +19,35 @@ public static class PortableImageCodec
     public static (byte[] Bgra, int Width, int Height) DecodeBgra32(Stream stream)
     {
         ArgumentNullException.ThrowIfNull(stream);
-        ImageResult image = ImageResult.FromStream(stream, ColorComponents.RedGreenBlueAlpha);
-        byte[] bgra = image.Data;
+        using MemoryStream buffer = new();
+        stream.CopyTo(buffer);
+        byte[] bytes = buffer.ToArray();
+        if (IsWebP(bytes))
+        {
+            // stb_image ships no WebP decoder; ImageSharp covers that one format
+            // and its Bgra32 layout already matches the engines' channel order.
+            using Image<Bgra32> image = Image.Load<Bgra32>(bytes);
+            byte[] pixels = new byte[checked(image.Width * image.Height * 4)];
+            image.CopyPixelDataTo(pixels);
+            return (pixels, image.Width, image.Height);
+        }
+
+        using MemoryStream input = new(bytes);
+        ImageResult stbImage = ImageResult.FromStream(input, ColorComponents.RedGreenBlueAlpha);
+        byte[] bgra = stbImage.Data;
         // StbImageSharp returns RGBA; the engines work in BGRA channel order.
         for (int offset = 0; offset + 3 < bgra.Length; offset += 4)
         {
             (bgra[offset], bgra[offset + 2]) = (bgra[offset + 2], bgra[offset]);
         }
 
-        return (bgra, image.Width, image.Height);
+        return (bgra, stbImage.Width, stbImage.Height);
     }
+
+    private static bool IsWebP(ReadOnlySpan<byte> bytes)
+        => bytes.Length >= 12
+           && bytes[..4].SequenceEqual("RIFF"u8)
+           && bytes.Slice(8, 4).SequenceEqual("WEBP"u8);
 
     /// <summary>Writes tightly packed BGRA32 pixels (stride = width * 4) as a PNG.</summary>
     public static void WritePngBgra32(Stream output, ReadOnlySpan<byte> bgra, int width, int height)

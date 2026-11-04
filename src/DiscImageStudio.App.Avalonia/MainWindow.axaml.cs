@@ -27,7 +27,7 @@ public partial class MainWindow : Window
                 [
                     new FilePickerFileType("图像")
                     {
-                        Patterns = ["*.png", "*.jpg", "*.jpeg", "*.bmp", "*.gif"],
+                        Patterns = ["*.png", "*.jpg", "*.jpeg", "*.bmp", "*.gif", "*.webp"],
                     },
                 ],
             });
@@ -71,7 +71,7 @@ public partial class MainWindow : Window
                 [
                     new FilePickerFileType("图像")
                     {
-                        Patterns = ["*.png", "*.jpg", "*.jpeg", "*.bmp", "*.gif"],
+                        Patterns = ["*.png", "*.jpg", "*.jpeg", "*.bmp", "*.gif", "*.webp"],
                     },
                 ],
             });

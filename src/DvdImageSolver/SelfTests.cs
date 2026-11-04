@@ -1,6 +1,7 @@
 using System.Buffers.Binary;
 using System.Numerics;
 using DiscImageStudio.Core;
+using SixLabors.ImageSharp;
 using DvdImageSolver.Encoding;
 using DvdImageSolver.Solver;
 
@@ -15,6 +16,7 @@ internal static class SelfTests
         TestEcc();
         TestPhysicalEncoding();
         TestCodewordStateControl();
+        TestWebPDecode();
         TestDispersionPool();
         TestBinaryDispersion();
         TestDiscreteGrayscaleSampling();
@@ -438,6 +440,27 @@ internal static class SelfTests
         {
             Directory.Delete(directory, recursive: true);
         }
+    }
+
+    private static void TestWebPDecode()
+    {
+        // Distinct channel values (BGRA, second pixel semi-transparent), encoded
+        // losslessly so the codec's WebP branch must reproduce them exactly.
+        byte[] expected = [10, 20, 30, 255, 200, 150, 100, 128];
+        using SixLabors.ImageSharp.Image<SixLabors.ImageSharp.PixelFormats.Bgra32> image =
+            SixLabors.ImageSharp.Image.LoadPixelData<SixLabors.ImageSharp.PixelFormats.Bgra32>(expected, 2, 1);
+        using MemoryStream stream = new();
+        image.SaveAsWebp(
+            stream,
+            new SixLabors.ImageSharp.Formats.Webp.WebpEncoder
+            {
+                FileFormat = SixLabors.ImageSharp.Formats.Webp.WebpFileFormatType.Lossless,
+            });
+        stream.Position = 0;
+        (byte[] pixels, int width, int height) = PortableImageCodec.DecodeBgra32(stream);
+        Equal(2, width, "webp decode width");
+        Equal(1, height, "webp decode height");
+        True(pixels.AsSpan().SequenceEqual(expected), "webp decode pixels match (lossless, BGRA)");
     }
 
     private static void TestCodewordStateControl()

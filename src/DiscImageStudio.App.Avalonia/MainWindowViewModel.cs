@@ -37,19 +37,19 @@ public partial class MainWindowViewModel : ObservableObject
     private int _discTypeIndex = 1;
 
     [ObservableProperty]
-    private string _cdOutput = "disc.wav";
+    private string _cdOutput = Path.Combine(Environment.CurrentDirectory, "disc.wav");
 
     [ObservableProperty]
-    private string _dvdSectors = "100352";
+    private string _dvdSectors = "2297888";
 
     [ObservableProperty]
-    private string _dvdOutput = "disc.iso";
+    private string _dvdOutput = Path.Combine(Environment.CurrentDirectory, "disc.iso");
 
     [ObservableProperty]
-    private string _bdSectors = "32000";
+    private string _bdSectors = "12219392";
 
     [ObservableProperty]
-    private string _bdOutput = "disc-bd.iso";
+    private string _bdOutput = Path.Combine(Environment.CurrentDirectory, "disc-bd.iso");
 
     [ObservableProperty]
     private bool _isBusy;
@@ -238,7 +238,23 @@ public partial class MainWindowViewModel : ObservableObject
             2 => ("bd-generate", new string[] { "--input", ImagePath, "--output", BdOutput, "--total-sectors", BdSectors }),
             _ => ("solve", new string[] { "--image", ImagePath, "--iso-output", DvdOutput, "--total-sectors", DvdSectors }),
         };
-        await RunJobAsync(command, args);
+        int exit = await RunJobAsync(command, args);
+        if (exit == 0)
+        {
+            // Hand the produced file straight to the burn page: the CUE for CD
+            // audio, the ISO for DVD / BD.
+            string produced = DiscTypeIndex switch
+            {
+                0 => Path.ChangeExtension(Path.GetFullPath(CdOutput), ".cue"),
+                2 => Path.GetFullPath(BdOutput),
+                _ => Path.GetFullPath(DvdOutput),
+            };
+            if (File.Exists(produced))
+            {
+                BurnSource = produced;
+                AppendLog($"输出：{produced}（{new FileInfo(produced).Length:N0} 字节），已自动填入刻录页。");
+            }
+        }
     }
 
     [RelayCommand]

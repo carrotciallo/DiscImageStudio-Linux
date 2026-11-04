@@ -107,7 +107,7 @@
                 <TextBox Grid.Row="4" Text="{Binding LogText}" IsReadOnly="True"
                          AcceptsReturn="True" TextWrapping="NoWrap"
                          AutomationProperties.Name="生成日志" />
-                <TextBlock Grid.Row="5" Text="生成的 ISO / WAV 与本程序位于同一工作目录（相对路径按当前目录解析）。"
+                <TextBlock Grid.Row="5" Text="输出框里是绝对路径，生成物就在那里；生成成功后会自动填入刻录页的源文件。"
                            Opacity="0.7" />
             </Grid>
         </TabItem>

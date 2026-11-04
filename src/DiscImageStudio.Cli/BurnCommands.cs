@@ -149,6 +149,16 @@ public static class BurnCommands
             }
         }
 
+        if (image is not null)
+        {
+            string? sizeError = CheckImageFitsMedia(device, sourcePath);
+            if (sizeError is not null)
+            {
+                error(sizeError);
+                return 5;
+            }
+        }
+
         int writeExit;
         if (image is not null)
         {
@@ -202,6 +212,47 @@ public static class BurnCommands
         MediaState.Written => "written (not blank)",
         _ => "unknown (no media or probe failed)",
     };
+
+    // xorriso's cdrecord emulation pads the image by 150 sectors; together
+    // with the formatted capacity of DVD+RW (smaller than DVD-R), an image
+    // sized for a full DVD-R silently overflows rewritable media. Probe the
+    // free space first and refuse with a regenerate hint instead of exit 5.
+    private static string? CheckImageFitsMedia(string device, string sourcePath)
+    {
+        (int exit, string output) = RunToolCaptured("xorriso", ["-outdev", device, "-tell_media_space"]);
+        if (exit != 0)
+        {
+            return null;
+        }
+
+        long freeSectors = -1;
+        foreach (string line in output.Split('\n'))
+        {
+            if (line.Contains("Media space"))
+            {
+                string tail = line[(line.IndexOf(':') + 1)..].Trim().TrimEnd('s');
+                if (long.TryParse(tail, out long parsed))
+                {
+                    freeSectors = parsed;
+                }
+            }
+        }
+
+        if (freeSectors < 0)
+        {
+            return null;
+        }
+
+        long imageSectors = (new FileInfo(sourcePath).Length + 2047) / 2048;
+        const long paddingSectors = 150;
+        if (imageSectors + paddingSectors <= freeSectors)
+        {
+            return null;
+        }
+
+        return $"error: image is too large for this media: {imageSectors} sectors + {paddingSectors} padding"
+            + $" exceeds {freeSectors} free sectors. Regenerate with --total-sectors {freeSectors - paddingSectors} or less.";
+    }
 
     private static MediaState ProbeMedia(string device)
     {

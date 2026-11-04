@@ -40,7 +40,7 @@ public partial class MainWindowViewModel : ObservableObject
     private string _cdOutput = Path.Combine(Environment.CurrentDirectory, "disc.wav");
 
     [ObservableProperty]
-    private string _dvdSectors = "2297888";
+    private string _dvdSectors = "2294880";
 
     [ObservableProperty]
     private string _dvdOutput = Path.Combine(Environment.CurrentDirectory, "disc.iso");

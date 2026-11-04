@@ -20,14 +20,41 @@
                             PointerReleased="Design_PointerReleased" PointerWheelChanged="Design_PointerWheelChanged"
                             AutomationProperties.Name="设计画布">
                         <Ellipse Width="480" Height="480" Fill="#FF2B2B2B" IsHitTestVisible="False" />
-                        <Image Source="{Binding DesignBitmap}" Width="{Binding DesignDisplayWidth}"
-                               Height="{Binding DesignDisplayHeight}"
-                               Canvas.Left="{Binding DesignDisplayLeft}" Canvas.Top="{Binding DesignDisplayTop}"
-                               RenderTransformOrigin="50%,50%" IsHitTestVisible="False">
-                            <Image.RenderTransform>
-                                <RotateTransform Angle="{Binding DesignRotationDeg}" />
-                            </Image.RenderTransform>
-                        </Image>
+                        <Ellipse Width="464" Height="464" Canvas.Left="8" Canvas.Top="8" Fill="#FF343434" IsHitTestVisible="False" />
+                        <Ellipse Width="192" Height="192" Canvas.Left="144" Canvas.Top="144" Fill="#FF2B2B2B" IsHitTestVisible="False" />
+                        <Canvas Width="480" Height="480" IsHitTestVisible="False">
+                            <Canvas.Clip>
+                                <EllipseGeometry Center="240,240" RadiusX="240" RadiusY="240" />
+                            </Canvas.Clip>
+                            <Image Source="{Binding DesignBitmap}" Width="{Binding DesignDisplayWidth}"
+                                   Height="{Binding DesignDisplayHeight}" Opacity="0.22"
+                                   Canvas.Left="{Binding DesignDisplayLeft}" Canvas.Top="{Binding DesignDisplayTop}"
+                                   RenderTransformOrigin="50%,50%">
+                                <Image.RenderTransform>
+                                    <RotateTransform Angle="{Binding DesignRotationDeg}" />
+                                </Image.RenderTransform>
+                            </Image>
+                        </Canvas>
+                        <Canvas Width="480" Height="480" IsHitTestVisible="False">
+                            <Canvas.Clip>
+                                <CombinedGeometry GeometryCombineMode="Exclude">
+                                    <CombinedGeometry.Geometry1>
+                                        <EllipseGeometry Center="240,240" RadiusX="232" RadiusY="232" />
+                                    </CombinedGeometry.Geometry1>
+                                    <CombinedGeometry.Geometry2>
+                                        <EllipseGeometry Center="240,240" RadiusX="96" RadiusY="96" />
+                                    </CombinedGeometry.Geometry2>
+                                </CombinedGeometry>
+                            </Canvas.Clip>
+                            <Image Source="{Binding DesignBitmap}" Width="{Binding DesignDisplayWidth}"
+                                   Height="{Binding DesignDisplayHeight}"
+                                   Canvas.Left="{Binding DesignDisplayLeft}" Canvas.Top="{Binding DesignDisplayTop}"
+                                   RenderTransformOrigin="50%,50%">
+                                <Image.RenderTransform>
+                                    <RotateTransform Angle="{Binding DesignRotationDeg}" />
+                                </Image.RenderTransform>
+                            </Image>
+                        </Canvas>
                         <Ellipse Width="464" Height="464" Canvas.Left="8" Canvas.Top="8"
                                  Stroke="#66FFFFFF" StrokeThickness="1" StrokeDashArray="4,3" IsHitTestVisible="False" />
                         <Ellipse Width="192" Height="192" Canvas.Left="144" Canvas.Top="144"

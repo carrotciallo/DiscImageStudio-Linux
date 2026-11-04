@@ -139,7 +139,10 @@ public partial class MainWindow : Window
             double pixelsPerMm = size / 120.0;
             double widthPx = viewModel.DesignBaseWidthMm * viewModel.DesignScale * pixelsPerMm;
             double heightPx = viewModel.DesignBaseHeightMm * viewModel.DesignScale * pixelsPerMm;
-            Canvas canvas = new() { Width = size, Height = size, Background = Brushes.Transparent };
+            // Flatten onto white: the DVD solver treats transparent pixels as
+            // unconstrained fill (visible speckle), while white is the blank
+            // background the artwork expects.
+            Canvas canvas = new() { Width = size, Height = size, Background = Brushes.White };
             Image image = new()
             {
                 Source = viewModel.DesignBitmap,

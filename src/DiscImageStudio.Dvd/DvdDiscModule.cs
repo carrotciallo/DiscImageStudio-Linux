@@ -169,6 +169,25 @@ public sealed class DvdDiscModule : IOpticalDiscModule
             normalized.Add(totalSectors);
         }
 
+        if (command.Equals("solve", StringComparison.OrdinalIgnoreCase)
+            && FindOption(normalized, "tone-dither") is null
+            && FindOption(normalized, "tone-levels") is null
+            && FindOption(normalized, "tone-brightness") is null
+            && FindOption(normalized, "tone-gamma") is null)
+        {
+            // Mirror the WPF tone defaults (dither 0.75, two levels): without
+            // any tone option the solver uses a hard luminance threshold and
+            // pale artwork almost entirely blows out to white.
+            normalized.Add("--tone-dither");
+            normalized.Add("0.75");
+            normalized.Add("--tone-levels");
+            normalized.Add("2");
+            normalized.Add("--tone-brightness");
+            normalized.Add("0");
+            normalized.Add("--tone-gamma");
+            normalized.Add("false");
+        }
+
         return normalized;
     }
 

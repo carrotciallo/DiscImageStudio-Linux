@@ -111,6 +111,16 @@
                         <TextBox Grid.Column="3" Text="{Binding DvdOutput}"
                                  AutomationProperties.Name="DVD 输出路径" />
                     </Grid>
+                    <Grid ColumnDefinitions="Auto,200,Auto,200,Auto" ColumnSpacing="8" IsVisible="{Binding IsDvd}">
+                        <TextBlock Text="抖动强度" VerticalAlignment="Center" />
+                        <Slider Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding DvdToneDitherPercent}"
+                                AutomationProperties.Name="DVD 抖动强度" />
+                        <TextBlock Grid.Column="2" Text="亮度" VerticalAlignment="Center" />
+                        <Slider Grid.Column="3" Minimum="-64" Maximum="64" Value="{Binding DvdToneBrightness}"
+                                AutomationProperties.Name="DVD 亮度调整" />
+                        <TextBlock Grid.Column="4" VerticalAlignment="Center" Opacity="0.7"
+                                   Text="图太淡就把亮度往负调" />
+                    </Grid>
                     <Grid ColumnDefinitions="Auto,140,Auto,*" ColumnSpacing="8" IsVisible="{Binding IsBd}">
                         <TextBlock Text="总扇区" VerticalAlignment="Center" />
                         <TextBox Grid.Column="1" Text="{Binding BdSectors}"

@@ -46,6 +46,12 @@ public partial class MainWindowViewModel : ObservableObject
     private string _dvdOutput = Path.Combine(Environment.CurrentDirectory, "disc.iso");
 
     [ObservableProperty]
+    private double _dvdToneDitherPercent = 75;
+
+    [ObservableProperty]
+    private double _dvdToneBrightness;
+
+    [ObservableProperty]
     private string _bdSectors = "12219392";
 
     [ObservableProperty]
@@ -236,7 +242,9 @@ public partial class MainWindowViewModel : ObservableObject
         {
             0 => ("cd-generate", new string[] { "--input", ImagePath, "--output", CdOutput }),
             2 => ("bd-generate", new string[] { "--input", ImagePath, "--output", BdOutput, "--total-sectors", BdSectors }),
-            _ => ("solve", new string[] { "--image", ImagePath, "--iso-output", DvdOutput, "--total-sectors", DvdSectors }),
+            _ => ("solve", new string[] { "--image", ImagePath, "--iso-output", DvdOutput, "--total-sectors", DvdSectors,
+                    "--tone-dither", (DvdToneDitherPercent / 100.0).ToString("0.00", System.Globalization.CultureInfo.InvariantCulture),
+                    "--tone-brightness", DvdToneBrightness.ToString("0", System.Globalization.CultureInfo.InvariantCulture) }),
         };
         int exit = await RunJobAsync(command, args);
         if (exit == 0)

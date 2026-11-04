@@ -41,6 +41,7 @@ dotnet run --project src/DiscImageStudio.Cli -- <命令> [参数]
 | DVD | `solve`、`encode`、`calibrate`、`simulate`、`selftest` |
 | 蓝光 | `bd-info`、`bd-probe`、`bd-encode`、`bd-generate` |
 | 刻录 | `burn-devices`、`burn` |
+| 辐条标定 | `calibrate-spoke`、`calibrate-fit`、`calibrate-selftest` |
 
 示例：
 
@@ -78,6 +79,11 @@ dotnet run --project src/DiscImageStudio.App.Avalonia
 ... -- burn --device /dev/sr0 --image out.iso
 # 确认后实刻，并刻后读回校验 SHA-256
 ... -- burn --device /dev/sr0 --image out.iso --verify --yes
+
+# 辐条标定：生成标定图（辐条＋定标半径环），按标称几何刻出后量各环处辐条的转角偏差
+... -- calibrate-spoke --output spoke.png
+# 把量到的相位误差拟合成真实螺旋几何（轨距/总圈数）
+... -- calibrate-fit --samples "25:-11.1,30:-51.8,35:-49.6,40:-20.7,45:24.0,50:87.9,55:158.2"
 ```
 
 - 不带 `--yes` 时只探测介质、打印将要执行的命令，不写盘。

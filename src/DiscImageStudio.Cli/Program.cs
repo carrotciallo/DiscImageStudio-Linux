@@ -44,6 +44,21 @@ internal static class Program
                 return BurnCommands.Burn(arguments.Skip(1).ToArray());
             }
 
+            if (command == "calibrate-spoke")
+            {
+                return CalibrateCommands.Spoke(arguments.Skip(1).ToArray());
+            }
+
+            if (command == "calibrate-fit")
+            {
+                return CalibrateCommands.Fit(arguments.Skip(1).ToArray());
+            }
+
+            if (command == "calibrate-selftest")
+            {
+                return CalibrateCommands.SelfTest();
+            }
+
             DiscJobRequest request = new(command, arguments.Skip(1));
             ImmediateProgress progress = new(value =>
             {
@@ -116,6 +131,13 @@ internal static class Program
               burn --device /dev/srN --cue TRACK.cue [--blank] [--speed N] [--yes]
                                   Without --yes, burn only probes the media and prints
                                   the plan; nothing is written.
+              calibrate-spoke --output spoke.png [--size 4096] [--spokes 36] [--rings 25,30,...]
+                                  Render the spoke calibration pattern (spokes plus
+                                  measurement rings) as a PNG source image.
+              calibrate-fit --samples "25:-11.1,30:-51.8,..." [--pitch-um 0.74] [--outer-mm 58]
+                                  Fit the true spiral geometry (pitch, revolutions)
+                                  from spoke phase errors measured on a burned disc.
+              calibrate-selftest  Run the spoke calibration checks.
 
             Blu-ray: bd-info exports parameters; bd-probe exports raw payload tests;
             bd-encode exports one ECC cluster; bd-generate maps dark to 3T and light to 6T run-count bias.

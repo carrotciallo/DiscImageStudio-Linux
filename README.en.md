@@ -41,6 +41,7 @@ Commands (see `--help` for full details):
 | DVD | `solve`, `encode`, `calibrate`, `simulate`, `selftest` |
 | Blu-ray | `bd-info`, `bd-probe`, `bd-encode`, `bd-generate` |
 | Burning | `burn-devices`, `burn` |
+| Spoke calibration | `calibrate-spoke`, `calibrate-fit`, `calibrate-selftest` |
 
 Examples:
 
@@ -78,6 +79,12 @@ Screenshots: to be added after real-hardware validation.
 ... -- burn --device /dev/sr0 --image out.iso
 # Burn for real, then read back and verify the SHA-256
 ... -- burn --device /dev/sr0 --image out.iso --verify --yes
+
+# Spoke calibration: render the test pattern (spokes + measurement rings),
+# burn it with a nominal geometry, measure the spoke rotation at each ring
+... -- calibrate-spoke --output spoke.png
+# Fit the true spiral geometry (pitch / revolutions) from the phase errors
+... -- calibrate-fit --samples "25:-11.1,30:-51.8,35:-49.6,40:-20.7,45:24.0,50:87.9,55:158.2"
 ```
 
 - Without `--yes`, `burn` only probes the media and prints the commands it would run; nothing is written.

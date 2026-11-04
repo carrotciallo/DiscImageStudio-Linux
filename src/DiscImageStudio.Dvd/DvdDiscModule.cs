@@ -157,6 +157,18 @@ public sealed class DvdDiscModule : IOpticalDiscModule
             normalized.Add(value);
         }
 
+        if (command.Equals("solve", StringComparison.OrdinalIgnoreCase)
+            && FindOption(normalized, "data-dir") is null
+            && FindOption(normalized, "fill-sectors") is null
+            && FindOption(normalized, "total-sectors") is string totalSectors)
+        {
+            // Mirror the WPF export path: without --fill-sectors the solver
+            // falls back to a single ECC block, so a plain image solve must
+            // fill the whole reported disc size.
+            normalized.Add("--fill-sectors");
+            normalized.Add(totalSectors);
+        }
+
         return normalized;
     }
 

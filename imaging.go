@@ -84,27 +84,17 @@ func Flatten(layers []*Layer, size int) *image.RGBA {
 	return dst
 }
 
-// luminance extracts the ITU-R 601 luma plane with Pillow's integer
-// coefficients, so the Go preprocessing tracks the proven PIL pipeline.
-func luminance(img image.Image) ([]float32, int, int) {
-	b := img.Bounds()
-	w, h := b.Dx(), b.Dy()
-	y := make([]float32, w*h)
-	for row := 0; row < h; row++ {
-		for col := 0; col < w; col++ {
-			r, g, bl, _ := img.At(b.Min.X+col, b.Min.Y+row).RGBA()
-			y[row*w+col] = float32((19595*(r>>8) + 38470*(g>>8) + 7471*(bl>>8) + 0x8000) >> 16)
-		}
+// autocontrastLUT builds Pillow ImageOps.autocontrast's integer LUT: cut
+// the given percentage of pixels from both histogram ends, then stretch
+// with integer division, (i-lo)*255/(hi-lo). Verified exact against PIL.
+func autocontrastLUT(y []uint8, cutoff float64) [256]uint8 {
+	var lut [256]uint8
+	for i := range lut {
+		lut[i] = uint8(i)
 	}
-	return y, w, h
-}
-
-// autocontrast applies Pillow ImageOps.autocontrast semantics: cut the
-// given percentage of pixels from both histogram ends, then stretch.
-func autocontrast(y []float32, cutoff float64) {
 	var hist [256]int
 	for _, v := range y {
-		hist[int(v+0.5)]++
+		hist[v]++
 	}
 	cut := int(float64(len(y)) * cutoff / 100)
 	lo, hi := 0, 255
@@ -125,99 +115,153 @@ func autocontrast(y []float32, cutoff float64) {
 		}
 	}
 	if hi <= lo {
-		return
+		return lut
 	}
-	scale := 255 / float64(hi-lo)
-	for i, v := range y {
-		nv := (float64(v) - float64(lo)) * scale
-		if nv < 0 {
-			nv = 0
+	for i := 0; i < 256; i++ {
+		switch {
+		case i < lo:
+			lut[i] = 0
+		case i > hi:
+			lut[i] = 255
+		default:
+			lut[i] = uint8((i - lo) * 255 / (hi - lo))
 		}
-		if nv > 255 {
-			nv = 255
-		}
-		y[i] = float32(nv)
 	}
+	return lut
 }
 
-// gaussianBlur is a separable Gaussian blur over a luma plane.
-func gaussianBlur(y []float32, w, h int, sigma float64) []float32 {
-	radius := int(math.Ceil(sigma * 3))
-	kern := make([]float64, 2*radius+1)
-	sum := 0.0
-	for i := range kern {
-		x := float64(i - radius)
-		kern[i] = math.Exp(-(x * x) / (2 * sigma * sigma))
-		sum += kern[i]
-	}
-	for i := range kern {
-		kern[i] /= sum
-	}
-	tmp := make([]float32, w*h)
-	out := make([]float32, w*h)
+// boxBlurU8 blurs a uint8 plane with a box kernel of the given radius,
+// sliding-window, edge pixels extended, each pass rounded to uint8 — the
+// way Pillow's BoxBlur quantises between passes.
+func boxBlurU8(y []uint8, w, h, radius int) []uint8 {
+	win := 2*radius + 1
+	half := win / 2
+	tmp := make([]uint8, w*h)
+	out := make([]uint8, w*h)
 	for row := 0; row < h; row++ {
-		for col := 0; col < w; col++ {
-			acc := 0.0
-			for t := -radius; t <= radius; t++ {
-				c := col + t
-				if c < 0 {
-					c = 0
-				}
-				if c >= w {
-					c = w - 1
-				}
-				acc += float64(y[row*w+c]) * kern[t+radius]
+		base := row * w
+		acc := 0
+		for t := -radius; t <= radius; t++ {
+			c := t
+			if c < 0 {
+				c = 0
 			}
-			tmp[row*w+col] = float32(acc)
+			acc += int(y[base+c])
+		}
+		for col := 0; col < w; col++ {
+			tmp[base+col] = uint8((acc + half) / win)
+			co := col - radius
+			if co < 0 {
+				co = 0
+			}
+			ci := col + radius + 1
+			if ci >= w {
+				ci = w - 1
+			}
+			acc += int(y[base+ci]) - int(y[base+co])
 		}
 	}
-	for row := 0; row < h; row++ {
-		for col := 0; col < w; col++ {
-			acc := 0.0
-			for t := -radius; t <= radius; t++ {
-				r := row + t
-				if r < 0 {
-					r = 0
-				}
-				if r >= h {
-					r = h - 1
-				}
-				acc += float64(tmp[r*w+col]) * kern[t+radius]
+	for col := 0; col < w; col++ {
+		acc := 0
+		for t := -radius; t <= radius; t++ {
+			r := t
+			if r < 0 {
+				r = 0
 			}
-			out[row*w+col] = float32(acc)
+			acc += int(tmp[r*w+col])
+		}
+		for row := 0; row < h; row++ {
+			out[row*w+col] = uint8((acc + half) / win)
+			ro := row - radius
+			if ro < 0 {
+				ro = 0
+			}
+			ri := row + radius + 1
+			if ri >= h {
+				ri = h - 1
+			}
+			acc += int(tmp[ri*w+col]) - int(tmp[ro*w+col])
 		}
 	}
 	return out
 }
 
-// unsharpSigma is the Gaussian sigma standing in for Pillow's
-// UnsharpMask radius=6; fitted against PIL output in the parity checks.
-var unsharpSigma = 3.0
+// pillowGaussian blurs like Pillow's GaussianBlur: three box blurs whose
+// sizes come from Pillow's box-size derivation for the given radius
+// (radius 6 -> box sizes 11, 11, 13).
+func pillowGaussian(y []uint8, w, h int, radius float64) []uint8 {
+	const n = 3
+	wIdeal := math.Sqrt(12*radius*radius/n + 1)
+	wl := int(math.Floor(wIdeal))
+	if wl%2 == 0 {
+		wl--
+	}
+	wu := wl + 2
+	mIdeal := (12*radius*radius - float64(n*wl*wl) - float64(4*n*wl) - float64(3*n)) / float64(-4*wl-4)
+	m := int(mIdeal + 0.5)
+	out := y
+	for i := 0; i < n; i++ {
+		size := wu
+		if i < m {
+			size = wl
+		}
+		out = boxBlurU8(out, w, h, (size-1)/2)
+	}
+	return out
+}
 
-// PreprocessImage runs the 定版 pipeline on the luma channel:
-// autocontrast (cutoff 1%) then unsharp mask (80%, threshold 2). The disc
-// only carries luminance, so the result is a grayscale image.
+func clip255(v int) uint8 {
+	if v < 0 {
+		return 0
+	}
+	if v > 255 {
+		return 255
+	}
+	return uint8(v)
+}
+
+// PreprocessImage runs the proven PIL pipeline exactly as the定版 disc was
+// made: split to YCbCr (Pillow's fixed-point JPEG conversion), autocontrast
+// (cutoff 1%) and UnsharpMask (radius 6, 80%, threshold 2) on the Y channel
+// only, keep chroma untouched, convert back to RGB. Verified byte-close
+// against the stored PIL output in the parity test.
 func PreprocessImage(src image.Image) *image.RGBA {
-	y, w, h := luminance(src)
-	autocontrast(y, 1)
-	blur := gaussianBlur(y, w, h, unsharpSigma)
+	b := src.Bounds()
+	w, h := b.Dx(), b.Dy()
+	n := w * h
+	yp := make([]uint8, n)
+	cb := make([]uint8, n)
+	cr := make([]uint8, n)
+	for row := 0; row < h; row++ {
+		for col := 0; col < w; col++ {
+			r, g, bl, _ := src.At(b.Min.X+col, b.Min.Y+row).RGBA()
+			R, G, B := int(r>>8), int(g>>8), int(bl>>8)
+			i := row*w + col
+			// Pillow's conversion truncates (no rounding offset).
+			yp[i] = uint8((19595*R + 38470*G + 7471*B) >> 16)
+			cb[i] = clip255((8388608 - 11056*R - 21712*G + 32768*B) >> 16)
+			cr[i] = clip255((8388608 + 32768*R - 27440*G - 5328*B) >> 16)
+		}
+	}
+	lut := autocontrastLUT(yp, 1)
+	for i, v := range yp {
+		yp[i] = lut[v]
+	}
+	blur := pillowGaussian(yp, w, h, 6)
+	for i, v := range yp {
+		diff := int(v) - int(blur[i])
+		if diff > 2 || diff < -2 {
+			yp[i] = clip255(int(math.Round(float64(v) + float64(diff)*0.8)))
+		}
+	}
 	out := image.NewRGBA(image.Rect(0, 0, w, h))
-	for i, v := range y {
-		diff := float64(v - blur[i])
-		nv := float64(v)
-		if math.Abs(diff) > 2 {
-			nv = float64(v) + diff*0.8
-		}
-		if nv < 0 {
-			nv = 0
-		}
-		if nv > 255 {
-			nv = 255
-		}
-		g := uint8(nv + 0.5)
-		out.Pix[i*4+0] = g
-		out.Pix[i*4+1] = g
-		out.Pix[i*4+2] = g
+	for i := 0; i < n; i++ {
+		Y := int(yp[i])
+		cbD := int(cb[i]) - 128
+		crD := int(cr[i]) - 128
+		out.Pix[i*4+0] = clip255(Y + ((91881 * crD) >> 16))
+		out.Pix[i*4+1] = clip255(Y + ((-22554*cbD - 46802*crD) >> 16))
+		out.Pix[i*4+2] = clip255(Y + ((116130 * cbD) >> 16))
 		out.Pix[i*4+3] = 255
 	}
 	return out

@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"sync"
+	"time"
 
 	"github.com/egoist/mygo/ui"
 )
@@ -139,6 +140,7 @@ type App struct {
 	jobDone  int
 	jobTotal int
 	jobErr   string
+	lastEnd  time.Time
 	media    MediaInfo
 
 	flatMu    sync.Mutex
@@ -146,6 +148,9 @@ type App struct {
 	flatBmp   *ui.Bitmap // 1024px design preview
 	simBmp    *ui.Bitmap
 	simNote   string
+
+	ctxMu sync.Mutex
+	ctx   *ui.Context // latest view context, for Invalidate from job goroutines
 
 	geoTotalF  float64 // float mirrors for NumberInput binding
 	fillF      float64
@@ -202,15 +207,47 @@ func (a *App) setJob(job string) {
 
 func (a *App) setProgress(done, total int) {
 	a.mu.Lock()
-	defer a.mu.Unlock()
 	a.jobDone, a.jobTotal = done, total
+	a.mu.Unlock()
+	a.poke()
 }
 
 func (a *App) endJob(err error) {
 	a.mu.Lock()
-	defer a.mu.Unlock()
 	a.job = ""
+	a.lastEnd = time.Now()
 	if err != nil {
 		a.jobErr = err.Error()
+	}
+	a.mu.Unlock()
+	a.poke()
+}
+
+// settling reports whether the UI should keep animating frames: while a
+// job runs, and briefly after it ends so its final state (preview bitmap,
+// logs) is guaranteed a frame to land on.
+func (a *App) settling() bool {
+	a.mu.Lock()
+	defer a.mu.Unlock()
+	return a.job != "" || time.Since(a.lastEnd) < 2*time.Second
+}
+
+// setContext remembers the current view context so background jobs can ask
+// for a frame when their state changes. Context.Invalidate is documented
+// as safe from any goroutine.
+func (a *App) setContext(c *ui.Context) {
+	a.ctxMu.Lock()
+	defer a.ctxMu.Unlock()
+	a.ctx = c
+}
+
+// poke asks the UI for another frame; called by job goroutines whenever
+// they change visible state.
+func (a *App) poke() {
+	a.ctxMu.Lock()
+	c := a.ctx
+	a.ctxMu.Unlock()
+	if c != nil {
+		c.Invalidate()
 	}
 }

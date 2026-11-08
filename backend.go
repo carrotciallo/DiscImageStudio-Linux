@@ -204,6 +204,7 @@ func (a *App) refreshMedia() {
 	a.mu.Lock()
 	a.media = probeMedia(a.set.Device)
 	a.mu.Unlock()
+	a.poke()
 }
 
 func (a *App) mediaInfo() MediaInfo {

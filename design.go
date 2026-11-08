@@ -59,11 +59,11 @@ func (a *App) pageDesign(c *ui.Context) {
 // circle, hub and rim guides, and the selected layer's outline.
 func (a *App) discCanvas(c *ui.Context) {
 	ui.Column(c).Grow(1).FillHeight().Center().Children(func() {
-		box := ui.Box(c).Size(620, 620).Background(colPanel).Radius(16).
-			Border(1, colBorder)
+		box := ui.Box(c).WidthPercent(100).AspectRatio(1).MaxWidth(680).MaxHeight(680).
+			Background(colPanel).Radius(16).Border(1, colBorder)
 		box.Children(func() {
 			if a.flatBmp != nil {
-				ui.Image(c, a.flatBmp).Size(620, 620).Fit(ui.Contain)
+				ui.Image(c, a.flatBmp).Fill().Fit(ui.Contain)
 			}
 		})
 		box.DrawOver(func(p *ui.Painter, r ui.Rect) {
@@ -190,6 +190,7 @@ func (a *App) dialogAddLayer() {
 	a.proj.Sel = len(a.proj.Layers) - 1
 	a.flatDirty = true
 	a.logf("已添加图层 %s (%dx%d)", l.Name, l.imgW, l.imgH)
+	a.poke()
 }
 
 // fieldNum renders a labelled number input row.
@@ -205,6 +206,6 @@ func fieldSlider(c *ui.Context, label string, v *float64, lo, hi float64, _ stri
 	ui.Row(c).Gap(8).Children(func() {
 		ui.Text(c, label).Width(52).FontSize(13).TextColor(colMuted)
 		ui.Slider(c, v, lo, hi).Label(label).Grow(1)
-		ui.NumberInput(c, v, lo, hi, (hi-lo)/100).Width(76).Label(label + " 数值")
+		ui.NumberInput(c, v, lo, hi, (hi-lo)/100).Width(104).Label(label + " 数值")
 	})
 }

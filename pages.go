@@ -58,8 +58,9 @@ func (a *App) pagePreview(c *ui.Context) {
 		})
 		a.progressRow(c, "simulate")
 		if a.simBmp != nil {
-			ui.Box(c).Size(560, 560).Background(colPanel).Radius(16).Border(1, colBorder).Children(func() {
-				ui.Image(c, a.simBmp).Size(560, 560).Fit(ui.Contain)
+			ui.Box(c).WidthPercent(100).AspectRatio(1).MaxWidth(560).MaxHeight(560).
+				Background(colPanel).Radius(16).Border(1, colBorder).Children(func() {
+				ui.Image(c, a.simBmp).Fill().Fit(ui.Contain)
 			})
 		} else {
 			ui.Text(c, "还没有预览。先在导出页生成 ISO，再回来生成读回预览。").FontSize(13).TextColor(colMuted)

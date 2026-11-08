@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 	"strconv"
 
 	"github.com/egoist/mygo"
@@ -28,6 +29,15 @@ var pageKeys = []string{"home", "design", "preview", "export", "burn", "settings
 
 func main() {
 	a := newApp()
+	// Verification hook: DISGUI_OPEN=<image> starts with that picture as a
+	// layer, so automated runs can exercise the design page end to end.
+	if p := os.Getenv("DISGUI_OPEN"); p != "" {
+		if l, err := LoadLayer(p); err == nil {
+			a.proj.Layers = append(a.proj.Layers, l)
+			a.proj.Sel = 0
+			a.page = 1
+		}
+	}
 	mygo.App.WhenReady(func() {
 		mygo.NewWindow(mygo.WindowOptions{
 			Title:   "Disc Image Studio · Linux",
@@ -52,9 +62,11 @@ func (a *App) syncMirrors() {
 }
 
 func (a *App) view(c *ui.Context) {
-	job, _, _, jobErr := a.jobState()
-	if job != "" {
-		c.AnimationFrame() // keep progress and logs flowing
+	a.setContext(c)
+	c.SetTheme(ui.DarkTheme()) // the studio is a dark UI, whatever the system says
+	_, _, _, jobErr := a.jobState()
+	if a.settling() {
+		c.AnimationFrame() // keep progress, logs and job results flowing
 	}
 	ui.Row(c).Fill().Background(colBg).Children(func() {
 		a.nav(c)
@@ -115,15 +127,15 @@ func (a *App) nav(c *ui.Context) {
 
 func jobLabel(job string) string {
 	switch job {
-		case "solve":
-			return "正在生成 ISO"
-		case "simulate":
-			return "正在读回模拟"
-		case "burn":
-			return "正在刻录"
-		case "selftest":
-			return "正在自检"
-		}
+	case "solve":
+		return "正在生成 ISO"
+	case "simulate":
+		return "正在读回模拟"
+	case "burn":
+		return "正在刻录"
+	case "selftest":
+		return "正在自检"
+	}
 	return job
 }
 

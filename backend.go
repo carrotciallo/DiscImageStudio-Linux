@@ -92,7 +92,16 @@ var (
 // runStreaming runs a command, feeding each output line to onLine and block
 // progress (solve) or write progress (xorriso) to onProgress.
 func runStreaming(ctx context.Context, name string, args []string, onLine func(string), onProgress func(done, total int)) error {
+	return runStreamingDir(ctx, "", name, args, onLine, onProgress)
+}
+
+// runStreamingDir is runStreaming with a working directory (disc-probe
+// writes its results/ tree relative to it).
+func runStreamingDir(ctx context.Context, dir, name string, args []string, onLine func(string), onProgress func(done, total int)) error {
 	cmd := exec.CommandContext(ctx, name, args...)
+	if dir != "" {
+		cmd.Dir = dir
+	}
 	r, w := io.Pipe()
 	cmd.Stdout = w
 	cmd.Stderr = w

@@ -17,13 +17,14 @@ func (a *App) pageExport(c *ui.Context) {
 			sectionCard(c, "几何", func() {
 				ui.Row(c).Gap(8).Children(func() {
 					ui.Text(c, "预设").Width(72).FontSize(13).TextColor(colMuted)
-					names := make([]string, len(geoPresets))
-					for i, g := range geoPresets {
+					presets := a.allPresets()
+					names := make([]string, len(presets))
+					for i, g := range presets {
 						names[i] = g.Name
 					}
 					sel := ui.Select(c, &a.geoName, names).Label("几何预设").Grow(1)
 					if sel.Changed() {
-						for _, g := range geoPresets {
+						for _, g := range presets {
 							if g.Name == a.geoName {
 								a.geo = g
 								a.geoTotalF = float64(g.TotalSectors)

@@ -24,8 +24,8 @@ var (
 	colOK       = ui.Hex("#7bd88f")
 )
 
-var pageNames = []string{"首页", "设计", "读回预览", "导出", "刻录", "设置"}
-var pageKeys = []string{"home", "design", "preview", "export", "burn", "settings"}
+var pageNames = []string{"首页", "设计", "校准", "读回预览", "导出", "刻录", "设置"}
+var pageKeys = []string{"home", "design", "calib", "preview", "export", "burn", "settings"}
 
 func main() {
 	a := newApp()
@@ -80,12 +80,14 @@ func (a *App) view(c *ui.Context) {
 			case 1:
 				a.pageDesign(c)
 			case 2:
-				a.pagePreview(c)
+				a.pageCalib(c)
 			case 3:
-				a.pageExport(c)
+				a.pagePreview(c)
 			case 4:
-				a.pageBurn(c)
+				a.pageExport(c)
 			case 5:
+				a.pageBurn(c)
+			case 6:
 				a.pageSettings(c)
 			}
 		})
@@ -135,6 +137,12 @@ func jobLabel(job string) string {
 		return "正在刻录"
 	case "selftest":
 		return "正在自检"
+	case "timing":
+		return "正在测转速"
+	case "geo":
+		return "正在拟合几何"
+	case "disexport":
+		return "正在导出预设"
 	}
 	return job
 }

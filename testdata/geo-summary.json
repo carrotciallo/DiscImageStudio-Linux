@@ -1,0 +1,14 @@
+{
+ "fit": {
+  "r0_mm_at_bit": 24.17331443619965,
+  "pitch_um_at_bit": 0.7340611201663617,
+  "bit_nm_assumed": 133.3,
+  "residual_rms_deg": 0.3044343291747545,
+  "chi2_per_dof": 2.6828496540097455,
+  "angle_sigma_measured_span_deg": 0.21413473460342095,
+  "measured_span_mm": [
+   25.833,
+   54.178
+  ]
+ }
+}

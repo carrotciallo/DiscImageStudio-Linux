@@ -25,14 +25,14 @@ const (
 // GeoPreset is one geometry profile for the solver: total sectors plus the
 // pitch polynomial coefficients of the image mapping.
 type GeoPreset struct {
-	Name         string
-	TotalSectors int
-	InnerMM      float64
-	OuterMM      float64
-	PitchLinear  float64
-	PitchQuad    float64
-	PitchCubic   float64
-	ChannelBitNm float64
+	Name         string  `json:"name"`
+	TotalSectors int     `json:"totalSectors"`
+	InnerMM      float64 `json:"innerMM"`
+	OuterMM      float64 `json:"outerMM"`
+	PitchLinear  float64 `json:"pitchLinear"`
+	PitchQuad    float64 `json:"pitchQuad"`
+	PitchCubic   float64 `json:"pitchCubic"`
+	ChannelBitNm float64 `json:"channelBitNm"`
 }
 
 var geoPresets = []GeoPreset{
@@ -88,6 +88,10 @@ type Settings struct {
 	WorkDir   string `json:"workDir"`
 	BurnSpeed int    `json:"burnSpeed"`
 	Device    string `json:"device"`
+
+	ProbeDir      string      `json:"probeDir"`
+	Python        string      `json:"python"`
+	CustomPresets []GeoPreset `json:"customPresets"`
 }
 
 func settingsPath() string {
@@ -104,6 +108,8 @@ func loadSettings() Settings {
 		WorkDir:   filepath.Join(os.Getenv("HOME"), "muse/discimagestudio/work"),
 		BurnSpeed: 8,
 		Device:    "/dev/sr0",
+		ProbeDir:  filepath.Join(os.Getenv("HOME"), "muse/discimagestudio/probe"),
+		Python:    "python3",
 	}
 	if b, err := os.ReadFile(settingsPath()); err == nil {
 		_ = json.Unmarshal(b, &s)
@@ -129,7 +135,7 @@ type MediaInfo struct {
 // App is the whole application state. The view reads it every frame; jobs
 // mutate it under mu.
 type App struct {
-	page int // 0 home, 1 design, 2 preview, 3 export, 4 burn, 5 settings
+	page int // 0 home, 1 design, 2 calib, 3 preview, 4 export, 5 burn, 6 settings
 	set  Settings
 	proj Project
 	geo  GeoPreset
@@ -157,6 +163,12 @@ type App struct {
 	burnSpeedF float64
 	speedSel   string
 	geoName    string
+
+	calibTiming     *TimingResult
+	calibGeo        *GeoResult
+	calibSpeed      string
+	calibSectorsF   float64
+	calibPresetName string
 }
 
 func newApp() *App {
@@ -172,7 +184,17 @@ func newApp() *App {
 	a.geoName = a.geo.Name
 	a.burnSpeedF = float64(a.set.BurnSpeed)
 	a.speedSel = strconv.Itoa(a.set.BurnSpeed)
+	a.calibSpeed = "4x"
+	a.calibSectorsF = float64(a.geo.TotalSectors)
+	a.loadLatestCalib()
 	return a
+}
+
+// allPresets is the export page's preset list: the two built-ins followed
+// by any calibration presets the user has saved.
+func (a *App) allPresets() []GeoPreset {
+	out := append([]GeoPreset(nil), geoPresets...)
+	return append(out, a.set.CustomPresets...)
 }
 
 func (a *App) logf(format string, args ...any) {

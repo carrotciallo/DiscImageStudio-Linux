@@ -9,7 +9,8 @@ DiscImageStudio 官方 GUI 的 Linux 移植：功能对齐官方 WPF 版的操�
 - 壳：MyGo（github.com/egoist/mygo v0.8.3）原生绘制，暗色卡片式界面
 - 后端：子进程调官方 CLI 的 `solve` / `simulate` / `selftest`，
   刻录走 `xorriso -as cdrecord -dao`（与定版刻录流程同一命令面），
-  探盘走 `dvd+rw-mediainfo`，弹盘走 `eject`
+  探盘走 `dvd+rw-mediainfo`，弹盘走 `eject`；校准子进程调
+  disc-probe（`python3 -m discprobe`，目录见设置）
 - 成像：图层合成与定版画布预处理在 Go 侧实现（x/image）；
   预处理为 PIL 管线（YCbCr 的 Y 通道 autocontrast cutoff=1 +
   UnsharpMask r6/80%/2）的复刻，与当晚定版产物的像素平均绝对差
@@ -23,7 +24,10 @@ DiscImageStudio 官方 GUI 的 Linux 移植：功能对齐官方 WPF 版的操�
 - 读回预览：对生成的 ISO 跑官方 simulate 并显示读回图
 - 导出：几何预设与全部 solve 参数可编辑，生成 ISO 带进度与日志
 - 刻录：探盘状态、速度选择（默认定版 8×）、刻前确认、弹盘
-- 设置：CLI 路径、工作目录、设备、速度、自检、保存
+- 校准：驱动 disc-probe 做 timing（转速/CAV 判定）与 geo（几何拟合，
+  带精度判定），disexport 把拟合导成求解预设存入设置，导出页可直接
+  选用；打开页面自动载入 disc-probe 最近一次结果
+- 设置：CLI 路径、工作目录、设备、速度、自检、disc-probe 目录、保存
 
 设置存 `~/.config/dis-gui/settings.json`；产物默认落在
 `~/muse/discimagestudio/work/`（canvas.png / disc.iso / simulate.png）。
@@ -43,8 +47,8 @@ go test ./...     # 单元与对齐测试（夹具对照需 DIS_FIXTURE_DIR）
 
 - 画布不支持鼠标拖拽定位，图层位置由滑杆/数字输入控制
   （官方 WPF 版同样以数值输入为主）。
-- 仅覆盖 DVD 线（solve/simulate + xorriso 刻录）；官方 GUI 的
-  CD/Blu-ray 档位与 Calibration（标定）页未复刻——标定已由
-  disc-probe 实测定案，几何以预设形式内置（GX40N · AM3 实测）。
+- 仅覆盖 DVD 线（solve/simulate + xorriso 刻录 + disc-probe 校准）；
+  官方 GUI 的 CD/Blu-ray 档位未复刻。标定页走 disc-probe
+  （timing/geo/disexport），需要驱动器里有一张已刻过的盘。
 - GUI 内首刻尚未实测：刻录按钮调用的 xorriso 命令与 2026-11-09
   两张定版盘的手工刻录命令一致，探盘与确认框已验。

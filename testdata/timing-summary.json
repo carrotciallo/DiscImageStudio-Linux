@@ -1,0 +1,35 @@
+{
+ "identity": {
+  "drive": "HL-DT-ST DVDRW  GX40N",
+  "firmware": "RQ00",
+  "disc": "CMC MAG. AM3"
+ },
+ "period": {
+  "zones": [
+   {
+    "fraction": 0.05,
+    "nominal_radius_mm": 26.747,
+    "rpm": 4750.48,
+    "jitter_deg": 0.783,
+    "coherence": 0.9999
+   },
+   {
+    "fraction": 0.5,
+    "nominal_radius_mm": 44.385,
+    "rpm": 4750.34,
+    "jitter_deg": 0.356,
+    "coherence": 1.0
+   },
+   {
+    "fraction": 0.95,
+    "nominal_radius_mm": 56.787,
+    "rpm": 4750.32,
+    "jitter_deg": 0.287,
+    "coherence": 1.0
+   }
+  ]
+ },
+ "phase": {
+  "rotation_mode": "CAV"
+ }
+}

@@ -15,9 +15,9 @@ func (a *App) pageHome(c *ui.Context) {
 			FontSize(13).TextColor(colMuted)
 		ui.Row(c).Gap(12).Children(func() {
 			homeCard(c, "设计", "摆放图片图层、定构图", 1, a)
-			homeCard(c, "导出", "按定版几何与色调生成 ISO", 3, a)
-			homeCard(c, "读回预览", "模拟盘面在光下看到的样子", 2, a)
-			homeCard(c, "刻录", "8× DAO 刻录并弹盘", 4, a)
+			homeCard(c, "导出", "按定版几何与色调生成 ISO", 4, a)
+			homeCard(c, "读回预览", "模拟盘面在光下看到的样子", 3, a)
+			homeCard(c, "刻录", "8× DAO 刻录并弹盘", 5, a)
 		})
 		sectionCard(c, "当前定版参数", func() {
 			ui.Text(c, fmt.Sprintf("几何预设: %s（总扇区 %d，内径 %.4f mm，外径 %.4f mm）",
@@ -106,6 +106,10 @@ func (a *App) pageSettings(c *ui.Context) {
 				fieldText(c, "工作目录", &a.set.WorkDir)
 				fieldText(c, "刻录设备", &a.set.Device)
 				fieldNum(c, "默认速度", &a.burnSpeedF, 1, 48, 1)
+			})
+			sectionCard(c, "校准后端", func() {
+				fieldText(c, "disc-probe", &a.set.ProbeDir)
+				fieldText(c, "Python", &a.set.Python)
 			})
 			sectionCard(c, "关于", func() {
 				ui.Text(c, "Disc Image Studio · Linux 图形前端").FontSize(13).TextColor(colText)

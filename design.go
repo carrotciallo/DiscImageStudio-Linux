@@ -2,6 +2,7 @@ package main
 
 import (
 	"math"
+	"time"
 
 	"github.com/egoist/mygo"
 	"github.com/egoist/mygo/ui"
@@ -38,13 +39,31 @@ func (a *App) selectedLayer() *Layer {
 	return nil
 }
 
+// refreshFlatBitmap rebuilds the design preview when dirty. During a
+// gesture (drag in flight, or a wheel scale within the last 250 ms) it
+// renders the fast tier — 512 px, proxy sources, ApproxBiLinear — so
+// frames stay at gesture rate even with multi-megapixel layers; the
+// first quiet frame afterwards rebuilds the full-quality tier.
 func (a *App) refreshFlatBitmap() {
-	if !a.flatDirty {
+	fast := a.dragMode != dragNone || time.Since(a.lastWheelScale) < 250*time.Millisecond
+	if !a.flatDirty && !(a.crispPending && !fast) {
 		return
 	}
 	a.flatDirty = false
-	flat := Flatten(a.proj.Layers, 1024)
-	a.flatBmp = ui.NewBitmap(flat)
+	size := 1024
+	if fast {
+		size = 512
+	}
+	a.flatBmp = ui.NewBitmap(flatten(a.proj.Layers, size, true, fast))
+	a.crispPending = fast
+}
+
+// designRefining reports whether frames should keep flowing so a fast
+// preview gets its full-quality rebuild once the gesture goes quiet.
+// Drag frames are driven by input events themselves; only the wheel
+// path needs the tail.
+func (a *App) designRefining() bool {
+	return a.crispPending && a.dragMode == dragNone
 }
 
 func (a *App) pageDesign(c *ui.Context) {
@@ -137,6 +156,7 @@ func (a *App) canvasInput(ev ui.InputEvent) bool {
 			return false
 		}
 		l.HeightMM = round2(min(240, max(8, l.HeightMM*math.Exp(-float64(ev.DY)*0.002))))
+		a.lastWheelScale = time.Now()
 		return true
 	case ui.InputPointerDown:
 		if ev.Button != 0 || len(a.proj.Layers) == 0 || a.canvasW <= 0 {

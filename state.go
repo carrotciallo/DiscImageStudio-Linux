@@ -59,9 +59,10 @@ type Layer struct {
 	HeightMM float64
 	Rotation float64
 
-	img  image.Image // decoded source, kept for compositing
-	imgW int
-	imgH int
+	img   image.Image // decoded source, kept for compositing
+	imgW  int
+	imgH  int
+	proxy image.Image // bounded preview-resolution copy, built lazily
 }
 
 // Project is everything the design/export/burn pages share.
@@ -185,6 +186,12 @@ type App struct {
 	dragBaseY        float64
 	dragBaseH        float64
 	dragBaseDist     float64
+
+	// Preview refinement: the last wheel-scale time, and whether the
+	// on-screen flat bitmap is a fast (gesture-rate) render still owed
+	// a full-quality rebuild.
+	lastWheelScale time.Time
+	crispPending   bool
 }
 
 func newApp() *App {

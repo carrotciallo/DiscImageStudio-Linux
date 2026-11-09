@@ -52,25 +52,71 @@ func baseName(p string) string {
 }
 
 // Flatten composites all layers onto a square canvas of the given pixel
-// size. It does plain 2D picture placement only; all disc mathematics stays
-// in the official CLI.
+// size, full quality: original sources, CatmullRom kernel. It does plain
+// 2D picture placement only; all disc mathematics stays in the official
+// CLI. The export path uses this; the design preview uses flatten's
+// cheaper tiers (see refreshFlatBitmap).
 func Flatten(layers []*Layer, size int) *image.RGBA {
+	return flatten(layers, size, false, false)
+}
+
+// previewMaxEdge bounds the design-preview proxy of a layer source. The
+// preview canvas is 1024 px, so a 1536 px proxy keeps sampling
+// cache-friendly without visible loss; the full source stays untouched
+// for export.
+const previewMaxEdge = 1536
+
+// previewSrc returns the layer's preview proxy, building it once. A
+// full-size Flatten of a multi-megapixel source costs ~1 s (rotated
+// CatmullRom sampling scattered over a ~100 MB image), which made
+// canvas drags run at ~1 fps; the proxy bounds that cost.
+func (l *Layer) previewSrc() image.Image {
+	if l.img == nil {
+		return nil
+	}
+	if max(l.imgW, l.imgH) <= previewMaxEdge {
+		return l.img
+	}
+	if l.proxy == nil {
+		s := float64(previewMaxEdge) / float64(max(l.imgW, l.imgH))
+		w := max(1, int(float64(l.imgW)*s+0.5))
+		h := max(1, int(float64(l.imgH)*s+0.5))
+		dst := image.NewRGBA(image.Rect(0, 0, w, h))
+		draw.CatmullRom.Scale(dst, dst.Bounds(), l.img, l.img.Bounds(), draw.Src, nil)
+		l.proxy = dst
+	}
+	return l.proxy
+}
+
+// flatten is Flatten with quality tiers: preview swaps in each layer's
+// bounded proxy source, fast additionally drops to the ApproxBiLinear kernel
+// (the caller also drops the canvas size) for gesture-rate rebuilds.
+func flatten(layers []*Layer, size int, preview, fast bool) *image.RGBA {
 	dst := image.NewRGBA(image.Rect(0, 0, size, size))
 	draw.Draw(dst, dst.Bounds(), &image.Uniform{CanvasBG}, image.Point{}, draw.Src)
 	k := float64(size) / DiscMM // px per mm
+	var kern draw.Transformer = draw.CatmullRom
+	if fast {
+		kern = draw.ApproxBiLinear
+	}
 	for _, l := range layers {
-		if l.img == nil {
+		src := l.img
+		if preview {
+			src = l.previewSrc()
+		}
+		if src == nil {
 			continue
 		}
-		scale := (l.HeightMM * k) / float64(l.imgH)
+		sb := src.Bounds()
+		scale := (l.HeightMM * k) / float64(sb.Dy())
 		th := l.Rotation * math.Pi / 180
 		cos, sin := math.Cos(th), math.Sin(th)
 		// x/image/draw's Transform takes the src->dst matrix:
 		// dst = C + scale*R*(src - srcCentre), R clockwise in y-down space.
 		cx := float64(size)/2 + l.X*k
 		cy := float64(size)/2 + l.Y*k
-		scx := float64(l.imgW) / 2
-		scy := float64(l.imgH) / 2
+		scx := float64(sb.Dx()) / 2
+		scy := float64(sb.Dy()) / 2
 		a := scale * cos
 		b := -scale * sin
 		d := scale * sin
@@ -79,7 +125,7 @@ func Flatten(layers []*Layer, size int) *image.RGBA {
 			a, b, cx - (a*scx + b*scy),
 			d, e, cy - (d*scx + e*scy),
 		}
-		draw.CatmullRom.Transform(dst, m, l.img, l.img.Bounds(), draw.Over, nil)
+		kern.Transform(dst, m, src, sb, draw.Over, nil)
 	}
 	return dst
 }

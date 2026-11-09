@@ -205,7 +205,7 @@ func newApp() *App {
 	a := &App{set: loadSettings(), geo: geoPresets[0], flatDirty: true}
 	a.proj = Project{
 		Sel: -1, Preproc: true,
-		Dither: 0.75, Brightness: -16,
+		Dither: 0.75, Brightness: 0,
 		FastOutput: true, ReadCompat: true, ConstraintStep: 64,
 		ISOPath: filepath.Join(a.set.WorkDir, "disc.iso"),
 		SimPath: filepath.Join(a.set.WorkDir, "simulate.png"),

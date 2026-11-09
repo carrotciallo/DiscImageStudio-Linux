@@ -14,9 +14,12 @@ import (
 	"golang.org/x/image/math/f64"
 )
 
-// CanvasBG is the design canvas background (#181b22), the same base the
-// proven pipeline used.
-var CanvasBG = color.RGBA{24, 27, 34, 255}
+// CanvasBG is the flatten base: the part of the disc no layer covers.
+// It is white on purpose (2026-11-10): uncovered area must land in the
+// sparse "white" pit class, which burns safely at any size, instead of
+// the dense dark class, whose large flat fields killed a burn with
+// SCSI write errors (see burnsafe.go).
+var CanvasBG = color.RGBA{255, 255, 255, 255}
 
 // LoadLayer decodes an image file into a Layer with a fit-to-disc default
 // placement: the whole picture visible, centred.
@@ -316,14 +319,18 @@ func PreprocessImage(src image.Image) *image.RGBA {
 	return out
 }
 
-// ComposeCanvas flattens the project at full export size and applies the
-// preprocessing when enabled.
+// ComposeCanvas flattens the project at full export size, applies the
+// preprocessing when enabled, and always finishes with the burn-safety
+// pass (burnsafe.go): a fixed single sweep after which any image is
+// burnable by construction.
 func ComposeCanvas(p *Project) *image.RGBA {
 	flat := Flatten(p.Layers, CanvasPx)
+	out := flat
 	if p.Preproc {
-		return PreprocessImage(flat)
+		out = PreprocessImage(flat)
 	}
-	return flat
+	BurnSafeCanvas(out)
+	return out
 }
 
 func SavePNG(path string, img image.Image) error {

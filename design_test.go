@@ -115,19 +115,19 @@ func TestViewFieldFixedDefault(t *testing.T) {
 // same field) promise. Regression guard for the unpadded-bitmap bug,
 // where the picture rendered 13.6% larger than its outline.
 func TestPreviewFieldAlignment(t *testing.T) {
-	white := image.NewRGBA(image.Rect(0, 0, 100, 100))
+	black := image.NewRGBA(image.Rect(0, 0, 100, 100))
 	for y := 0; y < 100; y++ {
 		for x := 0; x < 100; x++ {
-			white.Set(x, y, color.RGBA{255, 255, 255, 255})
+			black.Set(x, y, color.RGBA{0, 0, 0, 255})
 		}
 	}
-	l := &Layer{img: white, imgW: 100, imgH: 100, X: 29, HeightMM: 13}
+	l := &Layer{img: black, imgW: 100, imgH: 100, X: 29, HeightMM: 13}
 	centroidX := func(img *image.RGBA) float64 {
 		sum, n := 0.0, 0.0
 		b := img.Bounds()
 		for y := b.Min.Y; y < b.Max.Y; y++ {
 			for x := b.Min.X; x < b.Max.X; x++ {
-				if r, _, _, _ := img.At(x, y).RGBA(); r > 0x8000 {
+				if r, _, _, _ := img.At(x, y).RGBA(); r < 0x8000 {
 					sum += float64(x)
 					n++
 				}

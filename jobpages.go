@@ -48,8 +48,8 @@ func (a *App) pageExport(c *ui.Context) {
 				ov.Text(c, "填充扇区 0 = 与总扇区相同（整盘）。").FontSize(11).TextColor(colMuted)
 			})
 			sectionCard(c, "色调与模式", func() {
-				fieldSlider(c, "抖动", &a.proj.Dither, 0, 1, "%.2f")
-				fieldSlider(c, "亮度", &a.proj.Brightness, -64, 64, "%.0f")
+				fieldSlider(c, "抖动", &a.proj.Dither, 0, 1, 0.01)
+				fieldSlider(c, "亮度", &a.proj.Brightness, -64, 64, 1)
 				fieldNum(c, "约束步长", &a.proj.ConstraintStep, 1, 512, 1)
 				ui.Row(c).Gap(16).Children(func() {
 					ov.Checkbox(c, &a.proj.FastOutput, "快速输出")

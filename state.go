@@ -175,6 +175,16 @@ type App struct {
 	lastScrollAt time.Time
 	wheelTarget  [7]float32 // app-side wheel glide destinations, per page
 	wheelAccum   [7]float32 // banked hi-res (Precise) sub-steps, per page
+
+	// Design canvas gestures: last drawn canvas size (DIP) and the
+	// in-flight drag's mode and baselines (mm).
+	canvasW, canvasH float32
+	dragMode         int
+	dragStart        [2]float64
+	dragBaseX        float64
+	dragBaseY        float64
+	dragBaseH        float64
+	dragBaseDist     float64
 }
 
 func newApp() *App {

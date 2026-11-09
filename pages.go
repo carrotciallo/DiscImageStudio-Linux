@@ -89,7 +89,7 @@ func (a *App) loadSimBitmap() {
 }
 
 func (a *App) pageSettings(c *ui.Context) {
-	ui.Scroll(c).FillHeight().TrackScroll(&a.scrolls[6]).Children(func() {
+	a.smoothScroll(c, 6).FillHeight().Children(func() {
 		ui.Column(c).Gap(12).MaxWidth(720).Children(func() {
 			sectionCard(c, "后端", func() {
 				fieldText(c, "官方 CLI", &a.set.CLIPath)

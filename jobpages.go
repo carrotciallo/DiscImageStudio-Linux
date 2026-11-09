@@ -13,7 +13,7 @@ import (
 
 func (a *App) pageExport(c *ui.Context) {
 	job, _, _, _ := a.jobState()
-	ui.Scroll(c).FillHeight().TrackScroll(&a.scrolls[4]).Children(func() {
+	a.smoothScroll(c, 4).FillHeight().Children(func() {
 		ui.Column(c).Gap(12).MaxWidth(960).Children(func() {
 			sectionCard(c, "几何", func() {
 				ui.Row(c).Gap(8).Children(func() {

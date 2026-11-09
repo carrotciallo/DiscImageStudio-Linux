@@ -340,7 +340,7 @@ func (a *App) runDisexport() {
 func (a *App) pageCalib(c *ui.Context) {
 	job, _, _, _ := a.jobState()
 	busy := job != ""
-	ui.Scroll(c).FillHeight().TrackScroll(&a.scrolls[2]).Children(func() {
+	a.smoothScroll(c, 2).FillHeight().Children(func() {
 		ui.Column(c).Gap(12).MaxWidth(860).Children(func() {
 			sectionCard(c, "校准后端 · disc-probe", func() {
 				ov.Text(c, fmt.Sprintf("目录 %s · 设备 %s", a.set.ProbeDir, a.set.Device)).

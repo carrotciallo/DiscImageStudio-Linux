@@ -173,6 +173,7 @@ type App struct {
 	scrolls      [7]ui.ScrollState // per-page tracked scroll offsets
 	lastScrollY  [7]float32
 	lastScrollAt time.Time
+	wheelTarget  [7]float32 // app-side wheel glide destinations, per page
 }
 
 func newApp() *App {
@@ -256,12 +257,50 @@ func (a *App) endJob(err error) {
 // backend that otherwise only renders on input.
 func (a *App) scrollMoved() bool {
 	y := a.scrolls[a.page].Y
-	if y != a.lastScrollY[a.page] {
-		a.lastScrollY[a.page] = y
+	// A spring's asymptotic tail moves sub-pixel amounts for a long
+	// while; that does not need frames. 0.05 DIP/frame is well below
+	// anything visible mid-glide.
+	moved := y-a.lastScrollY[a.page] > 0.05 || a.lastScrollY[a.page]-y > 0.05
+	a.lastScrollY[a.page] = y
+	if moved {
 		a.lastScrollAt = time.Now()
 		return true
 	}
 	return time.Since(a.lastScrollAt) < 350*time.Millisecond
+}
+
+// Wheel scrolling tuning: the engine's own notch is short on travel,
+// and its 150 ms glide is presented in only a few frames on this stack,
+// so a notch reads as a jump. The app takes discrete wheel input over
+// (smoothScroll) and drives the offset itself: farther per notch, on a
+// spring, with frames kept flowing by scrollMoved until it settles.
+const (
+	wheelBoost     = 2.2
+	wheelSpringDur = 380 * time.Millisecond
+)
+
+// smoothScroll returns the tracked vertical scroll container for a
+// page, with discrete wheel input taken over by the app. Precise input
+// (touchpads, hi-res wheels) already follows the finger, so it is left
+// to the engine, as are Shift (sideways) and Ctrl (zoom) wheels.
+func (a *App) smoothScroll(c *ui.Context, page int) ui.Element {
+	st := &a.scrolls[page]
+	el := ui.Scroll(c).TrackScroll(st)
+	el.HandleInput(func(ev ui.InputEvent) bool {
+		if ev.Kind != ui.InputScroll || ev.Precise || ev.DY == 0 ||
+			ev.Mods&(ui.Shift|ui.Ctrl) != 0 {
+			return false
+		}
+		target := st.Y
+		if st.Scrolling() {
+			target = a.wheelTarget[page]
+		}
+		target = max(0, min(target+ev.DY*wheelBoost, st.MaxY))
+		a.wheelTarget[page] = target
+		st.ScrollTo(st.X, target, ui.Animation{Spring: ui.SpringOptions{Duration: wheelSpringDur}})
+		return true
+	})
+	return el
 }
 
 // settling reports whether the UI should keep animating frames: while a

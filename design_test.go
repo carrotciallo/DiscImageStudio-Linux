@@ -45,14 +45,15 @@ func TestCanvasDragMoveAndScale(t *testing.T) {
 	l.Rotation = 0
 	a.proj.Layers = []*Layer{l}
 	a.proj.Sel = 0
-	a.canvasW, a.canvasH = 580, 580 // k = 580*0.88/116 = 4.4 DIP per mm
+	a.canvasW, a.canvasH = 580, 580
+	k := float32(a.canvasK()) // DIP per mm at the current view field
 
-	// Press at the layer centre: (10,-5)mm -> DIP (290+44, 290-22).
-	if !a.canvasInput(ui.InputEvent{Kind: ui.InputPointerDown, Button: 0, X: 334, Y: 268}) {
+	// Press at the layer centre: (10,-5)mm -> DIP (290+10k, 290-5k).
+	if !a.canvasInput(ui.InputEvent{Kind: ui.InputPointerDown, Button: 0, X: 290 + 10*k, Y: 290 - 5*k}) {
 		t.Fatal("press on layer not taken")
 	}
-	// Drag by (+44, +22) DIP = (+10, +5) mm.
-	if !a.canvasInput(ui.InputEvent{Kind: ui.InputPointerMove, X: 378, Y: 290}) {
+	// Drag by (+10k, +5k) DIP = (+10, +5) mm.
+	if !a.canvasInput(ui.InputEvent{Kind: ui.InputPointerMove, X: 290 + 20*k, Y: 290}) {
 		t.Fatal("drag move not taken")
 	}
 	if l.X != 20 || l.Y != 0 {
@@ -61,14 +62,14 @@ func TestCanvasDragMoveAndScale(t *testing.T) {
 	a.canvasInput(ui.InputEvent{Kind: ui.InputPointerUp, Button: 0})
 
 	// Press the bottom-right corner handle, then scale x1.5.
-	cx, cy := 290+20*4.4, 290.0 // layer centre in DIP after the move
-	corner := [2]float32{float32(cx + 40*4.4), float32(cy + 20*4.4)}
+	cx, cy := 290+20*k, float32(290.0) // layer centre in DIP after the move
+	corner := [2]float32{cx + 40*k, cy + 20*k}
 	if !a.canvasInput(ui.InputEvent{Kind: ui.InputPointerDown, Button: 0, X: corner[0], Y: corner[1]}) {
 		t.Fatal("press on corner handle not taken")
 	}
 	// Move the corner 1.5x farther from the centre.
-	nx := float32(cx) + (corner[0]-float32(cx))*1.5
-	ny := float32(cy) + (corner[1]-float32(cy))*1.5
+	nx := cx + (corner[0]-cx)*1.5
+	ny := cy + (corner[1]-cy)*1.5
 	a.canvasInput(ui.InputEvent{Kind: ui.InputPointerMove, X: nx, Y: ny})
 	if math.Abs(l.HeightMM-60) > 0.011 {
 		t.Errorf("after corner drag height = %v want 60", l.HeightMM)
@@ -89,15 +90,18 @@ func TestCanvasDragMoveAndScale(t *testing.T) {
 	}
 }
 
-func TestViewFieldAutoFit(t *testing.T) {
+func TestViewFieldFixedDefault(t *testing.T) {
 	a := newApp()
 	if f := a.viewFieldMM(); math.Abs(f-DiscMM/canvasPad) > 0.01 {
 		t.Errorf("empty project field = %.2f, want %.2f", f, DiscMM/canvasPad)
 	}
-	big := &Layer{imgW: 100, imgH: 100, HeightMM: 200}
+	// An oversized, off-centre layer must NOT move the view: the field
+	// is the user's zoom choice, never fitted to the layers (auto-fit
+	// shrank the disc in use and made wheel-scaling zoom the scene).
+	big := &Layer{X: 40, imgW: 100, imgH: 100, HeightMM: 200}
 	a.proj.Layers = []*Layer{big}
-	if f := a.viewFieldMM(); f < 204 {
-		t.Errorf("oversized layer field = %.2f, want >= 204 (corners at ±100 + margin)", f)
+	if f := a.viewFieldMM(); math.Abs(f-DiscMM/canvasPad) > 0.01 {
+		t.Errorf("oversized layer field = %.2f, want fixed %.2f", f, DiscMM/canvasPad)
 	}
 	a.zoomField = 100
 	if f := a.viewFieldMM(); f != 100 {

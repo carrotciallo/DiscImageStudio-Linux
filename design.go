@@ -75,31 +75,20 @@ func (a *App) designRefining() bool {
 // overlays, which made the picture render 1/0.88 = 13.6% larger than
 // the values it was placed with: designs exported smaller than they
 // looked, and the visible art outside the true outline could not be
-// grabbed.) Auto-fit starts from the disc spanning canvasPad of the
-// box and zooms out until every layer corner fits; a manual zoom
-// (zoomField, via the toolbar or Ctrl+wheel) overrides it.
+// grabbed.)
+//
+// The field is deliberately NOT fitted to the layers: an auto-fit
+// build shrank the disc a little more every time a layer grew or
+// moved out, and wheel-scaling a layer zoomed the whole scene
+// (template and picture together) instead of the picture alone. The
+// default field keeps the disc filling the box (canvasPad of it);
+// the field changes only on an explicit zoom (toolbar, Ctrl+wheel),
+// like the official GUI's canvas.
 func (a *App) viewFieldMM() float64 {
 	if a.zoomField > 0 {
 		return a.zoomField
 	}
-	if a.dragMode != dragNone && a.dragField > 0 {
-		// Frozen for the in-flight drag: if auto-fit grew the field
-		// mid-drag, the pointer's mm would stretch under it and the
-		// layer would outrun the cursor.
-		return a.dragField
-	}
-	f := DiscMM / canvasPad
-	for _, l := range a.proj.Layers {
-		for _, cmm := range layerCornersMM(l) {
-			if v := 2 * (math.Abs(cmm[0]) + 2); v > f {
-				f = v
-			}
-			if v := 2 * (math.Abs(cmm[1]) + 2); v > f {
-				f = v
-			}
-		}
-	}
-	return f
+	return DiscMM / canvasPad
 }
 
 // fieldOr is the current view field for display purposes.
@@ -172,11 +161,10 @@ const (
 	dragScale
 )
 
-// canvasPad is the fraction of the canvas box the disc diameter spans.
-// The margin keeps corner handles of layers that overshoot the rim
-// (portrait art taller than the disc is the norm here) inside the box,
-// where they stay visible and grabbable.
-const canvasPad = 0.88
+// canvasPad is the fraction of the canvas box the disc diameter
+// spans at the default zoom: the disc fills the box, with a slim
+// margin so rim-hugging handles stay inside.
+const canvasPad = 0.95
 
 // canvasK is the canvas scale in DIP per mm: the box spans frameField
 // millimetres across its full side.
@@ -238,7 +226,6 @@ func (a *App) canvasInput(ev ui.InputEvent) bool {
 		if l := a.selectedLayer(); l != nil {
 			for _, cmm := range layerCornersMM(l) {
 				if math.Hypot((mx-cmm[0])*k, (my-cmm[1])*k) <= 10 {
-					a.dragField = a.viewFieldMM()
 					a.dragMode = dragScale
 					a.dragBaseH = l.HeightMM
 					a.dragBaseDist = math.Hypot(mx-l.X, my-l.Y)
@@ -250,7 +237,6 @@ func (a *App) canvasInput(ev ui.InputEvent) bool {
 			if layerHit(a.proj.Layers[i], mx, my) {
 				a.proj.Sel = i
 				a.flatDirty = true
-				a.dragField = a.viewFieldMM()
 				a.dragMode = dragMove
 				a.dragStart = [2]float64{mx, my}
 				a.dragBaseX, a.dragBaseY = a.proj.Layers[i].X, a.proj.Layers[i].Y
@@ -278,7 +264,6 @@ func (a *App) canvasInput(ev ui.InputEvent) bool {
 	case ui.InputPointerUp:
 		if a.dragMode != dragNone {
 			a.dragMode = dragNone
-			a.dragField = 0 // release: auto-fit applies again
 			return true
 		}
 	}
@@ -360,7 +345,7 @@ func (a *App) discCanvas(c *ui.Context) {
 				a.zoomFit()
 			}
 		})
-		ov.Text(c, "拖动图层移动 · 拖四角或滚轮缩放选中图层 · Ctrl+滚轮缩放视图 · 导出时应用预处理与全分辨率合成").FontSize(11).TextColor(colMuted)
+		ov.Text(c, "拖动图层移动 · 拖四角或滚轮只缩放图片 · Ctrl+滚轮或上方按钮缩放整个视图 · 导出时应用预处理与全分辨率合成").FontSize(11).TextColor(colMuted)
 	})
 }
 

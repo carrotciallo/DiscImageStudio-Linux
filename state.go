@@ -199,7 +199,6 @@ type App struct {
 	// 0 = auto-fit.
 	frameField float64
 	zoomField  float64
-	dragField  float64 // view field frozen at drag start; 0 = not dragging
 }
 
 func newApp() *App {

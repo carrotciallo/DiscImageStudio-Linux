@@ -6,7 +6,8 @@ DiscImageStudio 官方 GUI 的 Linux 移植：功能对齐官方 WPF 版的操�
 
 ## 架构
 
-- 壳：MyGo（github.com/egoist/mygo v0.8.3）原生绘制，暗色卡片式界面
+- 壳：MyGo（github.com/egoist/mygo v0.8.3）原生绘制，控件层用 Onevra
+  （github.com/oneo-me/onevra v0.2026.18）组件与亮色主题（暖纸面＋蜜桃橙）
 - 后端：子进程调官方 CLI 的 `solve` / `simulate` / `selftest`，
   刻录走 `xorriso -as cdrecord -dao`（与定版刻录流程同一命令面），
   探盘走 `dvd+rw-mediainfo`，弹盘走 `eject`；校准子进程调

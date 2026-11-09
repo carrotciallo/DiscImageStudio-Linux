@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/egoist/mygo/ui"
+	ov "github.com/oneo-me/onevra/source/components"
 )
 
 // The calibration page drives bczhc's disc-probe (python -m discprobe)
@@ -342,70 +343,70 @@ func (a *App) pageCalib(c *ui.Context) {
 	ui.Scroll(c).FillHeight().Children(func() {
 		ui.Column(c).Gap(12).MaxWidth(860).Children(func() {
 			sectionCard(c, "校准后端 · disc-probe", func() {
-				ui.Text(c, fmt.Sprintf("目录 %s · 设备 %s", a.set.ProbeDir, a.set.Device)).
+				ov.Text(c, fmt.Sprintf("目录 %s · 设备 %s", a.set.ProbeDir, a.set.Device)).
 					FontSize(13).TextColor(colText)
-				ui.Text(c, "timing/geo 读的是盘上已刻数据的相位：驱动器里要有一张已刻过的盘。geo 约需几分钟。").
+				ov.Text(c, "timing/geo 读的是盘上已刻数据的相位：驱动器里要有一张已刻过的盘。geo 约需几分钟。").
 					FontSize(12).TextColor(colMuted)
-				if ui.Button(c.Key("load-calib"), "载入最近一次结果").Label("载入最近一次校准结果").Clicked() {
+				if ov.Button(c, "载入最近一次结果", ov.ButtonSecondary).Clicked() {
 					go a.loadLatestCalib()
 				}
 			})
 			sectionCard(c, "转速测量 · timing", func() {
 				ui.Row(c).Gap(8).Children(func() {
-					b := ui.PrimaryButton(c.Key("run-timing"), "运行转速测量").Label("运行转速测量")
+					b := ov.Button(c, "运行转速测量", ov.ButtonPrimary)
 					if busy {
 						b.Disabled(true)
 					}
 					if b.Clicked() {
 						go a.runTiming()
 					}
-					ui.Text(c, "测三个半径区的转速与抖动，判 CAV/CLV").FontSize(12).TextColor(colMuted)
+					ov.Text(c, "测三个半径区的转速与抖动，判 CAV/CLV").FontSize(12).TextColor(colMuted)
 				})
 				a.progressRow(c, "timing")
 				if t := a.calibTiming; t != nil {
-					ui.Text(c, fmt.Sprintf("驱动器 %s · 盘 %s · 旋转模式 %s", t.Drive, t.Disc, t.Mode)).
+					ov.Text(c, fmt.Sprintf("驱动器 %s · 盘 %s · 旋转模式 %s", t.Drive, t.Disc, t.Mode)).
 						FontSize(13).TextColor(colText)
 					for _, z := range t.Zones {
-						ui.Text(c, fmt.Sprintf("r %.1f mm · %.1f rpm · 抖动 %.2f° · coherence %.3f",
+						ov.Text(c, fmt.Sprintf("r %.1f mm · %.1f rpm · 抖动 %.2f° · coherence %.3f",
 							z.RadiusMM, z.RPM, z.JitterDeg, z.Coherence)).
 							FontSize(12).TextColor(colMuted)
 					}
 				} else {
-					ui.Text(c, "还没有转速结果。").FontSize(12).TextColor(colMuted)
+					ov.Text(c, "还没有转速结果。").FontSize(12).TextColor(colMuted)
 				}
 			})
 			sectionCard(c, "几何拟合 · geo", func() {
 				ui.Row(c).Gap(8).Children(func() {
-					ui.Text(c, "速度").Width(40).FontSize(13).TextColor(colMuted)
-					ui.Select(c, &a.calibSpeed, []string{"2.4x", "4x", "8x"}).Label("geo 速度").Width(110)
-					b := ui.PrimaryButton(c.Key("run-geo"), "运行几何拟合").Label("运行几何拟合")
+					ov.Text(c, "速度").Width(40).FontSize(13).TextColor(colMuted)
+					ovSelect(c, &a.calibSpeed, "geo 速度", []string{"2.4x", "4x", "8x"}, 110)
+					b := ov.Button(c, "运行几何拟合", ov.ButtonPrimary)
 					if busy {
 						b.Disabled(true)
 					}
 					if b.Clicked() {
 						go a.runGeo()
 					}
-					ui.Text(c, "阶梯读相位拟合螺旋几何（16 扇区/读）").FontSize(12).TextColor(colMuted)
+					ov.Text(c, "阶梯读相位拟合螺旋几何（16 扇区/读）").FontSize(12).TextColor(colMuted)
 				})
 				a.progressRow(c, "geo")
 				if g := a.calibGeo; g != nil {
-					ui.Text(c, fmt.Sprintf("r0 %.5f mm · 轨距 %.6f µm · bit %.1f nm · 测量跨度 %.1f–%.1f mm",
+					ov.Text(c, fmt.Sprintf("r0 %.5f mm · 轨距 %.6f µm · bit %.1f nm · 测量跨度 %.1f–%.1f mm",
 						g.R0MM, g.PitchUm, g.BitNm, g.SpanMM[0], g.SpanMM[1])).
 						FontSize(13).TextColor(colText)
-					ui.Text(c, fmt.Sprintf("残差 RMS %.3f° · χ²/dof %.2f · 角不确定度 %.3f°",
+					ov.Text(c, fmt.Sprintf("残差 RMS %.3f° · χ²/dof %.2f · 角不确定度 %.3f°",
 						g.RMSDeg, g.Chi2, g.SigmaDeg)).FontSize(12).TextColor(colMuted)
-					ui.Text(c, geoVerdict(g)).FontSize(12).TextColor(colOK)
+					ov.Text(c, geoVerdict(g)).FontSize(12).TextColor(colOK)
 				} else {
-					ui.Text(c, "还没有几何结果。").FontSize(12).TextColor(colMuted)
+					ov.Text(c, "还没有几何结果。").FontSize(12).TextColor(colMuted)
 				}
 			})
 			sectionCard(c, "导出为求解预设 · disexport", func() {
 				fieldNum(c, "总扇区", &a.calibSectorsF, 16, 4600000, 16)
-				ui.Text(c, "总扇区填这张盘的容量（空白盘 info 的数），与导出页求解时一致。").
+				ov.Text(c, "总扇区填这张盘的容量（空白盘 info 的数），与导出页求解时一致。").
 					FontSize(11).TextColor(colMuted)
 				fieldText(c, "预设名", &a.calibPresetName)
 				ui.Row(c).Gap(8).Children(func() {
-					b := ui.PrimaryButton(c.Key("run-disexport"), "导出并存为预设").Label("导出并存为几何预设")
+					b := ov.Button(c, "导出并存为预设", ov.ButtonPrimary)
 					if busy || a.calibGeo == nil {
 						b.Disabled(true)
 					}
@@ -413,9 +414,9 @@ func (a *App) pageCalib(c *ui.Context) {
 						go a.runDisexport()
 					}
 					if a.calibGeo == nil {
-						ui.Text(c, "先跑一次几何拟合（或载入最近结果）").FontSize(12).TextColor(colMuted)
+						ov.Text(c, "先跑一次几何拟合（或载入最近结果）").FontSize(12).TextColor(colMuted)
 					} else {
-						ui.Text(c, "存入后在导出页的预设列表里选用").FontSize(12).TextColor(colMuted)
+						ov.Text(c, "存入后在导出页的预设列表里选用").FontSize(12).TextColor(colMuted)
 					}
 				})
 				a.progressRow(c, "disexport")

@@ -7,25 +7,28 @@ import (
 
 	"github.com/egoist/mygo"
 	"github.com/egoist/mygo/ui"
+	ov "github.com/oneo-me/onevra/source/components"
+	ovtheme "github.com/oneo-me/onevra/source/theme"
 )
 
-// Palette: a calm dark studio theme. The disc preview is the hero; chrome
-// stays quiet around it.
+// Palette: Onevra's light theme tokens (the studio UI is light by
+// decision). The disc preview is the hero; chrome stays quiet around it.
+var ovTh = ovtheme.LightPalette()
+
 var (
-	colBg       = ui.Hex("#101216")
-	colPanel    = ui.Hex("#171a20")
-	colPanel2   = ui.Hex("#1e222b")
-	colBorder   = ui.Hex("#2a2f3a")
-	colText     = ui.Hex("#e8eaf0")
-	colMuted    = ui.Hex("#9aa3b2")
-	colAccent   = ui.Hex("#6ea8fe")
-	colAccentBg = ui.Hex("#24334d")
-	colDanger   = ui.Hex("#ff7a7a")
-	colOK       = ui.Hex("#7bd88f")
+	colBg       = ovTh.Background
+	colPanel    = ovTh.Surface
+	colPanel2   = ovTh.SurfaceHover
+	colBorder   = ovTh.Border
+	colText     = ovTh.Text
+	colMuted    = ovTh.TextMuted
+	colAccent   = ovTh.Accent
+	colAccentBg = ovTh.SurfacePressed
+	colDanger   = ovTh.Danger
+	colOK       = ovTh.Success
 )
 
 var pageNames = []string{"首页", "设计", "校准", "读回预览", "导出", "刻录", "设置"}
-var pageKeys = []string{"home", "design", "calib", "preview", "export", "burn", "settings"}
 
 func main() {
 	a := newApp()
@@ -63,7 +66,8 @@ func (a *App) syncMirrors() {
 
 func (a *App) view(c *ui.Context) {
 	a.setContext(c)
-	c.SetTheme(ui.DarkTheme()) // the studio is a dark UI, whatever the system says
+	c.SetTheme(ui.LightTheme()) // light first so Onevra picks its light palette
+	ovtheme.Apply(c)
 	_, _, _, jobErr := a.jobState()
 	if a.settling() {
 		c.AnimationFrame() // keep progress, logs and job results flowing
@@ -72,7 +76,7 @@ func (a *App) view(c *ui.Context) {
 		a.nav(c)
 		ui.Column(c).Grow(1).FillHeight().Padding(20).Gap(16).Children(func() {
 			if jobErr != "" {
-				ui.Text(c, "上次任务出错: "+jobErr).TextColor(colDanger).FontSize(13)
+				ov.Text(c, "上次任务出错: "+jobErr).TextColor(colDanger).FontSize(13)
 			}
 			switch a.page {
 			case 0:
@@ -98,15 +102,15 @@ func (a *App) nav(c *ui.Context) {
 	job, done, total, _ := a.jobState()
 	ui.Column(c).Width(208).FillHeight().Background(colPanel).
 		Padding(16, 14).Gap(6).Children(func() {
-		ui.Text(c, "Disc Image Studio").FontSize(17).Bold().TextColor(colText)
-		ui.Text(c, "Linux 图形前端 · MyGo").FontSize(11).TextColor(colMuted)
+		ov.Text(c, "Disc Image Studio").FontSize(17).Bold().TextColor(colText)
+		ov.Text(c, "Linux 图形前端 · MyGo").FontSize(11).TextColor(colMuted)
 		ui.Box(c).Height(10)
 		for i, name := range pageNames {
-			b := ui.Button(c.Key("nav-"+pageKeys[i]), name).Label(name).Width(180)
+			variant := ov.ButtonGhost
 			if a.page == i {
-				b.Background(colAccentBg).TextColor(colText)
+				variant = ov.ButtonSecondary
 			}
-			if b.Clicked() {
+			if ov.Button(c, name, variant).Width(180).Clicked() {
 				a.page = i
 				a.set.save()
 			}
@@ -114,15 +118,15 @@ func (a *App) nav(c *ui.Context) {
 		ui.Box(c).Grow(1)
 		if job != "" {
 			ui.Row(c).Gap(8).Children(func() {
-				ui.Spinner(c)
+				ov.Spinner(c, ov.SpinnerRing)
 				label := jobLabel(job)
 				if total > 0 {
 					label += " " + itoa(done) + "/" + itoa(total)
 				}
-				ui.Text(c, label).FontSize(12).TextColor(colMuted)
+				ov.Text(c, label).FontSize(12).TextColor(colMuted)
 			})
 		} else {
-			ui.Text(c, "后端: 官方 CLI").FontSize(11).TextColor(colMuted)
+			ov.Text(c, "后端: 官方 CLI").FontSize(11).TextColor(colMuted)
 		}
 	})
 }
@@ -154,7 +158,7 @@ func sectionCard(c *ui.Context, title string, children func()) {
 	ui.Column(c).Background(colPanel).Radius(12).Border(1, colBorder).
 		Padding(14).Gap(10).Children(func() {
 		if title != "" {
-			ui.Text(c, title).FontSize(13).Bold().TextColor(colMuted)
+			ov.Text(c, title).FontSize(13).Bold().TextColor(colMuted)
 		}
 		children()
 	})
@@ -165,11 +169,11 @@ func (a *App) logCard(c *ui.Context, n int) {
 	lines := a.logTail(n)
 	sectionCard(c, "日志", func() {
 		if len(lines) == 0 {
-			ui.Text(c, "（暂无）").FontSize(12).TextColor(colMuted)
+			ov.Text(c, "（暂无）").FontSize(12).TextColor(colMuted)
 			return
 		}
 		for _, l := range lines {
-			ui.Text(c, l).FontSize(12).TextColor(colMuted)
+			ov.Text(c, l).FontSize(12).TextColor(colMuted)
 		}
 	})
 }
@@ -181,9 +185,31 @@ func (a *App) progressRow(c *ui.Context, job string) {
 		return
 	}
 	if total > 0 {
-		ui.Progress(c, float64(done)/float64(total)).Label(jobLabel(job))
-		ui.Text(c, itoa(done)+"/"+itoa(total)).FontSize(12).TextColor(colMuted)
+		ov.Progress(c, float64(done)/float64(total)).Label(jobLabel(job))
+		ov.Text(c, itoa(done)+"/"+itoa(total)).FontSize(12).TextColor(colMuted)
 	} else {
-		ui.Progress(c, -1).Label(jobLabel(job))
+		ov.Progress(c, -1).Label(jobLabel(job))
 	}
+}
+
+// ovSelect renders a Onevra select bound to value and reports whether the
+// value changed this frame (Onevra selects surface no Changed event, so
+// callers diff the value, as Onevra's own examples do). A positive width
+// fixes the trigger width; otherwise it grows to fill its row.
+func ovSelect(c *ui.Context, value *string, label string, choices []string, width float32) bool {
+	before := *value
+	sel := ov.Select(c, value)
+	trigger := sel.Trigger.Label(label)
+	if width > 0 {
+		trigger.Width(width)
+	} else {
+		trigger.Grow(1)
+	}
+	trigger.Children(func() { ov.Text(c, *value).SingleLine() })
+	sel.Popup(func(ui.Element) {
+		for _, ch := range choices {
+			sel.Item(ch).Label(ch).Children(func() { ov.Text(c, ch) })
+		}
+	})
+	return before != *value
 }

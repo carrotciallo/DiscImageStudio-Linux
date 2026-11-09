@@ -5,6 +5,7 @@ import (
 
 	"github.com/egoist/mygo"
 	"github.com/egoist/mygo/ui"
+	ov "github.com/oneo-me/onevra/source/components"
 )
 
 // layerSnapshot detects edits to the selected layer so the design preview
@@ -107,7 +108,7 @@ func (a *App) discCanvas(c *ui.Context) {
 				p.StrokePath(rect.Dash(0, 6, 4), 1.5, colAccent)
 			}
 		})
-		ui.Text(c, "盘面预览（导出时应用预处理与全分辨率合成）").FontSize(11).TextColor(colMuted)
+		ov.Text(c, "盘面预览（导出时应用预处理与全分辨率合成）").FontSize(11).TextColor(colMuted)
 	})
 }
 
@@ -115,25 +116,25 @@ func (a *App) designPanel(c *ui.Context) {
 	ui.Scroll(c).Width(330).FillHeight().Children(func() {
 		ui.Column(c).Gap(12).Padding(2).Children(func() {
 			sectionCard(c, "图层", func() {
-				if ui.Button(c.Key("add-layer"), "＋ 添加图片").Label("添加图片").Clicked() {
+				if ov.Button(c, "＋ 添加图片", ov.ButtonSecondary).Clicked() {
 					go a.dialogAddLayer()
 				}
 				for i, l := range a.proj.Layers {
 					name := l.Name
-					b := ui.Button(c.Key("layer-"+itoa(i)), name).Label("图层 " + name)
+					variant := ov.ButtonGhost
 					if i == a.proj.Sel {
-						b.Background(colAccentBg)
+						variant = ov.ButtonSecondary
 					}
-					if b.Clicked() {
+					if ov.Button(c, name, variant).Clicked() {
 						a.proj.Sel = i
 						a.flatDirty = true
 					}
 				}
 				if len(a.proj.Layers) == 0 {
-					ui.Text(c, "还没有图层。添加一张图片开始构图。").FontSize(12).TextColor(colMuted)
+					ov.Text(c, "还没有图层。添加一张图片开始构图。").FontSize(12).TextColor(colMuted)
 				}
 				if a.selectedLayer() != nil {
-					if ui.Button(c.Key("del-layer"), "删除选中图层").Label("删除选中图层").Clicked() {
+					if ov.Button(c, "删除选中图层", ov.ButtonSecondary).Clicked() {
 						a.proj.Layers = append(a.proj.Layers[:a.proj.Sel], a.proj.Layers[a.proj.Sel+1:]...)
 						if a.proj.Sel >= len(a.proj.Layers) {
 							a.proj.Sel = len(a.proj.Layers) - 1
@@ -149,24 +150,21 @@ func (a *App) designPanel(c *ui.Context) {
 					fieldSlider(c, "高度", &l.HeightMM, 8, 240, "%.1f")
 					fieldSlider(c, "旋转°", &l.Rotation, -180, 180, "%.0f")
 					ui.Row(c).Gap(8).Children(func() {
-						if ui.Button(c.Key("ly-center"), "居中").Label("图层居中").Clicked() {
+						if ov.Button(c, "居中", ov.ButtonGhost).Clicked() {
 							l.X, l.Y = 0, 0
 						}
-						if ui.Button(c.Key("ly-fit"), "适合宽度").Label("适合宽度").Clicked() {
+						if ov.Button(c, "适合宽度", ov.ButtonGhost).Clicked() {
 							l.HeightMM = DiscMM * float64(l.imgH) / float64(l.imgW)
 						}
-						if ui.Button(c.Key("ly-full"), "铺满高度").Label("铺满高度").Clicked() {
+						if ov.Button(c, "铺满高度", ov.ButtonGhost).Clicked() {
 							l.HeightMM = DiscMM
 						}
 					})
 				})
 			}
 			sectionCard(c, "画布", func() {
-				ui.Row(c).Gap(8).Children(func() {
-					ui.Switch(c, &a.proj.Preproc).Label("画布预处理")
-					ui.Text(c, "定版预处理（对比度＋锐化）").FontSize(13).TextColor(colText)
-				})
-				ui.Text(c, "在亮度通道做 autocontrast(cutoff 1%) 与 unsharp(r6/80%)，与定版流程一致；关闭时原图直出。").
+				ov.Switch(c, &a.proj.Preproc, "定版预处理（对比度＋锐化）")
+				ov.Text(c, "在亮度通道做 autocontrast(cutoff 1%) 与 unsharp(r6/80%)，与定版流程一致；关闭时原图直出。").
 					FontSize(12).TextColor(colMuted)
 			})
 		})
@@ -196,16 +194,16 @@ func (a *App) dialogAddLayer() {
 // fieldNum renders a labelled number input row.
 func fieldNum(c *ui.Context, label string, v *float64, lo, hi, step float64) {
 	ui.Row(c).Gap(8).Children(func() {
-		ui.Text(c, label).Width(52).FontSize(13).TextColor(colMuted)
-		ui.NumberInput(c, v, lo, hi, step).Label(label).Grow(1)
+		ov.Text(c, label).Width(52).FontSize(13).TextColor(colMuted)
+		ov.NumberInput(c, v, lo, hi, step).Label(label).Grow(1)
 	})
 }
 
 // fieldSlider renders a labelled slider + number input row.
 func fieldSlider(c *ui.Context, label string, v *float64, lo, hi float64, _ string) {
 	ui.Row(c).Gap(8).Children(func() {
-		ui.Text(c, label).Width(52).FontSize(13).TextColor(colMuted)
-		ui.Slider(c, v, lo, hi).Label(label).Grow(1)
-		ui.NumberInput(c, v, lo, hi, (hi-lo)/100).Width(104).Label(label + " 数值")
+		ov.Text(c, label).Width(52).FontSize(13).TextColor(colMuted)
+		ov.Slider(c, v, lo, hi).Label(label).Grow(1)
+		ov.NumberInput(c, v, lo, hi, (hi-lo)/100).Width(104).Label(label + " 数值")
 	})
 }

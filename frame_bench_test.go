@@ -33,4 +33,4 @@ func benchPage(b *testing.B, page int, withLayer bool) {
 func BenchmarkHomePageFrame(b *testing.B)   { benchPage(b, 0, false) }
 func BenchmarkDesignPageFrame(b *testing.B) { benchPage(b, 1, true) }
 func BenchmarkCalibPageFrame(b *testing.B)  { benchPage(b, 2, false) }
-func BenchmarkExportPageFrame(b *testing.B) { benchPage(b, 4, true) }
+func BenchmarkExportPageFrame(b *testing.B) { benchPage(b, 3, true) }

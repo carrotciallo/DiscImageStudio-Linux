@@ -57,7 +57,7 @@ func baseName(p string) string {
 // CLI. The export path uses this; the design preview uses flatten's
 // cheaper tiers (see refreshFlatBitmap).
 func Flatten(layers []*Layer, size int) *image.RGBA {
-	return flatten(layers, size, false, false)
+	return flatten(layers, size, DiscMM, false, false)
 }
 
 // previewMaxEdge bounds the design-preview proxy of a layer source. The
@@ -88,13 +88,16 @@ func (l *Layer) previewSrc() image.Image {
 	return l.proxy
 }
 
-// flatten is Flatten with quality tiers: preview swaps in each layer's
-// bounded proxy source, fast additionally drops to the ApproxBiLinear kernel
-// (the caller also drops the canvas size) for gesture-rate rebuilds.
-func flatten(layers []*Layer, size int, preview, fast bool) *image.RGBA {
+// flatten is Flatten with a view field and quality tiers: fieldMM is
+// how many millimetres span the square (the design preview passes its
+// view field so the picture shares one geometry with the overlays;
+// export passes DiscMM). preview swaps in each layer's bounded proxy
+// source, fast additionally drops to the ApproxBiLinear kernel (the
+// caller also drops the canvas size) for gesture-rate rebuilds.
+func flatten(layers []*Layer, size int, fieldMM float64, preview, fast bool) *image.RGBA {
 	dst := image.NewRGBA(image.Rect(0, 0, size, size))
 	draw.Draw(dst, dst.Bounds(), &image.Uniform{CanvasBG}, image.Point{}, draw.Src)
-	k := float64(size) / DiscMM // px per mm
+	k := float64(size) / fieldMM // px per mm
 	var kern draw.Transformer = draw.CatmullRom
 	if fast {
 		kern = draw.ApproxBiLinear

@@ -13,8 +13,8 @@ import (
 
 func (a *App) pageExport(c *ui.Context) {
 	job, _, _, _ := a.jobState()
-	a.smoothScroll(c, 4).FillHeight().Children(func() {
-		ui.Column(c).Gap(12).MaxWidth(960).Children(func() {
+	a.smoothScroll(c, 3).FillHeight().Children(func() {
+		centerWrap(c, 960, 12, func() {
 			sectionCard(c, "几何", func() {
 				ui.Row(c).Gap(8).Children(func() {
 					ov.Text(c, "预设").Width(72).FontSize(13).TextColor(colMuted)
@@ -73,7 +73,48 @@ func (a *App) pageExport(c *ui.Context) {
 				})
 				a.progressRow(c, "solve")
 			})
+			sectionCard(c, "读回预览", func() {
+				_, isoErr := os.Stat(a.proj.ISOPath)
+				ui.Row(c).Gap(10).Children(func() {
+					b := ov.Button(c, "生成读回预览", ov.ButtonPrimary)
+					if job != "" || isoErr != nil {
+						b.Disabled(true)
+					}
+					if b.Clicked() {
+						go a.runSimulate()
+					}
+					ov.Text(c, "对当前 ISO 跑官方 simulate，渲染盘面读回效果").FontSize(12).TextColor(colMuted)
+				})
+				a.progressRow(c, "simulate")
+				if a.simBmp != nil {
+					ui.Row(c).Children(func() {
+						ui.Box(c).Grow(1)
+						ui.Box(c).Width(620).Height(620).
+							Background(colPanel2).Radius(16).Border(1, colBorder).Children(func() {
+							ui.Image(c, a.simBmp).Fill().Fit(ui.Contain)
+						})
+						ui.Box(c).Grow(1)
+					})
+					if a.simNote != "" {
+						ov.Text(c, a.simNote).FontSize(12).TextColor(colMuted)
+					}
+				} else if isoErr != nil {
+					ov.Text(c, "先在上面生成 ISO，再生成读回预览。").FontSize(12).TextColor(colMuted)
+				} else {
+					ov.Text(c, "还没有预览。生成 ISO 后点「生成读回预览」看盘面效果。").FontSize(12).TextColor(colMuted)
+				}
+			})
 			a.logCard(c, 12)
+			ui.Row(c).Children(func() {
+				ui.Box(c).Grow(1)
+				b := ov.Button(c, "下一步：去刻录 →", ov.ButtonPrimary)
+				if _, err := os.Stat(a.proj.ISOPath); err != nil {
+					b.Disabled(true)
+				}
+				if b.Clicked() {
+					a.page = 4
+				}
+			})
 		})
 	})
 }
@@ -102,7 +143,12 @@ func (a *App) exportPipeline() {
 func (a *App) pageBurn(c *ui.Context) {
 	job, _, _, _ := a.jobState()
 	mi := a.mediaInfo()
-	ui.Column(c).Gap(12).MaxWidth(860).Children(func() {
+	centerWrap(c, 860, 12, func() {
+		ui.Row(c).Children(func() {
+			if ov.Button(c, "← 返回导出", ov.ButtonGhost).Clicked() {
+				a.page = 3
+			}
+		})
 		sectionCard(c, "驱动器", func() {
 			ov.Text(c, fmt.Sprintf("设备 %s", a.set.Device)).FontSize(13).TextColor(colText)
 			status := mi.Status

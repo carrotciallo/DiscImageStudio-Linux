@@ -136,7 +136,7 @@ type MediaInfo struct {
 // App is the whole application state. The view reads it every frame; jobs
 // mutate it under mu.
 type App struct {
-	page int // 0 home, 1 design, 2 calib, 3 preview, 4 export, 5 burn, 6 settings
+	page int // 0 home, 1 design, 2 calib, 3 export, 4 burn, 5 settings
 	set  Settings
 	proj Project
 	geo  GeoPreset
@@ -171,11 +171,11 @@ type App struct {
 	calibSectorsF   float64
 	calibPresetName string
 
-	scrolls      [7]ui.ScrollState // per-page tracked scroll offsets
-	lastScrollY  [7]float32
+	scrolls      [6]ui.ScrollState // per-page tracked scroll offsets
+	lastScrollY  [6]float32
 	lastScrollAt time.Time
-	wheelTarget  [7]float32 // app-side wheel glide destinations, per page
-	wheelAccum   [7]float32 // banked hi-res (Precise) sub-steps, per page
+	wheelTarget  [6]float32 // app-side wheel glide destinations, per page
+	wheelAccum   [6]float32 // banked hi-res (Precise) sub-steps, per page
 
 	// Design canvas gestures: last drawn canvas size (DIP) and the
 	// in-flight drag's mode and baselines (mm).
@@ -192,6 +192,14 @@ type App struct {
 	// a full-quality rebuild.
 	lastWheelScale time.Time
 	crispPending   bool
+
+	// Canvas view field: frameField is how many millimetres span the
+	// design canvas box this frame (picture, guides, outline and hit
+	// test all derive from it); zoomField is the manual zoom override,
+	// 0 = auto-fit.
+	frameField float64
+	zoomField  float64
+	dragField  float64 // view field frozen at drag start; 0 = not dragging
 }
 
 func newApp() *App {

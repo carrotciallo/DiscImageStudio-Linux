@@ -27,27 +27,27 @@ func BenchmarkFlattenLarge1024(b *testing.B) {
 
 func BenchmarkFlattenPreviewCrisp(b *testing.B) {
 	layers := []*Layer{benchBigLayer()}
-	flatten(layers, 1024, true, false)
+	flatten(layers, 1024, DiscMM/canvasPad, true, false)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		flatten(layers, 1024, true, false)
+		flatten(layers, 1024, DiscMM/canvasPad, true, false)
 	}
 }
 
 func BenchmarkFlattenPreviewFast(b *testing.B) {
 	layers := []*Layer{benchBigLayer()}
-	flatten(layers, 512, true, true)
+	flatten(layers, 512, DiscMM/canvasPad, true, true)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		flatten(layers, 512, true, true)
+		flatten(layers, 512, DiscMM/canvasPad, true, true)
 	}
 }
 
 func BenchmarkFlattenPreviewFast384(b *testing.B) {
 	layers := []*Layer{benchBigLayer()}
-	flatten(layers, 384, true, true)
+	flatten(layers, 384, DiscMM/canvasPad, true, true)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		flatten(layers, 384, true, true)
+		flatten(layers, 384, DiscMM/canvasPad, true, true)
 	}
 }

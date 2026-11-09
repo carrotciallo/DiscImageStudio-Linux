@@ -10,17 +10,61 @@ import (
 )
 
 func (a *App) pageHome(c *ui.Context) {
-	ui.Column(c).Gap(16).Children(func() {
+	centerWrap(c, 1120, 16, func() {
 		ov.Text(c, "把图片刻进 DVD 数据面").FontSize(24).Bold().TextColor(colText)
 		ov.Text(c, "设计构图 → 生成 ISO → 读回预览 → 实盘刻录。所有光盘数学由官方 CLI 完成，本应用只做交互与调度。").
 			FontSize(13).TextColor(colMuted)
+		// Pipeline status: where the current project stands, with the
+		// jump to whichever step is next.
+		mi := a.mediaInfo()
 		ui.Row(c).Gap(12).Children(func() {
-			homeCard(c, "设计", "摆放图片图层、定构图", 1, a)
-			homeCard(c, "导出", "按定版几何与色调生成 ISO", 4, a)
-			homeCard(c, "读回预览", "模拟盘面在光下看到的样子", 3, a)
-			homeCard(c, "刻录", "8× DAO 刻录并弹盘", 5, a)
+			layerStatus, layerOK := "还没有图层", false
+			if len(a.proj.Layers) > 0 {
+				layerStatus, layerOK = fmt.Sprintf("%d 个图层", len(a.proj.Layers)), true
+			}
+			a.statusCard(c, "① 设计构图", layerStatus, layerOK, "去设计", 1)
+			isoStatus, isoOK := "尚未生成", false
+			if st, err := os.Stat(a.proj.ISOPath); err == nil {
+				isoStatus, isoOK = fmt.Sprintf("已生成 · %.0f MiB", float64(st.Size())/1048576), true
+			}
+			a.statusCard(c, "② 生成 ISO", isoStatus, isoOK, "去导出", 3)
+			discStatus, discOK := "未检测到盘片", false
+			if mi.Loaded {
+				discStatus = mi.Status
+				if mi.Blank {
+					discStatus, discOK = "空白盘已就绪", true
+				}
+			}
+			a.statusCard(c, "③ 刻录", discStatus, discOK, "去刻录", 4)
 		})
-		sectionCard(c, "当前定版参数", func() {
+		// Geometry preset tiles, the local counterpart of the official
+		// GUI's home template tiles: one click applies the preset and
+		// lands on the design page.
+		sectionCard(c, "几何预设", func() {
+			ov.Text(c, "点击应用该几何并进入设计页；校准导出的预设也会出现在这里。").
+				FontSize(12).TextColor(colMuted)
+			for _, g := range a.allPresets() {
+				preset := g
+				ui.Row(c).Gap(8).Children(func() {
+					ov.Text(c, preset.Name).Grow(1).FontSize(13).TextColor(colText)
+					ov.Text(c, fmt.Sprintf("%d 扇区 · 内径 %.3f · 外径 %.3f mm",
+						preset.TotalSectors, preset.InnerMM, preset.OuterMM)).
+						FontSize(12).TextColor(colMuted)
+					label, variant := "应用", ov.ButtonSecondary
+					if preset.Name == a.geo.Name {
+						label, variant = "使用中", ov.ButtonGhost
+					}
+					if ov.Button(c, label, variant).Clicked() {
+						a.geo = preset
+						a.geoTotalF = float64(preset.TotalSectors)
+						a.geoName = preset.Name
+						a.fillF = float64(a.proj.FillSectors)
+						a.page = 1
+					}
+				})
+			}
+		})
+		sectionCard(c, "当前参数", func() {
 			ov.Text(c, fmt.Sprintf("几何预设: %s（总扇区 %d，内径 %.4f mm，外径 %.4f mm）",
 				a.geo.Name, a.geo.TotalSectors, a.geo.InnerMM, a.geo.OuterMM)).FontSize(13).TextColor(colText)
 			ov.Text(c, fmt.Sprintf("色调: dither %.2f · brightness %.0f · 快速输出 %v · 读兼容 %v · 约束步长 %.0f",
@@ -33,41 +77,19 @@ func (a *App) pageHome(c *ui.Context) {
 	})
 }
 
-func homeCard(c *ui.Context, title, desc string, page int, a *App) {
-	ui.Column(c).Width(220).Background(colPanel).Radius(12).Border(1, colBorder).
-		Padding(16).Gap(8).Children(func() {
-		ov.Text(c, title).FontSize(16).Bold().TextColor(colText)
-		ov.Text(c, desc).FontSize(12).TextColor(colMuted)
-		if ov.Button(c, "打开", ov.ButtonSecondary).Clicked() {
+// statusCard is one pipeline-step card on the home page: the step's
+// name, its live status, and the button that jumps to it.
+func (a *App) statusCard(c *ui.Context, title, status string, ok bool, btnLabel string, page int) {
+	ui.Column(c).Grow(1).Background(colPanel).Radius(12).Border(1, colBorder).
+		Padding(14).Gap(8).Children(func() {
+		ov.Text(c, title).FontSize(14).Bold().TextColor(colText)
+		col := colMuted
+		if ok {
+			col = colOK
+		}
+		ov.Text(c, status).FontSize(12).TextColor(col)
+		if ov.Button(c, btnLabel, ov.ButtonSecondary).Clicked() {
 			a.page = page
-		}
-	})
-}
-
-func (a *App) pagePreview(c *ui.Context) {
-	job, _, _, _ := a.jobState()
-	ui.Column(c).Gap(14).Children(func() {
-		ui.Row(c).Gap(10).Children(func() {
-			b := ov.Button(c, "生成读回预览", ov.ButtonPrimary)
-			if job != "" {
-				b.Disabled(true)
-			}
-			if b.Clicked() {
-				go a.runSimulate()
-			}
-			ov.Text(c, "对当前 ISO 跑官方 simulate，渲染读回效果").FontSize(12).TextColor(colMuted)
-		})
-		a.progressRow(c, "simulate")
-		if a.simBmp != nil {
-			ui.Box(c).WidthPercent(100).AspectRatio(1).MaxWidth(560).MaxHeight(560).
-				Background(colPanel).Radius(16).Border(1, colBorder).Children(func() {
-				ui.Image(c, a.simBmp).Fill().Fit(ui.Contain)
-			})
-		} else {
-			ov.Text(c, "还没有预览。先在导出页生成 ISO，再回来生成读回预览。").FontSize(13).TextColor(colMuted)
-		}
-		if a.simNote != "" {
-			ov.Text(c, a.simNote).FontSize(12).TextColor(colMuted)
 		}
 	})
 }
@@ -89,8 +111,8 @@ func (a *App) loadSimBitmap() {
 }
 
 func (a *App) pageSettings(c *ui.Context) {
-	a.smoothScroll(c, 6).FillHeight().Children(func() {
-		ui.Column(c).Gap(12).MaxWidth(720).Children(func() {
+	a.smoothScroll(c, 5).FillHeight().Children(func() {
+		centerWrap(c, 720, 12, func() {
 			sectionCard(c, "后端", func() {
 				fieldText(c, "官方 CLI", &a.set.CLIPath)
 				ui.Row(c).Gap(8).Children(func() {

@@ -341,7 +341,7 @@ func (a *App) pageCalib(c *ui.Context) {
 	job, _, _, _ := a.jobState()
 	busy := job != ""
 	a.smoothScroll(c, 2).FillHeight().Children(func() {
-		ui.Column(c).Gap(12).MaxWidth(860).Children(func() {
+		centerWrap(c, 860, 12, func() {
 			sectionCard(c, "校准后端 · disc-probe", func() {
 				ov.Text(c, fmt.Sprintf("目录 %s · 设备 %s", a.set.ProbeDir, a.set.Device)).
 					FontSize(13).TextColor(colText)

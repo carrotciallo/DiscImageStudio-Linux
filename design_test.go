@@ -1,6 +1,8 @@
 package main
 
 import (
+	"image"
+	"image/color"
 	"math"
 	"testing"
 
@@ -84,5 +86,57 @@ func TestCanvasDragMoveAndScale(t *testing.T) {
 	// Press on empty canvas is left alone.
 	if a.canvasInput(ui.InputEvent{Kind: ui.InputPointerDown, Button: 0, X: 20, Y: 20}) {
 		t.Error("press on empty canvas should not be taken")
+	}
+}
+
+func TestViewFieldAutoFit(t *testing.T) {
+	a := newApp()
+	if f := a.viewFieldMM(); math.Abs(f-DiscMM/canvasPad) > 0.01 {
+		t.Errorf("empty project field = %.2f, want %.2f", f, DiscMM/canvasPad)
+	}
+	big := &Layer{imgW: 100, imgH: 100, HeightMM: 200}
+	a.proj.Layers = []*Layer{big}
+	if f := a.viewFieldMM(); f < 204 {
+		t.Errorf("oversized layer field = %.2f, want >= 204 (corners at ±100 + margin)", f)
+	}
+	a.zoomField = 100
+	if f := a.viewFieldMM(); f != 100 {
+		t.Errorf("manual zoom field = %.2f, want 100", f)
+	}
+}
+
+// TestPreviewFieldAlignment pins the design-preview invariant: the
+// composed bitmap is rendered at the view field, so a layer's picture
+// lands at the same normalised position the overlays (drawn from the
+// same field) promise. Regression guard for the unpadded-bitmap bug,
+// where the picture rendered 13.6% larger than its outline.
+func TestPreviewFieldAlignment(t *testing.T) {
+	white := image.NewRGBA(image.Rect(0, 0, 100, 100))
+	for y := 0; y < 100; y++ {
+		for x := 0; x < 100; x++ {
+			white.Set(x, y, color.RGBA{255, 255, 255, 255})
+		}
+	}
+	l := &Layer{img: white, imgW: 100, imgH: 100, X: 29, HeightMM: 13}
+	centroidX := func(img *image.RGBA) float64 {
+		sum, n := 0.0, 0.0
+		b := img.Bounds()
+		for y := b.Min.Y; y < b.Max.Y; y++ {
+			for x := b.Min.X; x < b.Max.X; x++ {
+				if r, _, _, _ := img.At(x, y).RGBA(); r > 0x8000 {
+					sum += float64(x)
+					n++
+				}
+			}
+		}
+		return sum / n / float64(b.Dx())
+	}
+	preview := flatten([]*Layer{l}, 1024, DiscMM/canvasPad, true, false)
+	if got, want := centroidX(preview), 0.5+29/(DiscMM/canvasPad); math.Abs(got-want) > 0.01 {
+		t.Errorf("preview centroid fraction = %.3f, want %.3f", got, want)
+	}
+	full := Flatten([]*Layer{l}, 1024)
+	if got, want := centroidX(full), 0.5+29/DiscMM; math.Abs(got-want) > 0.01 {
+		t.Errorf("export centroid fraction = %.3f, want %.3f", got, want)
 	}
 }

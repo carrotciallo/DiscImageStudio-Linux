@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math"
 	"time"
 
@@ -17,12 +18,13 @@ type layerSnapshot struct {
 	x, y    float64
 	h, rot  float64
 	preproc bool
+	field   float64
 }
 
 var snap layerSnapshot
 
 func (a *App) markDirtyIfChanged() {
-	cur := layerSnapshot{n: len(a.proj.Layers), sel: a.proj.Sel, preproc: a.proj.Preproc}
+	cur := layerSnapshot{n: len(a.proj.Layers), sel: a.proj.Sel, preproc: a.proj.Preproc, field: a.viewFieldMM()}
 	if l := a.selectedLayer(); l != nil {
 		cur.x, cur.y, cur.h, cur.rot = l.X, l.Y, l.HeightMM, l.Rotation
 	}
@@ -54,7 +56,7 @@ func (a *App) refreshFlatBitmap() {
 	if fast {
 		size = 512
 	}
-	a.flatBmp = ui.NewBitmap(flatten(a.proj.Layers, size, true, fast))
+	a.flatBmp = ui.NewBitmap(flatten(a.proj.Layers, size, a.frameField, true, fast))
 	a.crispPending = fast
 }
 
@@ -66,7 +68,62 @@ func (a *App) designRefining() bool {
 	return a.crispPending && a.dragMode == dragNone
 }
 
+// viewFieldMM is the canvas view field: how many millimetres span the
+// canvas box this frame. The preview bitmap is composed at exactly
+// this field, so the picture, the guides, the layer outline and the
+// hit test share one geometry. (An earlier build padded only the
+// overlays, which made the picture render 1/0.88 = 13.6% larger than
+// the values it was placed with: designs exported smaller than they
+// looked, and the visible art outside the true outline could not be
+// grabbed.) Auto-fit starts from the disc spanning canvasPad of the
+// box and zooms out until every layer corner fits; a manual zoom
+// (zoomField, via the toolbar or Ctrl+wheel) overrides it.
+func (a *App) viewFieldMM() float64 {
+	if a.zoomField > 0 {
+		return a.zoomField
+	}
+	if a.dragMode != dragNone && a.dragField > 0 {
+		// Frozen for the in-flight drag: if auto-fit grew the field
+		// mid-drag, the pointer's mm would stretch under it and the
+		// layer would outrun the cursor.
+		return a.dragField
+	}
+	f := DiscMM / canvasPad
+	for _, l := range a.proj.Layers {
+		for _, cmm := range layerCornersMM(l) {
+			if v := 2 * (math.Abs(cmm[0]) + 2); v > f {
+				f = v
+			}
+			if v := 2 * (math.Abs(cmm[1]) + 2); v > f {
+				f = v
+			}
+		}
+	}
+	return f
+}
+
+// fieldOr is the current view field for display purposes.
+func fieldOr(a *App) float64 {
+	if a.frameField > 0 {
+		return a.frameField
+	}
+	return DiscMM / canvasPad
+}
+
+// zoomBy steps the manual canvas zoom: factor < 1 zooms in (smaller
+// field). zoomFit returns to auto-fit.
+func (a *App) zoomBy(factor float64) {
+	a.zoomField = min(480, max(48, a.viewFieldMM()*factor))
+	a.flatDirty = true
+}
+
+func (a *App) zoomFit() {
+	a.zoomField = 0
+	a.flatDirty = true
+}
+
 func (a *App) pageDesign(c *ui.Context) {
+	a.frameField = a.viewFieldMM()
 	a.markDirtyIfChanged()
 	a.refreshFlatBitmap()
 	ui.Row(c).Grow(1).Gap(16).Children(func() {
@@ -121,13 +178,18 @@ const (
 // where they stay visible and grabbable.
 const canvasPad = 0.88
 
-// canvasK is the canvas scale in DIP per mm.
+// canvasK is the canvas scale in DIP per mm: the box spans frameField
+// millimetres across its full side.
 func (a *App) canvasK() float64 {
 	s := a.canvasW
 	if a.canvasH < s {
 		s = a.canvasH
 	}
-	return float64(s) * canvasPad / DiscMM
+	field := a.frameField
+	if field <= 0 {
+		field = a.viewFieldMM()
+	}
+	return float64(s) / field
 }
 
 // canvasPointerMM converts canvas-element DIP coords to disc-centred mm
@@ -151,8 +213,17 @@ func round2(v float64) float64 { return math.Round(v*100) / 100 }
 func (a *App) canvasInput(ev ui.InputEvent) bool {
 	switch ev.Kind {
 	case ui.InputScroll:
+		if ev.Mods&ui.Ctrl != 0 {
+			// Ctrl+wheel zooms the view (the official GUI's gesture),
+			// plain wheel scales the selected layer.
+			if ev.DY != 0 {
+				a.zoomBy(math.Exp(float64(ev.DY) * 0.002))
+				a.lastWheelScale = time.Now()
+			}
+			return true
+		}
 		l := a.selectedLayer()
-		if l == nil || ev.Mods&ui.Ctrl != 0 || ev.DY == 0 {
+		if l == nil || ev.DY == 0 {
 			return false
 		}
 		l.HeightMM = round2(min(240, max(8, l.HeightMM*math.Exp(-float64(ev.DY)*0.002))))
@@ -167,6 +238,7 @@ func (a *App) canvasInput(ev ui.InputEvent) bool {
 		if l := a.selectedLayer(); l != nil {
 			for _, cmm := range layerCornersMM(l) {
 				if math.Hypot((mx-cmm[0])*k, (my-cmm[1])*k) <= 10 {
+					a.dragField = a.viewFieldMM()
 					a.dragMode = dragScale
 					a.dragBaseH = l.HeightMM
 					a.dragBaseDist = math.Hypot(mx-l.X, my-l.Y)
@@ -178,6 +250,7 @@ func (a *App) canvasInput(ev ui.InputEvent) bool {
 			if layerHit(a.proj.Layers[i], mx, my) {
 				a.proj.Sel = i
 				a.flatDirty = true
+				a.dragField = a.viewFieldMM()
 				a.dragMode = dragMove
 				a.dragStart = [2]float64{mx, my}
 				a.dragBaseX, a.dragBaseY = a.proj.Layers[i].X, a.proj.Layers[i].Y
@@ -205,6 +278,7 @@ func (a *App) canvasInput(ev ui.InputEvent) bool {
 	case ui.InputPointerUp:
 		if a.dragMode != dragNone {
 			a.dragMode = dragNone
+			a.dragField = 0 // release: auto-fit applies again
 			return true
 		}
 	}
@@ -229,9 +303,12 @@ func (a *App) discCanvas(c *ui.Context) {
 			if r.H < s {
 				s = r.H
 			}
-			s *= canvasPad
+			field := a.frameField
+			if field <= 0 {
+				field = DiscMM / canvasPad
+			}
 			cx, cy := r.X+r.W/2, r.Y+r.H/2
-			k := s / float32(DiscMM)
+			k := s / float32(field)
 			// Mask the corners outside the disc with the panel colour.
 			mask := (&ui.Path{}).FillRule(ui.EvenOdd)
 			mask.MoveTo(r.X, r.Y).LineTo(r.X+r.W, r.Y).LineTo(r.X+r.W, r.Y+r.H).
@@ -270,7 +347,20 @@ func (a *App) discCanvas(c *ui.Context) {
 				}
 			}
 		})
-		ov.Text(c, "拖动图层移动 · 拖四角或滚轮缩放选中图层 · 导出时应用预处理与全分辨率合成").FontSize(11).TextColor(colMuted)
+		ui.Row(c).Gap(6).Children(func() {
+			if ov.Button(c, "－", ov.ButtonGhost).Clicked() {
+				a.zoomBy(1.25)
+			}
+			ov.Text(c, fmt.Sprintf("%d%%", int(math.Round(100*(DiscMM/canvasPad)/fieldOr(a))))).
+				FontSize(12).TextColor(colMuted)
+			if ov.Button(c, "＋", ov.ButtonGhost).Clicked() {
+				a.zoomBy(0.8)
+			}
+			if ov.Button(c, "适屏", ov.ButtonGhost).Clicked() {
+				a.zoomFit()
+			}
+		})
+		ov.Text(c, "拖动图层移动 · 拖四角或滚轮缩放选中图层 · Ctrl+滚轮缩放视图 · 导出时应用预处理与全分辨率合成").FontSize(11).TextColor(colMuted)
 	})
 }
 
@@ -329,6 +419,9 @@ func (a *App) designPanel(c *ui.Context) {
 				ov.Text(c, "在亮度通道做 autocontrast(cutoff 1%) 与 unsharp(r6/80%)，与定版流程一致；关闭时原图直出。").
 					FontSize(12).TextColor(colMuted)
 			})
+			if ov.Button(c, "下一步：导出生成 ISO →", ov.ButtonPrimary).Clicked() {
+				a.page = 3
+			}
 		})
 	})
 }

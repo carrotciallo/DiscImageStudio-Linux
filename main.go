@@ -28,7 +28,7 @@ var (
 	colOK       = ovTh.Success
 )
 
-var pageNames = []string{"首页", "设计", "校准", "读回预览", "导出", "刻录", "设置"}
+var pageNames = []string{"首页", "设计", "校准", "导出", "刻录", "设置"}
 
 func main() {
 	a := newApp()
@@ -86,12 +86,10 @@ func (a *App) view(c *ui.Context) {
 			case 2:
 				a.pageCalib(c)
 			case 3:
-				a.pagePreview(c)
-			case 4:
 				a.pageExport(c)
-			case 5:
+			case 4:
 				a.pageBurn(c)
-			case 6:
+			case 5:
 				a.pageSettings(c)
 			}
 		})
@@ -152,6 +150,16 @@ func jobLabel(job string) string {
 }
 
 func itoa(v int) string { return strconv.Itoa(v) }
+
+// centerWrap lays its children in a column of at most maxW DIP,
+// centred in the available width — the page layout the official GUI
+// uses (its content column is capped at 1120 and centred), so pages
+// stay put-together on wide windows instead of hugging the left edge.
+func centerWrap(c *ui.Context, maxW float32, gap float32, children func()) {
+	ui.Column(c).WidthPercent(100).AlignItems(ui.Center).Children(func() {
+		ui.Column(c).WidthPercent(100).MaxWidth(maxW).Gap(gap).Children(children)
+	})
+}
 
 // sectionCard draws a titled panel and lays its children inside.
 func sectionCard(c *ui.Context, title string, children func()) {

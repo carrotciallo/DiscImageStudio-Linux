@@ -13,8 +13,8 @@ import (
 
 func (a *App) pageExport(c *ui.Context) {
 	job, _, _, _ := a.jobState()
-	ui.Scroll(c).FillHeight().Children(func() {
-		ui.Column(c).Gap(12).MaxWidth(860).Children(func() {
+	ui.Scroll(c).FillHeight().TrackScroll(&a.scrolls[4]).Children(func() {
+		ui.Column(c).Gap(12).MaxWidth(960).Children(func() {
 			sectionCard(c, "几何", func() {
 				ui.Row(c).Gap(8).Children(func() {
 					ov.Text(c, "预设").Width(72).FontSize(13).TextColor(colMuted)
@@ -32,13 +32,19 @@ func (a *App) pageExport(c *ui.Context) {
 						}
 					}
 				})
-				fieldNum(c, "总扇区", &a.geoTotalF, 16, 4600000, 16)
-				fieldNum(c, "内径 mm", &a.geo.InnerMM, 20, 40, 0.001)
-				fieldNum(c, "外径 mm", &a.geo.OuterMM, 40, 59, 0.001)
-				fieldNum(c, "pitch 一次", &a.geo.PitchLinear, -0.01, 0.01, 0.000001)
-				fieldNum(c, "pitch 二次", &a.geo.PitchQuad, -0.01, 0.01, 0.000001)
-				fieldNum(c, "pitch 三次", &a.geo.PitchCubic, -0.01, 0.01, 0.000001)
-				fieldNum(c, "填充扇区", &a.fillF, 0, 4600000, 16)
+				ui.Row(c).AlignItems(ui.Start).Gap(16).Children(func() {
+					ui.Column(c).Grow(1).Gap(10).Children(func() {
+						fieldNum(c, "总扇区", &a.geoTotalF, 16, 4600000, 16)
+						fieldNum(c, "内径 mm", &a.geo.InnerMM, 20, 40, 0.001)
+						fieldNum(c, "外径 mm", &a.geo.OuterMM, 40, 59, 0.001)
+						fieldNum(c, "pitch 一次", &a.geo.PitchLinear, -0.01, 0.01, 0.000001)
+					})
+					ui.Column(c).Grow(1).Gap(10).Children(func() {
+						fieldNum(c, "pitch 二次", &a.geo.PitchQuad, -0.01, 0.01, 0.000001)
+						fieldNum(c, "pitch 三次", &a.geo.PitchCubic, -0.01, 0.01, 0.000001)
+						fieldNum(c, "填充扇区", &a.fillF, 0, 4600000, 16)
+					})
+				})
 				ov.Text(c, "填充扇区 0 = 与总扇区相同（整盘）。").FontSize(11).TextColor(colMuted)
 			})
 			sectionCard(c, "色调与模式", func() {

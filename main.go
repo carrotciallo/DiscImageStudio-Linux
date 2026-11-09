@@ -69,8 +69,8 @@ func (a *App) view(c *ui.Context) {
 	c.SetTheme(ui.LightTheme()) // light first so Onevra picks its light palette
 	ovtheme.Apply(c)
 	_, _, _, jobErr := a.jobState()
-	if a.settling() {
-		c.AnimationFrame() // keep progress, logs and job results flowing
+	if a.settling() || a.scrollMoved() {
+		c.AnimationFrame() // keep progress, logs, job results and scroll glides flowing
 	}
 	ui.Row(c).Fill().Background(colBg).Children(func() {
 		a.nav(c)

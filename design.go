@@ -113,7 +113,7 @@ func (a *App) discCanvas(c *ui.Context) {
 }
 
 func (a *App) designPanel(c *ui.Context) {
-	ui.Scroll(c).Width(330).FillHeight().Children(func() {
+	ui.Scroll(c).Width(330).FillHeight().TrackScroll(&a.scrolls[1]).Children(func() {
 		ui.Column(c).Gap(12).Padding(2).Children(func() {
 			sectionCard(c, "图层", func() {
 				if ov.Button(c, "＋ 添加图片", ov.ButtonSecondary).Clicked() {

@@ -169,6 +169,10 @@ type App struct {
 	calibSpeed      string
 	calibSectorsF   float64
 	calibPresetName string
+
+	scrolls      [7]ui.ScrollState // per-page tracked scroll offsets
+	lastScrollY  [7]float32
+	lastScrollAt time.Time
 }
 
 func newApp() *App {
@@ -243,6 +247,21 @@ func (a *App) endJob(err error) {
 	}
 	a.mu.Unlock()
 	a.poke()
+}
+
+// scrollMoved reports whether the current page's scroll offset is in
+// motion: it changed in the latest frame, or within the last 350 ms.
+// view() keeps requesting frames while it is true, so a wheel glide is
+// presented at full cadence from its first step to its last, even on a
+// backend that otherwise only renders on input.
+func (a *App) scrollMoved() bool {
+	y := a.scrolls[a.page].Y
+	if y != a.lastScrollY[a.page] {
+		a.lastScrollY[a.page] = y
+		a.lastScrollAt = time.Now()
+		return true
+	}
+	return time.Since(a.lastScrollAt) < 350*time.Millisecond
 }
 
 // settling reports whether the UI should keep animating frames: while a

@@ -174,6 +174,7 @@ type App struct {
 	lastScrollY  [7]float32
 	lastScrollAt time.Time
 	wheelTarget  [7]float32 // app-side wheel glide destinations, per page
+	wheelAccum   [7]float32 // banked hi-res (Precise) sub-steps, per page
 }
 
 func newApp() *App {
@@ -271,31 +272,47 @@ func (a *App) scrollMoved() bool {
 
 // Wheel scrolling tuning: the engine's own notch is short on travel,
 // and its 150 ms glide is presented in only a few frames on this stack,
-// so a notch reads as a jump. The app takes discrete wheel input over
+// so a notch reads as a jump. The app takes wheel input over
 // (smoothScroll) and drives the offset itself: farther per notch, on a
 // spring, with frames kept flowing by scrollMoved until it settles.
+// Hi-res wheels (the G502 X LS here sends 8 sub-steps of 15/120 per
+// notch) arrive as Precise events; their sub-steps are too fine to
+// present individually on this stack, so they are banked and released
+// into the same spring target once preciseStep has accumulated.
 const (
 	wheelBoost     = 2.2
 	wheelSpringDur = 380 * time.Millisecond
+	preciseStep    = 25.0 // banked Precise travel (DIP) released per glide step
 )
 
 // smoothScroll returns the tracked vertical scroll container for a
-// page, with discrete wheel input taken over by the app. Precise input
-// (touchpads, hi-res wheels) already follows the finger, so it is left
-// to the engine, as are Shift (sideways) and Ctrl (zoom) wheels.
+// page, with wheel input taken over by the app: discrete notches go
+// straight to the spring target, Precise sub-steps (hi-res wheels) are
+// banked via wheelAccum until they make half a notch. This machine has
+// no touchpad, so Precise input here only ever comes from hi-res
+// wheels. Shift (sideways) and Ctrl (zoom) wheels stay with the engine.
 func (a *App) smoothScroll(c *ui.Context, page int) ui.Element {
 	st := &a.scrolls[page]
 	el := ui.Scroll(c).TrackScroll(st)
 	el.HandleInput(func(ev ui.InputEvent) bool {
-		if ev.Kind != ui.InputScroll || ev.Precise || ev.DY == 0 ||
+		if ev.Kind != ui.InputScroll || ev.DY == 0 ||
 			ev.Mods&(ui.Shift|ui.Ctrl) != 0 {
 			return false
+		}
+		amt := ev.DY
+		if ev.Precise {
+			a.wheelAccum[page] += ev.DY
+			if a.wheelAccum[page] > -preciseStep && a.wheelAccum[page] < preciseStep {
+				return true // swallowed and banked; not a full step yet
+			}
+			amt = a.wheelAccum[page]
+			a.wheelAccum[page] = 0
 		}
 		target := st.Y
 		if st.Scrolling() {
 			target = a.wheelTarget[page]
 		}
-		target = max(0, min(target+ev.DY*wheelBoost, st.MaxY))
+		target = max(0, min(target+amt*wheelBoost, st.MaxY))
 		a.wheelTarget[page] = target
 		st.ScrollTo(st.X, target, ui.Animation{Spring: ui.SpringOptions{Duration: wheelSpringDur}})
 		return true

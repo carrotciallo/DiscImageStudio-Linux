@@ -1,0 +1,33 @@
+{
+  "preset": {
+    "id": "gx40n-cmc-discprobe",
+    "displayName": "DVD-R (drive-timing calibration)",
+    "description": "Drive-timing calibration (discprobe); fitted over 25.8-54.4 mm, max angle difference to the measured map 0.001 deg",
+    "totalSectors": 2298336,
+    "innerRadiusMm": 24.17331445423364,
+    "outerRadiusMm": 57.912477520380705,
+    "channelBitLengthNm": 133.3,
+    "pitchLinear": 3.2698178061158826e-08,
+    "pitchQuadratic": -7.229735529982725e-08,
+    "pitchCubic": 5.011821198107673e-08
+  },
+  "fit": {
+    "innerRadiusMm": 24.17331445423364,
+    "outerRadiusMm": 57.912477520380705,
+    "pitchLinear": 3.2698178061158826e-08,
+    "pitchQuadratic": -7.229735529982725e-08,
+    "pitchCubic": 5.011821198107673e-08,
+    "p0_um": 0.7340611168168746,
+    "fit_range_mm": [
+      25.8,
+      54.4
+    ],
+    "max_angle_diff_deg": 0.0012977257120264075,
+    "rms_angle_diff_deg": 0.00033721836415211414,
+    "peak_to_peak_angle_diff_deg": 0.001839708680679874
+  },
+  "source": {
+    "geo": "summary.json",
+    "correction": null
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "ringscan": {
+    "warnings": [],
+    "scans": [
+      {
+        "name": "rings",
+        "dpi_used": 599.999,
+        "centre_px": [
+          1662.49,
+          1613.74
+        ],
+        "outer_edge_radius_mm": 60.049,
+        "y_over_x_scale": 1.002022,
+        "edges_found": 16,
+        "edges_used": 16,
+        "edges_expected": 16,
+        "angle_fraction_used": 1.0,
+        "radial_fit": {
+          "r0_mm": 24.9598,
+          "pitch_x_sector_length_vs_nominal": 1.00799,
+          "edge_residual_rms_mm": 0.0004,
+          "note": "radius scale comes from the scanner DPI; compare outer_edge_radius_mm with 60.0"
+        }
+      }
+    ],
+    "levels": {
+      "L": {
+        "0D": -0.0,
+        "AA": 1.0,
+        "10": 0.2979,
+        "63": 0.6409,
+        "RND": 0.4977
+      },
+      "R": {
+        "0D": -0.0,
+        "AA": 1.0,
+        "10": 0.2979,
+        "63": 0.6409,
+        "RND": 0.4977
+      },
+      "G": {
+        "0D": -0.0,
+        "AA": 1.0,
+        "10": 0.2979,
+        "63": 0.6409,
+        "RND": 0.4977
+      },
+      "B": {
+        "0D": -0.0,
+        "AA": 1.0,
+        "10": 0.2979,
+        "63": 0.641,
+        "RND": 0.4977
+      }
+    },
+    "pooled_std_L": 0.01462,
+    "order_dark_to_bright_L": [
+      "0D",
+      "10",
+      "RND",
+      "63",
+      "AA"
+    ],
+    "palette_L": [
+      "0D",
+      "10",
+      "RND",
+      "63",
+      "AA"
+    ],
+    "palette_rule": "neighbouring levels differ by >= 3.0 x the pooled repeat std (scanner separability only; confirm by eye)",
+    "separation_sigmas_L": {
+      "0D": {
+        "0D": 0.0,
+        "10": 20.4,
+        "RND": 34.0,
+        "63": 43.8,
+        "AA": 68.4
+      },
+      "10": {
+        "0D": 20.4,
+        "10": 0.0,
+        "RND": 13.7,
+        "63": 23.5,
+        "AA": 48.0
+      },
+      "RND": {
+        "0D": 34.0,
+        "10": 13.7,
+        "RND": 0.0,
+        "63": 9.8,
+        "AA": 34.3
+      },
+      "63": {
+        "0D": 43.8,
+        "10": 23.5,
+        "RND": 9.8,
+        "63": 0.0,
+        "AA": 24.6
+      },
+      "AA": {
+        "0D": 68.4,
+        "10": 48.0,
+        "RND": 34.3,
+        "63": 24.6,
+        "AA": 0.0
+      }
+    },
+    "level_scale": "0 = 0D, 1 = AA at the same radius and angle"
+  },
+  "gridscan": {
+    "scan": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\tmp5jhjq13x\\grid.png",
+    "mirrored_relative_to_design": false,
+    "mirror_scores": {
+      "design": 9.92,
+      "mirrored": 9.87
+    },
+    "picture_rotation_deg": 0.0,
+    "rings": 248,
+    "rings_good": 248,
+    "phi_range_deg": 0.0016,
+    "phi_rms_deg": 0.0003,
+    "trend_deg_per_mm": -1e-05,
+    "trend_over_25_55_mm_deg": -0.0002,
+    "curvature_deg_per_mm2": -2e-06,
+    "noise_per_ring_deg": 0.0002,
+    "y_over_x_scale": 1.000055
+  }
+}

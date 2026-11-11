@@ -1,0 +1,13 @@
+Disc: CD-ROM, last LBA 359848, reading with read12
+Cache: plain p50 89.1 us, fua p50 19972.0 us -> strategy fua
+Zone 0.05 (LBA 17992): T = 20.00009 ms (2999.99 rpm), jitter 65.61 us = 1.181 deg, coherence 0.9998
+Zone 0.50 (LBA 179924): T = 19.99966 ms (3000.05 rpm), jitter 56.45 us = 1.016 deg, coherence 0.9971
+Zone 0.95 (LBA 341855): T = 19.99982 ms (3000.03 rpm), jitter 55.53 us = 1.0 deg, coherence 0.9998
+Rotation: CAV
+Target 0.15 (LBA 53977): phase 205.966 deg +/- 0.221 (single-shot std 1.395, n=40), ref jitter 1.244 deg
+Target 0.35 (LBA 125946): phase 273.551 deg +/- 0.249 (single-shot std 1.554, n=39), ref jitter 1.008 deg
+Target 0.55 (LBA 197916): phase 72.383 deg +/- 0.226 (single-shot std 1.428, n=40), ref jitter 1.102 deg
+Target 0.75 (LBA 269886): phase 297.539 deg +/- 0.218 (single-shot std 1.376, n=40), ref jitter 0.957 deg
+Target 0.95 (LBA 341855): phase 109.666 deg +/- 0.216 (single-shot std 1.331, n=38), ref jitter 1.018 deg
+
+Raw events and summary: D:\disc-probe\evidence\cd-support\timing-SIM-cav-cd-20261104-090019

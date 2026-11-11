@@ -1,0 +1,33 @@
+{
+  "preset": {
+    "id": "gx40n-cmc-discprobe",
+    "displayName": "GX40N + CMC MAG. AM3 disc-probe 实测",
+    "description": "Drive-timing calibration (discprobe); fitted over 25.8-54.4 mm, max angle difference to the measured map 0.001 deg",
+    "totalSectors": 2298496,
+    "innerRadiusMm": 24.17331443318845,
+    "outerRadiusMm": 57.914142049973165,
+    "channelBitLengthNm": 133.3,
+    "pitchLinear": -1.8146318292173538e-08,
+    "pitchQuadratic": 4.455901357213194e-08,
+    "pitchCubic": -3.27073416773052e-08
+  },
+  "fit": {
+    "innerRadiusMm": 24.17331443318845,
+    "outerRadiusMm": 57.914142049973165,
+    "pitchLinear": -1.8146318292173538e-08,
+    "pitchQuadratic": 4.455901357213194e-08,
+    "pitchCubic": -3.27073416773052e-08,
+    "p0_um": 0.7340611217412282,
+    "fit_range_mm": [
+      25.8,
+      54.4
+    ],
+    "max_angle_diff_deg": 0.001042570521617825,
+    "rms_angle_diff_deg": 0.0003302624686097277,
+    "peak_to_peak_angle_diff_deg": 0.0015781257548375253
+  },
+  "source": {
+    "geo": "summary.json",
+    "correction": null
+  }
+}

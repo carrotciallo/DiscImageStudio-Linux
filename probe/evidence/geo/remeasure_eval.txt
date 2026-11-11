@@ -1,0 +1,12 @@
+D_new_deg                    0.0818
+sigma_new_deg                0.1042
+combined_sigma_new_deg       0.1116
+D_new_over_sigma             0.7332
+threshold_3sigma_deg         0.3349
+D_old_deg                    0.3088
+D_old_over_sigma             2.3741
+new_vs_old_timing_pp_deg     0.3401
+measured_span_mm             [25.754, 54.459]
+chi2_per_dof                 0.3371
+reference_lba                262336
+verdict                      STRONG PASS (<= 2 sigma)

@@ -1,0 +1,56 @@
+[
+  {
+    "command": [
+      "timing",
+      "--media",
+      "cd",
+      "--sim",
+      "cav",
+      "--out",
+      "evidence\\cd-support"
+    ],
+    "exit": 0,
+    "last_lines": [
+      "Target 0.75 (LBA 269886): phase 297.539 deg +/- 0.218 (single-shot std 1.376, n=40), ref jitter 0.957 deg",
+      "Target 0.95 (LBA 341855): phase 109.666 deg +/- 0.216 (single-shot std 1.331, n=38), ref jitter 1.018 deg",
+      "",
+      "Raw events and summary: D:\\disc-probe\\evidence\\cd-support\\timing-SIM-cav-cd-20261104-090019"
+    ]
+  },
+  {
+    "command": [
+      "timing",
+      "--media",
+      "cd",
+      "--sim",
+      "clv",
+      "--out",
+      "evidence\\cd-support"
+    ],
+    "exit": 0,
+    "last_lines": [
+      "Target 0.95 (LBA 341855): phase 358.679 deg +/- 20.603 (single-shot std 130.303, n=40), ref jitter 75.216 deg",
+      "Warning: drive did not look CAV; phase values are not disc angles.",
+      "",
+      "Raw events and summary: D:\\disc-probe\\evidence\\cd-support\\timing-SIM-clv-cd-20261104-090019"
+    ]
+  },
+  {
+    "command": [
+      "geo",
+      "--media",
+      "cd",
+      "--sim",
+      "cav",
+      "--out",
+      "evidence\\cd-support"
+    ],
+    "exit": 0,
+    "last_lines": [
+      "u = r0/b = 90937.877, v = p/b = 5.7047759  (chi2/dof 1.43, residual rms 0.279 deg)",
+      "With bit length 277.66208524226016 nm: r0 25.25000 mm, pitch 1.584000 um",
+      "Angle uncertainty across the measured span 26.92-55.723 mm: 0.154 deg (1 sigma); across 25-58 mm: 0.18 deg",
+      "targets.csv, summary.json, events.csv: D:\\disc-probe\\evidence\\cd-support\\geo-SIM-cav-cd-20261104-090020"
+    ]
+  }
+]

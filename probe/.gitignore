@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+# Large or personal working files stay local
+iso/
+scans/
+photos/
+art/
+results/
+docs/goals/
+research-prompt*.md

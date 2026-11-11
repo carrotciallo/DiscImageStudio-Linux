@@ -1,0 +1,3334 @@
+{
+ "kind": "dvd-duty-disc",
+ "seed": 1,
+ "r0_mm": 24.063,
+ "pitch_um": 0.7453,
+ "total_sectors": 1979776,
+ "blocks_per_segment": 64,
+ "segments": [
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 79264,
+   "lba_end": 80288,
+   "r_mm": 26.0,
+   "sha256": "3dbad574e58869771126415082c801485b45dc5c1bb555039ccdacf92a5122b2",
+   "model_mid_block": {
+    "lba": 79776,
+    "peak": 269,
+    "F512": 2.2676,
+    "F1488": 2.6422
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 80288,
+   "lba_end": 81312,
+   "r_mm": 26.024,
+   "sha256": "607024bdc6e672a15eb5a7ff6f2ff4205b2244626c576f6eefb8c74092ca6c88",
+   "model_mid_block": {
+    "lba": 80800,
+    "peak": 28,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 81312,
+   "lba_end": 82336,
+   "r_mm": 26.048,
+   "sha256": "f3755690e8013b1753801b36685e291725300acd3de188dabab3faaea4dd2e61",
+   "model_mid_block": {
+    "lba": 81824,
+    "peak": 265,
+    "F512": 4.9033,
+    "F1488": 6.1523
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 82336,
+   "lba_end": 83360,
+   "r_mm": 26.072,
+   "sha256": "fefca7615d6d381419a0ff1df05a4f161c66068ac3a1159bf9f13e08acd9ca72",
+   "model_mid_block": {
+    "lba": 82848,
+    "peak": 275,
+    "F512": 33.4399,
+    "F1488": 39.7698
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 83360,
+   "lba_end": 84384,
+   "r_mm": 26.096,
+   "sha256": "adc91b471b77945b4cb5e18397c36037d7376a3d6d8c5ac8556c8dcac1878409",
+   "model_mid_block": {
+    "lba": 83872,
+    "peak": 25,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 84384,
+   "lba_end": 85408,
+   "r_mm": 26.12,
+   "sha256": "183ff50dd2113ab317b2bc5ea241e09834d11169acdafd1331a57f452ed540c6",
+   "model_mid_block": {
+    "lba": 84896,
+    "peak": 269,
+    "F512": 8.7126,
+    "F1488": 10.2212
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 85408,
+   "lba_end": 86432,
+   "r_mm": 26.144,
+   "sha256": "3e3bd56dbecbc6c9a10bd803d9233a4384ddf7284d716530fd71bf4231b1be0d",
+   "model_mid_block": {
+    "lba": 85920,
+    "peak": 269,
+    "F512": 66.4061,
+    "F1488": 60.6294
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 86432,
+   "lba_end": 87456,
+   "r_mm": 26.168,
+   "sha256": "1c59df19a4d2dd6d394004ae6ab36f5df3ae81c085bb30e2b244058bb0981ac9",
+   "model_mid_block": {
+    "lba": 86944,
+    "peak": 144,
+    "F512": 9.4988,
+    "F1488": 10.4524
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 87456,
+   "lba_end": 88480,
+   "r_mm": 26.192,
+   "sha256": "5df5a8dfecff824882a965794e91bccdc1ec16b2edab230eb6428614798794cf",
+   "model_mid_block": {
+    "lba": 87968,
+    "peak": 269,
+    "F512": 2.5838,
+    "F1488": 2.7199
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 88480,
+   "lba_end": 89504,
+   "r_mm": 26.216,
+   "sha256": "d502c70c1136c1c502c876b3a602500713acf1e4981fabcc102db2c6a69db575",
+   "model_mid_block": {
+    "lba": 88992,
+    "peak": 269,
+    "F512": 2.4074,
+    "F1488": 2.6626
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 89504,
+   "lba_end": 90528,
+   "r_mm": 26.24,
+   "sha256": "2843150f17f8e794c7b0bdde2cb5ec4eed0ef3d20a4dce4c45329c37a1323ead",
+   "model_mid_block": {
+    "lba": 90016,
+    "peak": 267,
+    "F512": 0.9302,
+    "F1488": 1.0783
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 90528,
+   "lba_end": 91552,
+   "r_mm": 26.264,
+   "sha256": "275f81873323805251f7dfab87389fd0fe87a599160426fe9c837329237c67a9",
+   "model_mid_block": {
+    "lba": 91040,
+    "peak": 24,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 91552,
+   "lba_end": 92576,
+   "r_mm": 26.288,
+   "sha256": "d513b2ee4d5e2e1d464e63f3d98793aa199f49082f5599615934c0b863a25376",
+   "model_mid_block": {
+    "lba": 92064,
+    "peak": 311,
+    "F512": 2.1969,
+    "F1488": 2.6955
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 92576,
+   "lba_end": 93600,
+   "r_mm": 26.311,
+   "sha256": "2562300b45a77e8b178a72e644dbe5ed695c323451f896661609979bd8f60d49",
+   "model_mid_block": {
+    "lba": 93088,
+    "peak": 269,
+    "F512": 35.1817,
+    "F1488": 42.7581
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 93600,
+   "lba_end": 94624,
+   "r_mm": 26.335,
+   "sha256": "1668be8e427955f3099ee3ce3ee4f05bdc73cea4443a4827954200ceb3adadd3",
+   "model_mid_block": {
+    "lba": 94112,
+    "peak": 175,
+    "F512": 0.0488,
+    "F1488": 0.1909
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 94624,
+   "lba_end": 95648,
+   "r_mm": 26.359,
+   "sha256": "071c0d199bef201ae43c6ae292f033959f22b241b66c20e1b734e4c3a0c63b72",
+   "model_mid_block": {
+    "lba": 95136,
+    "peak": 319,
+    "F512": 0.7151,
+    "F1488": 0.6537
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 95648,
+   "lba_end": 96672,
+   "r_mm": 26.383,
+   "sha256": "fefca7615d6d381419a0ff1df05a4f161c66068ac3a1159bf9f13e08acd9ca72",
+   "model_mid_block": {
+    "lba": 96160,
+    "peak": 275,
+    "F512": 33.4396,
+    "F1488": 39.7219
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 96672,
+   "lba_end": 97696,
+   "r_mm": 26.406,
+   "sha256": "21a5588223fa0fc8fa09570d23424619d165b587fa84272448c6d93e859c045a",
+   "model_mid_block": {
+    "lba": 97184,
+    "peak": 271,
+    "F512": 17.1527,
+    "F1488": 19.8929
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 97696,
+   "lba_end": 98720,
+   "r_mm": 26.43,
+   "sha256": "46010085bdc60e908e2e762cb08e549b49000261159da7491340f2428eed956e",
+   "model_mid_block": {
+    "lba": 98208,
+    "peak": 184,
+    "F512": 9.0424,
+    "F1488": 2.5191
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 98720,
+   "lba_end": 99744,
+   "r_mm": 26.454,
+   "sha256": "a59a82ec84101d2f70cafc533459c2770b8e130a779940617b05d6031ff64a29",
+   "model_mid_block": {
+    "lba": 99232,
+    "peak": 265,
+    "F512": 1.1694,
+    "F1488": 1.3815
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 99744,
+   "lba_end": 100768,
+   "r_mm": 26.478,
+   "sha256": "7207c0d2d30c4e2f8c3d18eb8e7d9b8672c859b9bcc73be603181d97955d764a",
+   "model_mid_block": {
+    "lba": 100256,
+    "peak": 137,
+    "F512": 0.2002,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 100768,
+   "lba_end": 101792,
+   "r_mm": 26.501,
+   "sha256": "071c0d199bef201ae43c6ae292f033959f22b241b66c20e1b734e4c3a0c63b72",
+   "model_mid_block": {
+    "lba": 101280,
+    "peak": 307,
+    "F512": 0.6994,
+    "F1488": 0.589
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 101792,
+   "lba_end": 102816,
+   "r_mm": 26.525,
+   "sha256": "13e111342a85ef59256c04beb511244a28279e217dfd233591936e0e9f643110",
+   "model_mid_block": {
+    "lba": 102304,
+    "peak": 267,
+    "F512": 0.7869,
+    "F1488": 0.9932
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 102816,
+   "lba_end": 103840,
+   "r_mm": 26.548,
+   "sha256": "7207c0d2d30c4e2f8c3d18eb8e7d9b8672c859b9bcc73be603181d97955d764a",
+   "model_mid_block": {
+    "lba": 103328,
+    "peak": 133,
+    "F512": 0.207,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 103840,
+   "lba_end": 104864,
+   "r_mm": 26.572,
+   "sha256": "a78cf2e43c4e8b220c4f5b0d7ddc74bed876ebb0963138ea04d3b1607603f9a3",
+   "model_mid_block": {
+    "lba": 104352,
+    "peak": 31,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 104864,
+   "lba_end": 105888,
+   "r_mm": 26.596,
+   "sha256": "3e3bd56dbecbc6c9a10bd803d9233a4384ddf7284d716530fd71bf4231b1be0d",
+   "model_mid_block": {
+    "lba": 105376,
+    "peak": 269,
+    "F512": 66.5583,
+    "F1488": 59.6513
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 105888,
+   "lba_end": 106912,
+   "r_mm": 26.619,
+   "sha256": "e4acc6675c39455128776e38289f210e4f9f0957f813f4fc68cdced1a83ba564",
+   "model_mid_block": {
+    "lba": 106400,
+    "peak": 373,
+    "F512": 81.3959,
+    "F1488": 69.0759
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 106912,
+   "lba_end": 107936,
+   "r_mm": 26.643,
+   "sha256": "3e3bd56dbecbc6c9a10bd803d9233a4384ddf7284d716530fd71bf4231b1be0d",
+   "model_mid_block": {
+    "lba": 107424,
+    "peak": 269,
+    "F512": 66.254,
+    "F1488": 61.0784
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 107936,
+   "lba_end": 108960,
+   "r_mm": 26.666,
+   "sha256": "7181ddc044fcf73042148a1cad611917c94ead502335d40b2ba7cef11ae28bcb",
+   "model_mid_block": {
+    "lba": 108448,
+    "peak": 267,
+    "F512": 1.2108,
+    "F1488": 1.3915
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 108960,
+   "lba_end": 109984,
+   "r_mm": 26.69,
+   "sha256": "c2f227e78c3424f6c9b7252bf2a9622187b71168d6ef7309ae3597b0961015bf",
+   "model_mid_block": {
+    "lba": 109472,
+    "peak": 269,
+    "F512": 9.8303,
+    "F1488": 12.0135
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 109984,
+   "lba_end": 111008,
+   "r_mm": 26.713,
+   "sha256": "8395a361c7b5e528cd9cc1523750e12c73e2dd1ecb879461bc4c0a2179df0425",
+   "model_mid_block": {
+    "lba": 110496,
+    "peak": 29,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 111008,
+   "lba_end": 112032,
+   "r_mm": 26.737,
+   "sha256": "d513b2ee4d5e2e1d464e63f3d98793aa199f49082f5599615934c0b863a25376",
+   "model_mid_block": {
+    "lba": 111520,
+    "peak": 311,
+    "F512": 2.8307,
+    "F1488": 3.5047
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 112032,
+   "lba_end": 113056,
+   "r_mm": 26.76,
+   "sha256": "2ce77922440aa4d23675af35bb24e0bab0fd1694c0dbb006a655b8aefd822498",
+   "model_mid_block": {
+    "lba": 112544,
+    "peak": 28,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 113056,
+   "lba_end": 114080,
+   "r_mm": 26.783,
+   "sha256": "6f75b609871541b32899ca4b5125d021931df090b926090c737674b91e97ec54",
+   "model_mid_block": {
+    "lba": 113568,
+    "peak": 275,
+    "F512": 16.6353,
+    "F1488": 19.9271
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 114080,
+   "lba_end": 115104,
+   "r_mm": 26.807,
+   "sha256": "1668be8e427955f3099ee3ce3ee4f05bdc73cea4443a4827954200ceb3adadd3",
+   "model_mid_block": {
+    "lba": 114592,
+    "peak": 173,
+    "F512": 0.0319,
+    "F1488": 0.0871
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 115104,
+   "lba_end": 116128,
+   "r_mm": 26.83,
+   "sha256": "071c0d199bef201ae43c6ae292f033959f22b241b66c20e1b734e4c3a0c63b72",
+   "model_mid_block": {
+    "lba": 115616,
+    "peak": 315,
+    "F512": 0.7175,
+    "F1488": 0.6137
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 116128,
+   "lba_end": 117152,
+   "r_mm": 26.853,
+   "sha256": "6578559b4ba17fd9116294808f192fc8866b976e20a96c485d27baa924c52d22",
+   "model_mid_block": {
+    "lba": 116640,
+    "peak": 269,
+    "F512": 0.8884,
+    "F1488": 1.029
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 117152,
+   "lba_end": 118176,
+   "r_mm": 26.877,
+   "sha256": "b6aa489fc4fb65b4840079c30ddedf3b8429820b70cadfd03c78f352bda77d00",
+   "model_mid_block": {
+    "lba": 117664,
+    "peak": 30,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 118176,
+   "lba_end": 119200,
+   "r_mm": 26.9,
+   "sha256": "1668be8e427955f3099ee3ce3ee4f05bdc73cea4443a4827954200ceb3adadd3",
+   "model_mid_block": {
+    "lba": 118688,
+    "peak": 165,
+    "F512": 0.0336,
+    "F1488": 0.0874
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 119200,
+   "lba_end": 120224,
+   "r_mm": 26.923,
+   "sha256": "ccf4d747d939e6c5701c683aa32f7a7ee855990a4c2da02fdc91d0be5a9c53d3",
+   "model_mid_block": {
+    "lba": 119712,
+    "peak": 29,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 120224,
+   "lba_end": 121248,
+   "r_mm": 26.947,
+   "sha256": "8b15ca1c82f5cf65820324c57585bd2f99d1a9093ec466747dcda8551c2214f4",
+   "model_mid_block": {
+    "lba": 120736,
+    "peak": 269,
+    "F512": 9.6678,
+    "F1488": 11.4817
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 121248,
+   "lba_end": 122272,
+   "r_mm": 26.97,
+   "sha256": "2562300b45a77e8b178a72e644dbe5ed695c323451f896661609979bd8f60d49",
+   "model_mid_block": {
+    "lba": 121760,
+    "peak": 269,
+    "F512": 34.6627,
+    "F1488": 42.1314
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 122272,
+   "lba_end": 123296,
+   "r_mm": 26.993,
+   "sha256": "d513b2ee4d5e2e1d464e63f3d98793aa199f49082f5599615934c0b863a25376",
+   "model_mid_block": {
+    "lba": 122784,
+    "peak": 309,
+    "F512": 3.6388,
+    "F1488": 4.6533
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 123296,
+   "lba_end": 124320,
+   "r_mm": 27.016,
+   "sha256": "e4acc6675c39455128776e38289f210e4f9f0957f813f4fc68cdced1a83ba564",
+   "model_mid_block": {
+    "lba": 123808,
+    "peak": 373,
+    "F512": 81.1833,
+    "F1488": 69.0153
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 124320,
+   "lba_end": 125344,
+   "r_mm": 27.039,
+   "sha256": "7207c0d2d30c4e2f8c3d18eb8e7d9b8672c859b9bcc73be603181d97955d764a",
+   "model_mid_block": {
+    "lba": 124832,
+    "peak": 137,
+    "F512": 0.2289,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 125344,
+   "lba_end": 126368,
+   "r_mm": 27.063,
+   "sha256": "259681d6df3f4c866bde29ee980eb80d272ed2e0351997e5d47cab63eb67f543",
+   "model_mid_block": {
+    "lba": 125856,
+    "peak": 111,
+    "F512": 9.4452,
+    "F1488": 0.0039
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 126368,
+   "lba_end": 127392,
+   "r_mm": 27.086,
+   "sha256": "2018b76962063d0f3aa5f1deffbf78e54281229935783b63b88d8ec17b208616",
+   "model_mid_block": {
+    "lba": 126880,
+    "peak": 163,
+    "F512": 9.6586,
+    "F1488": 0.394
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 127392,
+   "lba_end": 128416,
+   "r_mm": 27.109,
+   "sha256": "138b3e966dcc33663efed4b775a1a13e510aa228346aa4772765503a8e2566b8",
+   "model_mid_block": {
+    "lba": 127904,
+    "peak": 269,
+    "F512": 4.6619,
+    "F1488": 5.194
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 128416,
+   "lba_end": 129440,
+   "r_mm": 27.132,
+   "sha256": "a1bed9fe4e343e65d66e9b5106d07459e33f58d1a39da2ac0868ac788a2a47ff",
+   "model_mid_block": {
+    "lba": 128928,
+    "peak": 223,
+    "F512": 9.2241,
+    "F1488": 2.4349
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 129440,
+   "lba_end": 130464,
+   "r_mm": 27.155,
+   "sha256": "2018b76962063d0f3aa5f1deffbf78e54281229935783b63b88d8ec17b208616",
+   "model_mid_block": {
+    "lba": 129952,
+    "peak": 183,
+    "F512": 9.7433,
+    "F1488": 0.4327
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 130464,
+   "lba_end": 131488,
+   "r_mm": 27.178,
+   "sha256": "3e3bd56dbecbc6c9a10bd803d9233a4384ddf7284d716530fd71bf4231b1be0d",
+   "model_mid_block": {
+    "lba": 130976,
+    "peak": 269,
+    "F512": 66.4826,
+    "F1488": 60.1183
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 131488,
+   "lba_end": 132512,
+   "r_mm": 27.201,
+   "sha256": "259681d6df3f4c866bde29ee980eb80d272ed2e0351997e5d47cab63eb67f543",
+   "model_mid_block": {
+    "lba": 132000,
+    "peak": 111,
+    "F512": 9.3616,
+    "F1488": 0.0002
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 132512,
+   "lba_end": 133536,
+   "r_mm": 27.224,
+   "sha256": "c73b2285110c98788a20828332fd846d443dd5b69b92f5296d2b961311c68146",
+   "model_mid_block": {
+    "lba": 133024,
+    "peak": 143,
+    "F512": 9.0738,
+    "F1488": 7.1889
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 133536,
+   "lba_end": 134560,
+   "r_mm": 27.247,
+   "sha256": "8b5251708138d478e0781fdcd6a2f3b8d83e6a162bfdb1a0582ed70fca990553",
+   "model_mid_block": {
+    "lba": 134048,
+    "peak": 269,
+    "F512": 0.7808,
+    "F1488": 0.937
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 134560,
+   "lba_end": 135584,
+   "r_mm": 27.27,
+   "sha256": "949c1442848ed44eadec7ced35c30ed7dbb20c109660a8dba840f08c40fcab39",
+   "model_mid_block": {
+    "lba": 135072,
+    "peak": 269,
+    "F512": 1.3657,
+    "F1488": 1.5076
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 135584,
+   "lba_end": 136608,
+   "r_mm": 27.293,
+   "sha256": "fbf05cc9e25e24df2b11414642d005b8348e7fec9777973c6f3d010a5adc83b9",
+   "model_mid_block": {
+    "lba": 136096,
+    "peak": 269,
+    "F512": 16.8411,
+    "F1488": 20.6249
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 136608,
+   "lba_end": 137632,
+   "r_mm": 27.316,
+   "sha256": "d513b2ee4d5e2e1d464e63f3d98793aa199f49082f5599615934c0b863a25376",
+   "model_mid_block": {
+    "lba": 137120,
+    "peak": 309,
+    "F512": 2.4969,
+    "F1488": 3.1
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 137632,
+   "lba_end": 138656,
+   "r_mm": 27.339,
+   "sha256": "1cb91f0b37c5265b7538591af8ae463db20df92548edc7e0a366414b33a7f909",
+   "model_mid_block": {
+    "lba": 138144,
+    "peak": 269,
+    "F512": 4.5213,
+    "F1488": 5.1159
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 138656,
+   "lba_end": 139680,
+   "r_mm": 27.362,
+   "sha256": "071c0d199bef201ae43c6ae292f033959f22b241b66c20e1b734e4c3a0c63b72",
+   "model_mid_block": {
+    "lba": 139168,
+    "peak": 317,
+    "F512": 0.7237,
+    "F1488": 0.6309
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 139680,
+   "lba_end": 140704,
+   "r_mm": 27.385,
+   "sha256": "e4acc6675c39455128776e38289f210e4f9f0957f813f4fc68cdced1a83ba564",
+   "model_mid_block": {
+    "lba": 140192,
+    "peak": 373,
+    "F512": 80.9359,
+    "F1488": 68.2835
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 140704,
+   "lba_end": 141728,
+   "r_mm": 27.408,
+   "sha256": "ed16dc3004c0a1947facadefac2a3028d6a5fb0685e0e6216694181c87ded4c7",
+   "model_mid_block": {
+    "lba": 141216,
+    "peak": 269,
+    "F512": 1.2044,
+    "F1488": 1.3125
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 141728,
+   "lba_end": 142752,
+   "r_mm": 27.43,
+   "sha256": "58ceeda3e48ce1579af29468efa05ef86c088dff821965bbd29ba8af3899931b",
+   "model_mid_block": {
+    "lba": 142240,
+    "peak": 269,
+    "F512": 9.1816,
+    "F1488": 10.6189
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 142752,
+   "lba_end": 143776,
+   "r_mm": 27.453,
+   "sha256": "1668be8e427955f3099ee3ce3ee4f05bdc73cea4443a4827954200ceb3adadd3",
+   "model_mid_block": {
+    "lba": 143264,
+    "peak": 175,
+    "F512": 0.0462,
+    "F1488": 0.1606
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 143776,
+   "lba_end": 144800,
+   "r_mm": 27.476,
+   "sha256": "e4acc6675c39455128776e38289f210e4f9f0957f813f4fc68cdced1a83ba564",
+   "model_mid_block": {
+    "lba": 144288,
+    "peak": 373,
+    "F512": 80.3705,
+    "F1488": 66.9512
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 0,
+   "band": 0,
+   "lba_start": 144800,
+   "lba_end": 145824,
+   "r_mm": 27.499,
+   "sha256": "883de6135dffcaf470a569a095e7d8889ec7a30b2543052104a620068c7c0ab4",
+   "model_mid_block": {
+    "lba": 145312,
+    "peak": 269,
+    "F512": 17.4433,
+    "F1488": 21.2911
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 1,
+   "band": 0,
+   "lba_start": 145824,
+   "lba_end": 146848,
+   "r_mm": 27.522,
+   "sha256": "7c6dbc494d9063f37175c01f6e7ac36c10c63d408fcf9a9be14464cc45642578",
+   "model_mid_block": {
+    "lba": 146336,
+    "peak": 265,
+    "F512": 4.5645,
+    "F1488": 5.5043
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 2,
+   "band": 0,
+   "lba_start": 146848,
+   "lba_end": 147872,
+   "r_mm": 27.544,
+   "sha256": "defe1e527b1ea1effba39cb758b14452f99b2335c27df1e101a52bdead0a727a",
+   "model_mid_block": {
+    "lba": 147360,
+    "peak": 269,
+    "F512": 2.2648,
+    "F1488": 2.5847
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 3,
+   "band": 0,
+   "lba_start": 147872,
+   "lba_end": 148896,
+   "r_mm": 27.567,
+   "sha256": "7207c0d2d30c4e2f8c3d18eb8e7d9b8672c859b9bcc73be603181d97955d764a",
+   "model_mid_block": {
+    "lba": 148384,
+    "peak": 137,
+    "F512": 0.1885,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 834496,
+   "lba_end": 835520,
+   "r_mm": 40.0,
+   "sha256": "890e6a5d245c41e538446ff8110c24181a09362e82803231758c46a2d36b35d6",
+   "model_mid_block": {
+    "lba": 835008,
+    "peak": 24,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 835520,
+   "lba_end": 836544,
+   "r_mm": 40.016,
+   "sha256": "3e8597829db69949386ac90a606329cdac72952fdc9ab853f880280a42c40b24",
+   "model_mid_block": {
+    "lba": 836032,
+    "peak": 303,
+    "F512": 3.2277,
+    "F1488": 3.837
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 836544,
+   "lba_end": 837568,
+   "r_mm": 40.031,
+   "sha256": "f0127535b2d14bc78b3a745befeed1e4183d43e58ed8ee953354f76724230e75",
+   "model_mid_block": {
+    "lba": 837056,
+    "peak": 269,
+    "F512": 1.1838,
+    "F1488": 1.3676
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 837568,
+   "lba_end": 838592,
+   "r_mm": 40.047,
+   "sha256": "52389a29d0a831b53228ee714e05d9a5cac9a356ac762f399dafe7146e4d2687",
+   "model_mid_block": {
+    "lba": 838080,
+    "peak": 269,
+    "F512": 16.8284,
+    "F1488": 20.7306
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 838592,
+   "lba_end": 839616,
+   "r_mm": 40.063,
+   "sha256": "dec5469664cddad6397a2b3f45adcd5799dc2d5f414fd26dfe9e692b97c74abf",
+   "model_mid_block": {
+    "lba": 839104,
+    "peak": 373,
+    "F512": 80.6481,
+    "F1488": 67.5435
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 839616,
+   "lba_end": 840640,
+   "r_mm": 40.078,
+   "sha256": "f1db80c9b0b6a442dace304e5560f4a33722bea2e0cf227462d51284673caec0",
+   "model_mid_block": {
+    "lba": 840128,
+    "peak": 269,
+    "F512": 4.5808,
+    "F1488": 5.1247
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 840640,
+   "lba_end": 841664,
+   "r_mm": 40.094,
+   "sha256": "97af7b4b8b169ad0a5fabb7eefd25aa0fbda9d6441d6d5a7dc1aae2b6ea5e7ef",
+   "model_mid_block": {
+    "lba": 841152,
+    "peak": 125,
+    "F512": 0.233,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 841664,
+   "lba_end": 842688,
+   "r_mm": 40.109,
+   "sha256": "0b446c8ae2b7824b13c1ad301e70f05a91543aa7e3dc17905865b20a935348f2",
+   "model_mid_block": {
+    "lba": 842176,
+    "peak": 163,
+    "F512": 9.7211,
+    "F1488": 0.246
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 842688,
+   "lba_end": 843712,
+   "r_mm": 40.125,
+   "sha256": "97af7b4b8b169ad0a5fabb7eefd25aa0fbda9d6441d6d5a7dc1aae2b6ea5e7ef",
+   "model_mid_block": {
+    "lba": 843200,
+    "peak": 131,
+    "F512": 0.1728,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 843712,
+   "lba_end": 844736,
+   "r_mm": 40.141,
+   "sha256": "cfc738e94fa21ef0ed0b2c8ef6fb14f7c0d68195901e96585780a2673c4800bf",
+   "model_mid_block": {
+    "lba": 844224,
+    "peak": 269,
+    "F512": 66.3062,
+    "F1488": 60.9848
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 844736,
+   "lba_end": 845760,
+   "r_mm": 40.156,
+   "sha256": "3e8597829db69949386ac90a606329cdac72952fdc9ab853f880280a42c40b24",
+   "model_mid_block": {
+    "lba": 845248,
+    "peak": 307,
+    "F512": 2.1822,
+    "F1488": 2.5988
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 845760,
+   "lba_end": 846784,
+   "r_mm": 40.172,
+   "sha256": "f364d90b9b18e436a9af76cda1154e197c1f6bc2a7623bfe2f265edf64d2ee46",
+   "model_mid_block": {
+    "lba": 846272,
+    "peak": 27,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 846784,
+   "lba_end": 847808,
+   "r_mm": 40.187,
+   "sha256": "bcde31913f34d87f96b142d4acac42ff09dba503fe786ac9f24f42df8d7a3597",
+   "model_mid_block": {
+    "lba": 847296,
+    "peak": 275,
+    "F512": 16.6261,
+    "F1488": 19.9135
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 847808,
+   "lba_end": 848832,
+   "r_mm": 40.203,
+   "sha256": "b341caed7d7071e2d7cc393ad0184878364bd54a35616ac1ef3db402c92c6dfd",
+   "model_mid_block": {
+    "lba": 848320,
+    "peak": 159,
+    "F512": 9.0165,
+    "F1488": 6.9428
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 848832,
+   "lba_end": 849856,
+   "r_mm": 40.219,
+   "sha256": "f17c3a93fc02036f895af7be2a4130985f1443bc0211e80b963a6e715de4bb54",
+   "model_mid_block": {
+    "lba": 849344,
+    "peak": 315,
+    "F512": 0.7087,
+    "F1488": 0.6249
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 849856,
+   "lba_end": 850880,
+   "r_mm": 40.234,
+   "sha256": "c9b76bb026402013b5354ddc904be507b12b3dc308cd1a44026e60f937b604c6",
+   "model_mid_block": {
+    "lba": 850368,
+    "peak": 269,
+    "F512": 34.9253,
+    "F1488": 42.4369
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 850880,
+   "lba_end": 851904,
+   "r_mm": 40.25,
+   "sha256": "819afeae5fbbc0a553ba238fa8d69d2625af49997833b633b8be613e7572884a",
+   "model_mid_block": {
+    "lba": 851392,
+    "peak": 239,
+    "F512": 9.1108,
+    "F1488": 2.3107
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 851904,
+   "lba_end": 852928,
+   "r_mm": 40.265,
+   "sha256": "f17c3a93fc02036f895af7be2a4130985f1443bc0211e80b963a6e715de4bb54",
+   "model_mid_block": {
+    "lba": 852416,
+    "peak": 317,
+    "F512": 0.7205,
+    "F1488": 0.6056
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 852928,
+   "lba_end": 853952,
+   "r_mm": 40.281,
+   "sha256": "ef9d9aa4595d8e75402892b034876c2e6f33ce2ea529d242280a9e974c4fc55f",
+   "model_mid_block": {
+    "lba": 853440,
+    "peak": 269,
+    "F512": 17.5188,
+    "F1488": 21.2819
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 853952,
+   "lba_end": 854976,
+   "r_mm": 40.296,
+   "sha256": "75347fd4308f22f244f42bb711e1b057e1ed283f3a8ce416c32d2e89bc552336",
+   "model_mid_block": {
+    "lba": 854464,
+    "peak": 275,
+    "F512": 33.4739,
+    "F1488": 39.7633
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 854976,
+   "lba_end": 856000,
+   "r_mm": 40.312,
+   "sha256": "dec5469664cddad6397a2b3f45adcd5799dc2d5f414fd26dfe9e692b97c74abf",
+   "model_mid_block": {
+    "lba": 855488,
+    "peak": 373,
+    "F512": 81.2732,
+    "F1488": 69.0454
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 856000,
+   "lba_end": 857024,
+   "r_mm": 40.327,
+   "sha256": "bac840844b4b17d404540bdb58d63ca80d519e26e9c1deb92691661800d62a2a",
+   "model_mid_block": {
+    "lba": 856512,
+    "peak": 269,
+    "F512": 0.8032,
+    "F1488": 0.9655
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 857024,
+   "lba_end": 858048,
+   "r_mm": 40.343,
+   "sha256": "cfc738e94fa21ef0ed0b2c8ef6fb14f7c0d68195901e96585780a2673c4800bf",
+   "model_mid_block": {
+    "lba": 857536,
+    "peak": 269,
+    "F512": 66.3256,
+    "F1488": 60.8941
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 858048,
+   "lba_end": 859072,
+   "r_mm": 40.359,
+   "sha256": "d12d95e6434125e8e21f5de9956c3f1f6b1636620f773e4cba0d9a673cd1c6d7",
+   "model_mid_block": {
+    "lba": 858560,
+    "peak": 23,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 859072,
+   "lba_end": 860096,
+   "r_mm": 40.374,
+   "sha256": "3e8597829db69949386ac90a606329cdac72952fdc9ab853f880280a42c40b24",
+   "model_mid_block": {
+    "lba": 859584,
+    "peak": 309,
+    "F512": 2.037,
+    "F1488": 2.5839
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 860096,
+   "lba_end": 861120,
+   "r_mm": 40.39,
+   "sha256": "97af7b4b8b169ad0a5fabb7eefd25aa0fbda9d6441d6d5a7dc1aae2b6ea5e7ef",
+   "model_mid_block": {
+    "lba": 860608,
+    "peak": 137,
+    "F512": 0.238,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 861120,
+   "lba_end": 862144,
+   "r_mm": 40.405,
+   "sha256": "979126f5ff0d4f91d7f19af90d1d07f07114d7865f5225c2d133f61704a0cd5a",
+   "model_mid_block": {
+    "lba": 861632,
+    "peak": 29,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 862144,
+   "lba_end": 863168,
+   "r_mm": 40.421,
+   "sha256": "52b90caa54a96830e13bd1a177ef35bca6ae94bd796760a2aa5db2cb3c277dfc",
+   "model_mid_block": {
+    "lba": 862656,
+    "peak": 173,
+    "F512": 0.037,
+    "F1488": 0.1127
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 863168,
+   "lba_end": 864192,
+   "r_mm": 40.436,
+   "sha256": "518b26c0d455fa08b19ec3e35b452e802c391dc45e5b53450d743899d22e88ea",
+   "model_mid_block": {
+    "lba": 863680,
+    "peak": 146,
+    "F512": 9.4516,
+    "F1488": 10.5023
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 864192,
+   "lba_end": 865216,
+   "r_mm": 40.452,
+   "sha256": "51550efa937c402a8bb92f58ef61a1c6e6758cb1c7a744a020fa882aa5e80cb1",
+   "model_mid_block": {
+    "lba": 864704,
+    "peak": 269,
+    "F512": 8.7025,
+    "F1488": 10.2345
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 865216,
+   "lba_end": 866240,
+   "r_mm": 40.467,
+   "sha256": "088b8bd21b5a1041031996f4145f7c34adaeec59ec2b6b3ad85a6acd1eea70b2",
+   "model_mid_block": {
+    "lba": 865728,
+    "peak": 40,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 866240,
+   "lba_end": 867264,
+   "r_mm": 40.483,
+   "sha256": "92c1da09e16f20b4cbb79caef1872636d40d9d61008c0eeac53eae316a8cecc4",
+   "model_mid_block": {
+    "lba": 866752,
+    "peak": 267,
+    "F512": 1.207,
+    "F1488": 1.3383
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 867264,
+   "lba_end": 868288,
+   "r_mm": 40.498,
+   "sha256": "35f1951fdb8f8fe7c34e48393d226f9893a4ee736f4ebbe8091480b5b8bd8c9b",
+   "model_mid_block": {
+    "lba": 867776,
+    "peak": 269,
+    "F512": 2.2564,
+    "F1488": 2.5764
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 868288,
+   "lba_end": 869312,
+   "r_mm": 40.513,
+   "sha256": "6bbd3594494d3d9fba08be8de94524c2e37ab03ad8780291c8523ec0da21c78c",
+   "model_mid_block": {
+    "lba": 868800,
+    "peak": 269,
+    "F512": 9.1325,
+    "F1488": 10.5768
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 869312,
+   "lba_end": 870336,
+   "r_mm": 40.529,
+   "sha256": "cfc738e94fa21ef0ed0b2c8ef6fb14f7c0d68195901e96585780a2673c4800bf",
+   "model_mid_block": {
+    "lba": 869824,
+    "peak": 269,
+    "F512": 66.3382,
+    "F1488": 60.7317
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 870336,
+   "lba_end": 871360,
+   "r_mm": 40.544,
+   "sha256": "52b90caa54a96830e13bd1a177ef35bca6ae94bd796760a2aa5db2cb3c277dfc",
+   "model_mid_block": {
+    "lba": 870848,
+    "peak": 169,
+    "F512": 0.0351,
+    "F1488": 0.1344
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 871360,
+   "lba_end": 872384,
+   "r_mm": 40.56,
+   "sha256": "5c98ac4415d93ff4e8fd5df3d44df592591e147b1122af511de6cd6893ca8d8f",
+   "model_mid_block": {
+    "lba": 871872,
+    "peak": 271,
+    "F512": 17.1386,
+    "F1488": 19.8544
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 872384,
+   "lba_end": 873408,
+   "r_mm": 40.575,
+   "sha256": "97af7b4b8b169ad0a5fabb7eefd25aa0fbda9d6441d6d5a7dc1aae2b6ea5e7ef",
+   "model_mid_block": {
+    "lba": 872896,
+    "peak": 131,
+    "F512": 0.179,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 873408,
+   "lba_end": 874432,
+   "r_mm": 40.591,
+   "sha256": "52b90caa54a96830e13bd1a177ef35bca6ae94bd796760a2aa5db2cb3c277dfc",
+   "model_mid_block": {
+    "lba": 873920,
+    "peak": 173,
+    "F512": 0.0341,
+    "F1488": 0.1142
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 874432,
+   "lba_end": 875456,
+   "r_mm": 40.606,
+   "sha256": "f2864a7f8e3d6ed1d5cc04277f38e5e47ca81694d964a27cf30b0db606afd050",
+   "model_mid_block": {
+    "lba": 874944,
+    "peak": 22,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 875456,
+   "lba_end": 876480,
+   "r_mm": 40.622,
+   "sha256": "0b446c8ae2b7824b13c1ad301e70f05a91543aa7e3dc17905865b20a935348f2",
+   "model_mid_block": {
+    "lba": 875968,
+    "peak": 183,
+    "F512": 9.7988,
+    "F1488": 0.3945
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 876480,
+   "lba_end": 877504,
+   "r_mm": 40.637,
+   "sha256": "662b82d4f33ab17170d493360fa892ddc707d2bb8e82f009e2fe35be30842092",
+   "model_mid_block": {
+    "lba": 876992,
+    "peak": 269,
+    "F512": 0.9365,
+    "F1488": 1.0821
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 877504,
+   "lba_end": 878528,
+   "r_mm": 40.652,
+   "sha256": "dec5469664cddad6397a2b3f45adcd5799dc2d5f414fd26dfe9e692b97c74abf",
+   "model_mid_block": {
+    "lba": 878016,
+    "peak": 373,
+    "F512": 81.3663,
+    "F1488": 69.202
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 878528,
+   "lba_end": 879552,
+   "r_mm": 40.668,
+   "sha256": "dec5469664cddad6397a2b3f45adcd5799dc2d5f414fd26dfe9e692b97c74abf",
+   "model_mid_block": {
+    "lba": 879040,
+    "peak": 373,
+    "F512": 80.9157,
+    "F1488": 68.1922
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 879552,
+   "lba_end": 880576,
+   "r_mm": 40.683,
+   "sha256": "f834ef090e8db6a436a3df9438a77bdb91ae33dd83698a5d4518a99b067b0e6e",
+   "model_mid_block": {
+    "lba": 880064,
+    "peak": 269,
+    "F512": 0.8996,
+    "F1488": 1.0
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 880576,
+   "lba_end": 881600,
+   "r_mm": 40.699,
+   "sha256": "f17c3a93fc02036f895af7be2a4130985f1443bc0211e80b963a6e715de4bb54",
+   "model_mid_block": {
+    "lba": 881088,
+    "peak": 311,
+    "F512": 0.7104,
+    "F1488": 0.6149
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 881600,
+   "lba_end": 882624,
+   "r_mm": 40.714,
+   "sha256": "52b90caa54a96830e13bd1a177ef35bca6ae94bd796760a2aa5db2cb3c277dfc",
+   "model_mid_block": {
+    "lba": 882112,
+    "peak": 175,
+    "F512": 0.0359,
+    "F1488": 0.1715
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 882624,
+   "lba_end": 883648,
+   "r_mm": 40.729,
+   "sha256": "67cee0c079a7c0d75added55ffc928a10ba622fc4d478d8c6e15ffe790102818",
+   "model_mid_block": {
+    "lba": 883136,
+    "peak": 269,
+    "F512": 9.7811,
+    "F1488": 12.0757
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 883648,
+   "lba_end": 884672,
+   "r_mm": 40.745,
+   "sha256": "4f4ba0ebcd524799a687a64602aef3116c52a624b85a75bb19d5ae90dc841a81",
+   "model_mid_block": {
+    "lba": 884160,
+    "peak": 168,
+    "F512": 9.1195,
+    "F1488": 2.4581
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 884672,
+   "lba_end": 885696,
+   "r_mm": 40.76,
+   "sha256": "0226f449cc5bcb285f614d9d69ac267edfaf60c6031db087b1891acbfd79b675",
+   "model_mid_block": {
+    "lba": 885184,
+    "peak": 269,
+    "F512": 4.6062,
+    "F1488": 5.2503
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 885696,
+   "lba_end": 886720,
+   "r_mm": 40.775,
+   "sha256": "291fa3e95ea151207fc306e3ba00d7a2b1107165da72f28a9b66cd658b741c5d",
+   "model_mid_block": {
+    "lba": 886208,
+    "peak": 31,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 886720,
+   "lba_end": 887744,
+   "r_mm": 40.791,
+   "sha256": "964864fb18d971377f3cc0d9e796bc351816f7e7039bf76e089ec000c17c6ded",
+   "model_mid_block": {
+    "lba": 887232,
+    "peak": 102,
+    "F512": 9.3397,
+    "F1488": 0.0015
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 887744,
+   "lba_end": 888768,
+   "r_mm": 40.806,
+   "sha256": "f17c3a93fc02036f895af7be2a4130985f1443bc0211e80b963a6e715de4bb54",
+   "model_mid_block": {
+    "lba": 888256,
+    "peak": 311,
+    "F512": 0.7012,
+    "F1488": 0.6243
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 888768,
+   "lba_end": 889792,
+   "r_mm": 40.821,
+   "sha256": "43dd5b7c4dc05fdb333c15a5d9ef89ea9aae6192456ca7648e4be9e4e5e4112a",
+   "model_mid_block": {
+    "lba": 889280,
+    "peak": 265,
+    "F512": 4.7533,
+    "F1488": 5.9731
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 889792,
+   "lba_end": 890816,
+   "r_mm": 40.837,
+   "sha256": "6ddfb3d14e90c5770cb91ffd783ce60c7f994fc5c9d2562701f45db51dbc1df8",
+   "model_mid_block": {
+    "lba": 890304,
+    "peak": 269,
+    "F512": 2.547,
+    "F1488": 2.6998
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 890816,
+   "lba_end": 891840,
+   "r_mm": 40.852,
+   "sha256": "4488175dfd8a5f9b1db274c83749415c1eee0fd5b45991866e137e3f68905c66",
+   "model_mid_block": {
+    "lba": 891328,
+    "peak": 269,
+    "F512": 2.3402,
+    "F1488": 2.6224
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 891840,
+   "lba_end": 892864,
+   "r_mm": 40.868,
+   "sha256": "c9b76bb026402013b5354ddc904be507b12b3dc308cd1a44026e60f937b604c6",
+   "model_mid_block": {
+    "lba": 892352,
+    "peak": 269,
+    "F512": 35.0867,
+    "F1488": 42.5568
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 892864,
+   "lba_end": 893888,
+   "r_mm": 40.883,
+   "sha256": "bd7b981b6814e3751d05236fd3d2350644b0e786fda8275782aab2581a6e0a60",
+   "model_mid_block": {
+    "lba": 893376,
+    "peak": 269,
+    "F512": 0.7832,
+    "F1488": 0.9297
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 2,
+   "band": 1,
+   "lba_start": 893888,
+   "lba_end": 894912,
+   "r_mm": 40.898,
+   "sha256": "fa51b1993d82e9bb5fd3f7715f1a594759c6e65d7ba793653c67df5394b4928e",
+   "model_mid_block": {
+    "lba": 894400,
+    "peak": 269,
+    "F512": 1.3753,
+    "F1488": 1.4738
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 894912,
+   "lba_end": 895936,
+   "r_mm": 40.913,
+   "sha256": "2c842251d84b30d2efee341c8c1a43046daa387aac27d2c55f6158428deedb8a",
+   "model_mid_block": {
+    "lba": 895424,
+    "peak": 269,
+    "F512": 1.1837,
+    "F1488": 1.3209
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 0,
+   "band": 1,
+   "lba_start": 895936,
+   "lba_end": 896960,
+   "r_mm": 40.929,
+   "sha256": "964864fb18d971377f3cc0d9e796bc351816f7e7039bf76e089ec000c17c6ded",
+   "model_mid_block": {
+    "lba": 896448,
+    "peak": 109,
+    "F512": 9.4366,
+    "F1488": 0.0123
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 896960,
+   "lba_end": 897984,
+   "r_mm": 40.944,
+   "sha256": "05da9448962aed09e4db803c4c48708304fcbb01950c15f39fd7fa39b496aec3",
+   "model_mid_block": {
+    "lba": 897472,
+    "peak": 28,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 897984,
+   "lba_end": 899008,
+   "r_mm": 40.959,
+   "sha256": "9666daf3321da70130f61caf6a36332648ca2dae1c731290fcdf5aa442b75906",
+   "model_mid_block": {
+    "lba": 898496,
+    "peak": 269,
+    "F512": 2.2957,
+    "F1488": 2.6789
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 899008,
+   "lba_end": 900032,
+   "r_mm": 40.975,
+   "sha256": "779c1b416d1717459e0aaa71ff249f75eeb228e7b5db63c4901ca7e802b18077",
+   "model_mid_block": {
+    "lba": 899520,
+    "peak": 265,
+    "F512": 4.5316,
+    "F1488": 5.5281
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 900032,
+   "lba_end": 901056,
+   "r_mm": 40.99,
+   "sha256": "cfc738e94fa21ef0ed0b2c8ef6fb14f7c0d68195901e96585780a2673c4800bf",
+   "model_mid_block": {
+    "lba": 900544,
+    "peak": 269,
+    "F512": 66.3135,
+    "F1488": 61.0318
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 901056,
+   "lba_end": 902080,
+   "r_mm": 41.005,
+   "sha256": "3e8597829db69949386ac90a606329cdac72952fdc9ab853f880280a42c40b24",
+   "model_mid_block": {
+    "lba": 901568,
+    "peak": 311,
+    "F512": 3.3585,
+    "F1488": 4.159
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 1,
+   "band": 1,
+   "lba_start": 902080,
+   "lba_end": 903104,
+   "r_mm": 41.021,
+   "sha256": "8045c11666a3771696f8b5e8b63db75d7c906e9ef15dd9dbcea5d62293ca7194",
+   "model_mid_block": {
+    "lba": 902592,
+    "peak": 269,
+    "F512": 9.6076,
+    "F1488": 11.6827
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 3,
+   "band": 1,
+   "lba_start": 903104,
+   "lba_end": 904128,
+   "r_mm": 41.036,
+   "sha256": "75347fd4308f22f244f42bb711e1b057e1ed283f3a8ce416c32d2e89bc552336",
+   "model_mid_block": {
+    "lba": 903616,
+    "peak": 275,
+    "F512": 33.3766,
+    "F1488": 39.644
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1910144,
+   "lba_end": 1911168,
+   "r_mm": 54.0,
+   "sha256": "c1b3e4a6693a2c99dadc0b854d44e83747aaea49b78e88434a513ab523e0d5c8",
+   "model_mid_block": {
+    "lba": 1910656,
+    "peak": 269,
+    "F512": 4.459,
+    "F1488": 5.1135
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1911168,
+   "lba_end": 1912192,
+   "r_mm": 54.012,
+   "sha256": "2328a4b085c1d7788ee6cf41353687caed63d3af857f51750be31710f4b440e8",
+   "model_mid_block": {
+    "lba": 1911680,
+    "peak": 267,
+    "F512": 1.1738,
+    "F1488": 1.3922
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1912192,
+   "lba_end": 1913216,
+   "r_mm": 54.023,
+   "sha256": "d7cbc8e25c7a22a2c57b3bfabeb876721d12a362dd2f9f58b2da5e466050aabc",
+   "model_mid_block": {
+    "lba": 1912704,
+    "peak": 269,
+    "F512": 0.7625,
+    "F1488": 0.9718
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1913216,
+   "lba_end": 1914240,
+   "r_mm": 54.035,
+   "sha256": "3b64337fc1dc1a85c0b92e8af0132adeee3f4c603d1284db427c00bf15797392",
+   "model_mid_block": {
+    "lba": 1913728,
+    "peak": 269,
+    "F512": 1.1787,
+    "F1488": 1.3174
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1914240,
+   "lba_end": 1915264,
+   "r_mm": 54.046,
+   "sha256": "231e35fad4ebae56a36cbee940b7c900a4b1f1270a7ec5d14881f50d04851648",
+   "model_mid_block": {
+    "lba": 1914752,
+    "peak": 310,
+    "F512": 1.4335,
+    "F1488": 1.7732
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1915264,
+   "lba_end": 1916288,
+   "r_mm": 54.058,
+   "sha256": "ee419b7a617e803179942539d4310953f93cabc8aaffa3c19d341f9b248d5a82",
+   "model_mid_block": {
+    "lba": 1915776,
+    "peak": 269,
+    "F512": 66.4351,
+    "F1488": 59.8917
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1916288,
+   "lba_end": 1917312,
+   "r_mm": 54.07,
+   "sha256": "0b7d61e1fc3eb7b639c10c5eb31a351e350c21d71a7c873f7cd2ed4cb9d24da4",
+   "model_mid_block": {
+    "lba": 1916800,
+    "peak": 25,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1917312,
+   "lba_end": 1918336,
+   "r_mm": 54.081,
+   "sha256": "ee419b7a617e803179942539d4310953f93cabc8aaffa3c19d341f9b248d5a82",
+   "model_mid_block": {
+    "lba": 1917824,
+    "peak": 269,
+    "F512": 66.3541,
+    "F1488": 61.0538
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1918336,
+   "lba_end": 1919360,
+   "r_mm": 54.093,
+   "sha256": "709140156f317cbfc4e76730805286a0d0597c018ebb04fe6f6e3f868b86b7c6",
+   "model_mid_block": {
+    "lba": 1918848,
+    "peak": 34,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1919360,
+   "lba_end": 1920384,
+   "r_mm": 54.104,
+   "sha256": "c31fead41890c6da51ce966e83ede6aef8eced8942b90179a64812d36c6bd4d0",
+   "model_mid_block": {
+    "lba": 1919872,
+    "peak": 135,
+    "F512": 0.1606,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1920384,
+   "lba_end": 1921408,
+   "r_mm": 54.116,
+   "sha256": "bffd802572848e06bafcac0020676a1ab562f5318e5da45649f4dd7f508a7e74",
+   "model_mid_block": {
+    "lba": 1920896,
+    "peak": 317,
+    "F512": 0.7216,
+    "F1488": 0.6018
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1921408,
+   "lba_end": 1922432,
+   "r_mm": 54.127,
+   "sha256": "690a3f4103267c1d98ae30a0a700eeb48271e506fbcaa40bf0f9002272ce669a",
+   "model_mid_block": {
+    "lba": 1921920,
+    "peak": 373,
+    "F512": 80.6911,
+    "F1488": 67.879
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1922432,
+   "lba_end": 1923456,
+   "r_mm": 54.139,
+   "sha256": "0a5b2d74773c35ec878ffe0aa76dc2e8c0e900ff646910af92fcd38a6b61b6d7",
+   "model_mid_block": {
+    "lba": 1922944,
+    "peak": 141,
+    "F512": 9.4133,
+    "F1488": 10.3567
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1923456,
+   "lba_end": 1924480,
+   "r_mm": 54.151,
+   "sha256": "bffd802572848e06bafcac0020676a1ab562f5318e5da45649f4dd7f508a7e74",
+   "model_mid_block": {
+    "lba": 1923968,
+    "peak": 317,
+    "F512": 0.7111,
+    "F1488": 0.6432
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1924480,
+   "lba_end": 1925504,
+   "r_mm": 54.162,
+   "sha256": "c1f2c7f84a98e253f9f607475823286d96e8d8484c0ade132252a8d6a3d341fb",
+   "model_mid_block": {
+    "lba": 1924992,
+    "peak": 269,
+    "F512": 16.7891,
+    "F1488": 20.6576
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1925504,
+   "lba_end": 1926528,
+   "r_mm": 54.174,
+   "sha256": "584dfce5677f086bd01f96d624f72c291caf2dd3eeb5aaed19e35efab2be6f9c",
+   "model_mid_block": {
+    "lba": 1926016,
+    "peak": 269,
+    "F512": 2.3551,
+    "F1488": 2.6428
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1926528,
+   "lba_end": 1927552,
+   "r_mm": 54.185,
+   "sha256": "ee419b7a617e803179942539d4310953f93cabc8aaffa3c19d341f9b248d5a82",
+   "model_mid_block": {
+    "lba": 1927040,
+    "peak": 269,
+    "F512": 66.4299,
+    "F1488": 59.9874
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1927552,
+   "lba_end": 1928576,
+   "r_mm": 54.197,
+   "sha256": "e6db9134c720b3d20dc5a0cc7b4ee1ee503ceb06bf8d74a669cfb07b3500c7d1",
+   "model_mid_block": {
+    "lba": 1928064,
+    "peak": 275,
+    "F512": 33.3769,
+    "F1488": 39.712
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1928576,
+   "lba_end": 1929600,
+   "r_mm": 54.208,
+   "sha256": "6ea8f3cb0b5d365794d52b35be922ded961cd013f428af8291aacb3d3f6dbf2c",
+   "model_mid_block": {
+    "lba": 1929088,
+    "peak": 108,
+    "F512": 9.4193,
+    "F1488": 0.0015
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1929600,
+   "lba_end": 1930624,
+   "r_mm": 54.22,
+   "sha256": "4e7aaaf7137d03ff9fc56271d11b74a3ebe41b5564c46bb7f29387e86ffe309d",
+   "model_mid_block": {
+    "lba": 1930112,
+    "peak": 25,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1930624,
+   "lba_end": 1931648,
+   "r_mm": 54.232,
+   "sha256": "a7524c94d3073cebf2fda251d14b8c3e22af135638dc2546c2cf72a7f837a9ee",
+   "model_mid_block": {
+    "lba": 1931136,
+    "peak": 180,
+    "F512": 9.0827,
+    "F1488": 2.5027
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1931648,
+   "lba_end": 1932672,
+   "r_mm": 54.243,
+   "sha256": "4ed7ec1eeef86494940a0f1217b7b68d93bc9e0480fbd30d6b6a0efe259f651c",
+   "model_mid_block": {
+    "lba": 1932160,
+    "peak": 265,
+    "F512": 4.7143,
+    "F1488": 5.7491
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1932672,
+   "lba_end": 1933696,
+   "r_mm": 54.255,
+   "sha256": "ca7b54d14a80148ad708355a1145cc4dc90f5e177cc365f29a2d7368bc37d85b",
+   "model_mid_block": {
+    "lba": 1933184,
+    "peak": 169,
+    "F512": 9.7211,
+    "F1488": 0.3339
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1933696,
+   "lba_end": 1934720,
+   "r_mm": 54.266,
+   "sha256": "09c1f6638237413389088d1e39d26d7d99d5a5796077e3ef85d5ecc67a689af0",
+   "model_mid_block": {
+    "lba": 1934208,
+    "peak": 269,
+    "F512": 9.8088,
+    "F1488": 12.0963
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1934720,
+   "lba_end": 1935744,
+   "r_mm": 54.278,
+   "sha256": "1ab712c577839b4ac73411690974bd5a7758dadc0d6e49951557722060eb2941",
+   "model_mid_block": {
+    "lba": 1935232,
+    "peak": 275,
+    "F512": 16.593,
+    "F1488": 19.8683
+   }
+  },
+  {
+   "name": "L64_N1",
+   "L": 64,
+   "N": 1,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1935744,
+   "lba_end": 1936768,
+   "r_mm": 54.289,
+   "sha256": "ee419b7a617e803179942539d4310953f93cabc8aaffa3c19d341f9b248d5a82",
+   "model_mid_block": {
+    "lba": 1936256,
+    "peak": 269,
+    "F512": 66.3948,
+    "F1488": 60.3926
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1936768,
+   "lba_end": 1937792,
+   "r_mm": 54.301,
+   "sha256": "07fa96c53faf0e61c03d6252e499dd2725a98764a45549622308d3c13c86c69a",
+   "model_mid_block": {
+    "lba": 1937280,
+    "peak": 24,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1937792,
+   "lba_end": 1938816,
+   "r_mm": 54.312,
+   "sha256": "231e35fad4ebae56a36cbee940b7c900a4b1f1270a7ec5d14881f50d04851648",
+   "model_mid_block": {
+    "lba": 1938304,
+    "peak": 305,
+    "F512": 3.5887,
+    "F1488": 4.3451
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1938816,
+   "lba_end": 1939840,
+   "r_mm": 54.324,
+   "sha256": "bffd802572848e06bafcac0020676a1ab562f5318e5da45649f4dd7f508a7e74",
+   "model_mid_block": {
+    "lba": 1939328,
+    "peak": 315,
+    "F512": 0.714,
+    "F1488": 0.6157
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1939840,
+   "lba_end": 1940864,
+   "r_mm": 54.335,
+   "sha256": "690a3f4103267c1d98ae30a0a700eeb48271e506fbcaa40bf0f9002272ce669a",
+   "model_mid_block": {
+    "lba": 1940352,
+    "peak": 373,
+    "F512": 80.5577,
+    "F1488": 67.5886
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1940864,
+   "lba_end": 1941888,
+   "r_mm": 54.347,
+   "sha256": "7f3176c250772d11995d61bcb23a19d1c6654f5fbc5406ca592ca09848614123",
+   "model_mid_block": {
+    "lba": 1941376,
+    "peak": 269,
+    "F512": 0.891,
+    "F1488": 1.0045
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1941888,
+   "lba_end": 1942912,
+   "r_mm": 54.358,
+   "sha256": "7e4ff9f2fa3eefcb31b17b596d379b9c7b2a0c0d3be6495aa156d2667ba39f21",
+   "model_mid_block": {
+    "lba": 1942400,
+    "peak": 21,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1942912,
+   "lba_end": 1943936,
+   "r_mm": 54.37,
+   "sha256": "4198f57d0965ae0343e984041b19fb0f9b684226390451b248906c7fa78d042f",
+   "model_mid_block": {
+    "lba": 1943424,
+    "peak": 171,
+    "F512": 0.0369,
+    "F1488": 0.1203
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1943936,
+   "lba_end": 1944960,
+   "r_mm": 54.381,
+   "sha256": "e6db9134c720b3d20dc5a0cc7b4ee1ee503ceb06bf8d74a669cfb07b3500c7d1",
+   "model_mid_block": {
+    "lba": 1944448,
+    "peak": 275,
+    "F512": 33.4587,
+    "F1488": 39.7446
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1944960,
+   "lba_end": 1945984,
+   "r_mm": 54.393,
+   "sha256": "bcaccb3938a4585f57aad89a451b8ac51ebe51ad9e12c03de72d92f904f02dde",
+   "model_mid_block": {
+    "lba": 1945472,
+    "peak": 39,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "A5S",
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1945984,
+   "lba_end": 1947008,
+   "r_mm": 54.405,
+   "sha256": "4a383c11a833560a2bfc99dd014836d8991ec02dd8732ba0c898028fa2fefc22",
+   "model_mid_block": {
+    "lba": 1946496,
+    "peak": 41,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1947008,
+   "lba_end": 1948032,
+   "r_mm": 54.416,
+   "sha256": "852c6f9392b39187c741cf6c6311ae55026fced11ab7cf8f77c3592d5ce26d21",
+   "model_mid_block": {
+    "lba": 1947520,
+    "peak": 229,
+    "F512": 9.1743,
+    "F1488": 2.3719
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1948032,
+   "lba_end": 1949056,
+   "r_mm": 54.428,
+   "sha256": "943100f15262954535013bd3b053d413ebe7f7bbc68bc6582658e67f6f0177c3",
+   "model_mid_block": {
+    "lba": 1948544,
+    "peak": 269,
+    "F512": 1.1787,
+    "F1488": 1.4009
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1949056,
+   "lba_end": 1950080,
+   "r_mm": 54.439,
+   "sha256": "bc2c38970c7d7ab06199f7c0bb6b21fdb90fcd21254d8063f8d92e8305a0612a",
+   "model_mid_block": {
+    "lba": 1949568,
+    "peak": 269,
+    "F512": 0.7715,
+    "F1488": 0.8873
+   }
+  },
+  {
+   "name": "RND",
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1950080,
+   "lba_end": 1951104,
+   "r_mm": 54.451,
+   "sha256": "9fa863f6d570de5a254704a08e3183485db7d537c90f710f244f834d25aadba3",
+   "model_mid_block": {
+    "lba": 1950592,
+    "peak": 23,
+    "F512": 0.0,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1951104,
+   "lba_end": 1952128,
+   "r_mm": 54.462,
+   "sha256": "c31fead41890c6da51ce966e83ede6aef8eced8942b90179a64812d36c6bd4d0",
+   "model_mid_block": {
+    "lba": 1951616,
+    "peak": 131,
+    "F512": 0.2097,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1952128,
+   "lba_end": 1953152,
+   "r_mm": 54.474,
+   "sha256": "dff7d9ea5aedab71c6299aa22eb9529dea52b1bf952ddd381d03a59773c4e3ba",
+   "model_mid_block": {
+    "lba": 1952640,
+    "peak": 269,
+    "F512": 2.2314,
+    "F1488": 2.5476
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1953152,
+   "lba_end": 1954176,
+   "r_mm": 54.485,
+   "sha256": "690a3f4103267c1d98ae30a0a700eeb48271e506fbcaa40bf0f9002272ce669a",
+   "model_mid_block": {
+    "lba": 1953664,
+    "peak": 373,
+    "F512": 81.4271,
+    "F1488": 69.1688
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1954176,
+   "lba_end": 1955200,
+   "r_mm": 54.497,
+   "sha256": "43be187de3e2caa7b57f3b99aec7332d991c47b084a6883ca676a9a44be9fdc1",
+   "model_mid_block": {
+    "lba": 1954688,
+    "peak": 269,
+    "F512": 9.5834,
+    "F1488": 11.6011
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1955200,
+   "lba_end": 1956224,
+   "r_mm": 54.508,
+   "sha256": "f61100f37b4cecdd53ba63771596f03a275552bc99f0cc3e4b73a87a8d4938c4",
+   "model_mid_block": {
+    "lba": 1955712,
+    "peak": 269,
+    "F512": 4.5871,
+    "F1488": 5.216
+   }
+  },
+  {
+   "name": "A5",
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1956224,
+   "lba_end": 1957248,
+   "r_mm": 54.52,
+   "sha256": "bffd802572848e06bafcac0020676a1ab562f5318e5da45649f4dd7f508a7e74",
+   "model_mid_block": {
+    "lba": 1956736,
+    "peak": 315,
+    "F512": 0.7156,
+    "F1488": 0.6248
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1957248,
+   "lba_end": 1958272,
+   "r_mm": 54.531,
+   "sha256": "4198f57d0965ae0343e984041b19fb0f9b684226390451b248906c7fa78d042f",
+   "model_mid_block": {
+    "lba": 1957760,
+    "peak": 157,
+    "F512": 0.0322,
+    "F1488": 0.08
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1958272,
+   "lba_end": 1959296,
+   "r_mm": 54.542,
+   "sha256": "231e35fad4ebae56a36cbee940b7c900a4b1f1270a7ec5d14881f50d04851648",
+   "model_mid_block": {
+    "lba": 1958784,
+    "peak": 305,
+    "F512": 2.8463,
+    "F1488": 3.54
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1959296,
+   "lba_end": 1960320,
+   "r_mm": 54.554,
+   "sha256": "6ea8f3cb0b5d365794d52b35be922ded961cd013f428af8291aacb3d3f6dbf2c",
+   "model_mid_block": {
+    "lba": 1959808,
+    "peak": 98,
+    "F512": 9.4956,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1960320,
+   "lba_end": 1961344,
+   "r_mm": 54.565,
+   "sha256": "28f9fcd2fbbf58c363be0df847b36991846e9ae69e68feef2d42da8e3d0bed10",
+   "model_mid_block": {
+    "lba": 1960832,
+    "peak": 269,
+    "F512": 17.5171,
+    "F1488": 21.3473
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1961344,
+   "lba_end": 1962368,
+   "r_mm": 54.577,
+   "sha256": "c31fead41890c6da51ce966e83ede6aef8eced8942b90179a64812d36c6bd4d0",
+   "model_mid_block": {
+    "lba": 1961856,
+    "peak": 131,
+    "F512": 0.1593,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1962368,
+   "lba_end": 1963392,
+   "r_mm": 54.588,
+   "sha256": "7e6e81852e27cbf8efe1f412164d1a2710c41d0a639432171ae6c5220b9f54a3",
+   "model_mid_block": {
+    "lba": 1962880,
+    "peak": 269,
+    "F512": 2.3837,
+    "F1488": 2.6444
+   }
+  },
+  {
+   "name": "92",
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1963392,
+   "lba_end": 1964416,
+   "r_mm": 54.6,
+   "sha256": "231e35fad4ebae56a36cbee940b7c900a4b1f1270a7ec5d14881f50d04851648",
+   "model_mid_block": {
+    "lba": 1963904,
+    "peak": 309,
+    "F512": 3.2519,
+    "F1488": 3.9582
+   }
+  },
+  {
+   "name": "L16_N2",
+   "L": 16,
+   "N": 2,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1964416,
+   "lba_end": 1965440,
+   "r_mm": 54.611,
+   "sha256": "ca7b54d14a80148ad708355a1145cc4dc90f5e177cc365f29a2d7368bc37d85b",
+   "model_mid_block": {
+    "lba": 1964928,
+    "peak": 147,
+    "F512": 9.6662,
+    "F1488": 0.2105
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1965440,
+   "lba_end": 1966464,
+   "r_mm": 54.623,
+   "sha256": "b4e454f4eee1d6d8d557695878d1114a5e914834c47eb50e3e5083a0ecc526e3",
+   "model_mid_block": {
+    "lba": 1965952,
+    "peak": 269,
+    "F512": 9.1056,
+    "F1488": 10.7609
+   }
+  },
+  {
+   "name": "L8_N1",
+   "L": 8,
+   "N": 1,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1966464,
+   "lba_end": 1967488,
+   "r_mm": 54.634,
+   "sha256": "c31fead41890c6da51ce966e83ede6aef8eced8942b90179a64812d36c6bd4d0",
+   "model_mid_block": {
+    "lba": 1966976,
+    "peak": 123,
+    "F512": 0.1817,
+    "F1488": 0.0
+   }
+  },
+  {
+   "name": "92D",
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1967488,
+   "lba_end": 1968512,
+   "r_mm": 54.646,
+   "sha256": "690a3f4103267c1d98ae30a0a700eeb48271e506fbcaa40bf0f9002272ce669a",
+   "model_mid_block": {
+    "lba": 1968000,
+    "peak": 373,
+    "F512": 81.1588,
+    "F1488": 68.6411
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1968512,
+   "lba_end": 1969536,
+   "r_mm": 54.657,
+   "sha256": "4198f57d0965ae0343e984041b19fb0f9b684226390451b248906c7fa78d042f",
+   "model_mid_block": {
+    "lba": 1969024,
+    "peak": 175,
+    "F512": 0.0352,
+    "F1488": 0.165
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1969536,
+   "lba_end": 1970560,
+   "r_mm": 54.669,
+   "sha256": "6545b2ac8e94a32d8d6ba04d38548ad7f749ff36ec81c19931264e8fe0570c5c",
+   "model_mid_block": {
+    "lba": 1970048,
+    "peak": 269,
+    "F512": 35.0293,
+    "F1488": 42.542
+   }
+  },
+  {
+   "name": "L64_N64",
+   "L": 64,
+   "N": 64,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1970560,
+   "lba_end": 1971584,
+   "r_mm": 54.68,
+   "sha256": "7c8f57fc20aa6ce457428ea7aa5d9ba88e3c97527921ab2dde66a3cc6bbb8809",
+   "model_mid_block": {
+    "lba": 1971072,
+    "peak": 269,
+    "F512": 1.3848,
+    "F1488": 1.4586
+   }
+  },
+  {
+   "name": "guarded92",
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1971584,
+   "lba_end": 1972608,
+   "r_mm": 54.692,
+   "sha256": "4198f57d0965ae0343e984041b19fb0f9b684226390451b248906c7fa78d042f",
+   "model_mid_block": {
+    "lba": 1972096,
+    "peak": 171,
+    "F512": 0.0372,
+    "F1488": 0.1181
+   }
+  },
+  {
+   "name": "L64_N8",
+   "L": 64,
+   "N": 8,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1972608,
+   "lba_end": 1973632,
+   "r_mm": 54.703,
+   "sha256": "513b5d6683e1f25be31959b3fb391f064923e8e002e3f25846c8bbc5823ede94",
+   "model_mid_block": {
+    "lba": 1973120,
+    "peak": 269,
+    "F512": 8.7357,
+    "F1488": 10.2358
+   }
+  },
+  {
+   "name": "L64_N2",
+   "L": 64,
+   "N": 2,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1973632,
+   "lba_end": 1974656,
+   "r_mm": 54.714,
+   "sha256": "6545b2ac8e94a32d8d6ba04d38548ad7f749ff36ec81c19931264e8fe0570c5c",
+   "model_mid_block": {
+    "lba": 1974144,
+    "peak": 269,
+    "F512": 35.0936,
+    "F1488": 42.6181
+   }
+  },
+  {
+   "name": "L64_N4",
+   "L": 64,
+   "N": 4,
+   "repeat": 1,
+   "band": 2,
+   "lba_start": 1974656,
+   "lba_end": 1975680,
+   "r_mm": 54.726,
+   "sha256": "b7d8c2a76020e7f61de8ade8655d6f96d993b154ee2712d2f9ead4d683048d46",
+   "model_mid_block": {
+    "lba": 1975168,
+    "peak": 273,
+    "F512": 17.1137,
+    "F1488": 19.883
+   }
+  },
+  {
+   "name": "L64_N32",
+   "L": 64,
+   "N": 32,
+   "repeat": 0,
+   "band": 2,
+   "lba_start": 1975680,
+   "lba_end": 1976704,
+   "r_mm": 54.737,
+   "sha256": "f38a625e2e34d03a6fc9c099133144ced7f52dea56e284dc04f298845c606014",
+   "model_mid_block": {
+    "lba": 1976192,
+    "peak": 269,
+    "F512": 2.515,
+    "F1488": 2.6619
+   }
+  },
+  {
+   "name": "L64_N16",
+   "L": 64,
+   "N": 16,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1976704,
+   "lba_end": 1977728,
+   "r_mm": 54.749,
+   "sha256": "410223763bb93fe5dd536bf6b8f25c0a45c01f2f79f954884e6710b9c065bf64",
+   "model_mid_block": {
+    "lba": 1977216,
+    "peak": 265,
+    "F512": 4.6736,
+    "F1488": 6.1319
+   }
+  },
+  {
+   "name": "L64_N96",
+   "L": 64,
+   "N": 96,
+   "repeat": 3,
+   "band": 2,
+   "lba_start": 1977728,
+   "lba_end": 1978752,
+   "r_mm": 54.76,
+   "sha256": "fc89738609392ebe6e32f43c5d398ccd1c04b5f40cdf396322d41b2448ca3c3f",
+   "model_mid_block": {
+    "lba": 1978240,
+    "peak": 269,
+    "F512": 0.8956,
+    "F1488": 1.0907
+   }
+  },
+  {
+   "name": "L32_N4",
+   "L": 32,
+   "N": 4,
+   "repeat": 2,
+   "band": 2,
+   "lba_start": 1978752,
+   "lba_end": 1979776,
+   "r_mm": 54.772,
+   "sha256": "f701dad122f03c520cb91dbe9b3a69081602a22a2a2e64f68de980645f0f781d",
+   "model_mid_block": {
+    "lba": 1979264,
+    "peak": 145,
+    "F512": 9.0796,
+    "F1488": 6.8469
+   }
+  }
+ ]
+}

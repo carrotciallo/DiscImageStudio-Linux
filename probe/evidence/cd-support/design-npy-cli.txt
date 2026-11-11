@@ -1,0 +1,7 @@
+design labels.npy, geometry u 90037.500, v 5.7624000 from evidence/cd-support-20261104/nominal-geometry.json; 4355 sectors (0.01 GB), textures AA 0D 1063 RND
+   47.0 %
+   94.1 %
+  100.0 %
+Verified: sampled sectors match the design
+Spec: C:\Users\ADMINI~1\AppData\Local\Temp\tmplqnsdtr1\labels.image.json
+Preview (data-side view): C:\Users\ADMINI~1\AppData\Local\Temp\tmplqnsdtr1\labels.preview.png

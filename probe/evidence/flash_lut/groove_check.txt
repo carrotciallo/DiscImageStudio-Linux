@@ -1,0 +1,2 @@
+groove only  n  39  median |hue error|  82.5 deg  shuffled  92.7  p = 0.162
+16T only     n  71  median |hue error|  46.7 deg  shuffled  67.1  p = 0.018

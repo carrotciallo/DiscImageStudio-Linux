@@ -1,0 +1,14 @@
+Disc: CD-ROM, last LBA 359848, reading with read12
+Cache: plain p50 89.1 us, fua p50 14929.3 us -> strategy fua
+Zone 0.05 (LBA 17992): T = 9.15554 ms (6553.41 rpm), jitter 65.59 us = 2.579 deg, coherence 0.999
+Zone 0.50 (LBA 179924): T = 14.95716 ms (4011.46 rpm), jitter 56.47 us = 1.359 deg, coherence 0.9949
+Zone 0.95 (LBA 341855): T = 19.06885 ms (3146.49 rpm), jitter 55.5 us = 1.048 deg, coherence 0.9998
+Rotation: CLV
+Target 0.15 (LBA 53977): phase 282.354 deg +/- 5.858 (single-shot std 37.052, n=40), ref jitter 62.723 deg
+Target 0.35 (LBA 125946): phase 51.109 deg +/- 10.847 (single-shot std 68.606, n=40), ref jitter 75.341 deg
+Target 0.55 (LBA 197916): phase 146.002 deg +/- 15.11 (single-shot std 95.566, n=40), ref jitter 93.684 deg
+Target 0.75 (LBA 269886): phase 33.928 deg +/- 22.875 (single-shot std 144.672, n=40), ref jitter 109.775 deg
+Target 0.95 (LBA 341855): phase 358.679 deg +/- 20.603 (single-shot std 130.303, n=40), ref jitter 75.216 deg
+Warning: drive did not look CAV; phase values are not disc angles.
+
+Raw events and summary: D:\disc-probe\evidence\cd-support\timing-SIM-clv-cd-20261104-090019

@@ -1,0 +1,22 @@
+Spindle settled: T = 28.8334 ms (2080.9 rpm), jitter 21.7 us
+lba  100000  r 37.490 mm  residual   -0.09 deg  +/- 0.20
+lba  100500  r 37.541 mm  residual   -0.09 deg  +/- 0.20
+lba  101000  r 37.592 mm  residual   -0.15 deg  +/- 0.20
+lba  101500  r 37.643 mm  residual   -0.08 deg  +/- 0.20
+lba  102000  r 37.694 mm  residual   -0.12 deg  +/- 0.20
+lba  102500  r 37.745 mm  residual   -0.16 deg  +/- 0.20
+lba  103000  r 37.796 mm  residual   -0.07 deg  +/- 0.20
+lba  103500  r 37.846 mm  residual   -0.07 deg  +/- 0.20
+lba  104000  r 37.897 mm  residual   -0.13 deg  +/- 0.20
+lba  104500  r 37.947 mm  residual   -0.10 deg  +/- 0.20
+lba  105000  r 37.998 mm  residual   -0.15 deg  +/- 0.20
+lba  105500  r 38.048 mm  residual   -0.10 deg  +/- 0.20
+lba  106000  r 38.099 mm  residual   -0.18 deg  +/- 0.20
+lba  106500  r 38.149 mm  residual   -0.16 deg  +/- 0.20
+lba  107000  r 38.199 mm  residual   -0.20 deg  +/- 0.20
+lba  107500  r 38.249 mm  residual   -0.21 deg  +/- 0.20
+lba  108000  r 38.299 mm  residual   -0.07 deg  +/- 0.20
+lba  108500  r 38.349 mm  residual   -0.18 deg  +/- 0.20
+lba  109000  r 38.399 mm  residual   -0.16 deg  +/- 0.20
+lba  109500  r 38.449 mm  residual   -0.15 deg  +/- 0.20
+lba  110000  r 38.499 mm  residual   -0.19 deg  +/- 0.20

@@ -1,0 +1,10 @@
+{
+  "fit": {
+    "media": "cd",
+    "u": 90037.5,
+    "v": 5.7624,
+    "bit_nm_assumed": 277.66208524226016,
+    "measured": false,
+    "note": "standard nominal geometry, NOT a timing measurement"
+  }
+}

@@ -1,0 +1,8 @@
+Writing D:\disc-probe\iso\cd-support-20261104-random.iso: 359849 sectors of seeded random data
+    2.3 %
+   20.5 %
+   41.0 %
+   61.5 %
+   82.0 %
+  100.0 %
+Burn it with any image burner, then run `geo` on it.

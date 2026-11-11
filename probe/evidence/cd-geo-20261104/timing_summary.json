@@ -1,0 +1,313 @@
+{
+  "set_cd_speed": {
+    "requested_kBps": 2822,
+    "pure_cav": false,
+    "status": 0,
+    "sense": ""
+  },
+  "setup": {
+    "profile": "0x0008",
+    "profile_name": "CD-ROM",
+    "family": "cd",
+    "block_sectors": 1,
+    "last_lba": 308297,
+    "first_track_audio": false,
+    "read_method": "read12"
+  },
+  "cache": {
+    "lba": 154148,
+    "sectors": 1,
+    "plain": {
+      "n": 40,
+      "p50_us": 1287.3,
+      "p95_us": 1611.1,
+      "p99_us": 134192.0,
+      "min_us": 1239.8,
+      "max_us": 134192.0,
+      "failed": 0
+    },
+    "fua": {
+      "n": 40,
+      "p50_us": 37146.1,
+      "p95_us": 37216.3,
+      "p99_us": 40248.1,
+      "min_us": 37047.1,
+      "max_us": 40248.1,
+      "failed": 0
+    },
+    "plain_served_from_cache": true,
+    "fua_reads_media": true,
+    "flush_then_read_media": false,
+    "strategy": "fua"
+  },
+  "period": {
+    "zones": [
+      {
+        "fraction": 0.05,
+        "lba": 15414,
+        "usable": 60,
+        "durations": {
+          "n": 60,
+          "p50_us": 44796.0,
+          "p95_us": 54787.0,
+          "p99_us": 55128.4,
+          "min_us": 33430.2,
+          "max_us": 140684.7,
+          "failed": 0
+        },
+        "nominal_radius_mm": 27.397,
+        "period_ms": 18.59336,
+        "rpm": 3226.96,
+        "coherence": 0.9999,
+        "jitter_us": 32.46,
+        "jitter_deg": 0.628,
+        "used": 59,
+        "total": 60
+      },
+      {
+        "fraction": 0.5,
+        "lba": 154148,
+        "usable": 60,
+        "durations": {
+          "n": 60,
+          "p50_us": 35936.8,
+          "p95_us": 43142.9,
+          "p99_us": 43831.7,
+          "min_us": 25425.7,
+          "max_us": 136307.0,
+          "failed": 0
+        },
+        "nominal_radius_mm": 43.372,
+        "period_ms": 18.59685,
+        "rpm": 3226.35,
+        "coherence": 1.0,
+        "jitter_us": 26.31,
+        "jitter_deg": 0.509,
+        "used": 60,
+        "total": 60
+      },
+      {
+        "fraction": 0.95,
+        "lba": 292882,
+        "usable": 60,
+        "durations": {
+          "n": 60,
+          "p50_us": 34039.9,
+          "p95_us": 41288.7,
+          "p99_us": 42149.0,
+          "min_us": 23686.0,
+          "max_us": 104201.0,
+          "failed": 0
+        },
+        "nominal_radius_mm": 54.878,
+        "period_ms": 18.59904,
+        "rpm": 3225.97,
+        "coherence": 0.9999,
+        "jitter_us": 39.31,
+        "jitter_deg": 0.761,
+        "used": 60,
+        "total": 60
+      }
+    ],
+    "rotation": {
+      "mode": "CAV",
+      "period_ratio_outer_inner": 1.0003,
+      "nominal_clv_ratio": 2.0031
+    }
+  },
+  "phase": {
+    "valid_only_under_cav": true,
+    "rotation_mode": "CAV",
+    "targets": [
+      {
+        "target_fraction": 0.15,
+        "ref_lba": 15414,
+        "target_lba": 46244,
+        "read_end_lba": 46245,
+        "nominal_turns_between": 2659.06,
+        "target_durations": {
+          "n": 40,
+          "p50_us": 97338.3,
+          "p95_us": 105347.8,
+          "p99_us": 107684.8,
+          "min_us": 76955.4,
+          "max_us": 107684.8,
+          "failed": 0
+        },
+        "read_end_bits": 2664885384,
+        "read_tail_frames": 108,
+        "ref": {
+          "period_ms": 18.60452,
+          "rpm": 3225.02,
+          "coherence": 0.9999,
+          "jitter_us": 47.38,
+          "jitter_deg": 0.917,
+          "used": 40,
+          "total": 40
+        },
+        "phase": {
+          "mean_deg": 222.365,
+          "std_deg": 0.71,
+          "sem_deg": 0.112,
+          "used": 40,
+          "total": 40
+        }
+      },
+      {
+        "target_fraction": 0.35,
+        "ref_lba": 15414,
+        "target_lba": 107903,
+        "read_end_lba": 107904,
+        "nominal_turns_between": 7117.31,
+        "target_durations": {
+          "n": 40,
+          "p50_us": 116577.9,
+          "p95_us": 129217.0,
+          "p99_us": 132236.0,
+          "min_us": 100918.0,
+          "max_us": 132236.0,
+          "failed": 0
+        },
+        "read_end_bits": 6217923600,
+        "read_tail_frames": 108,
+        "ref": {
+          "period_ms": 18.60673,
+          "rpm": 3224.64,
+          "coherence": 0.9998,
+          "jitter_us": 61.15,
+          "jitter_deg": 1.183,
+          "used": 40,
+          "total": 40
+        },
+        "phase": {
+          "mean_deg": 351.184,
+          "std_deg": 0.724,
+          "sem_deg": 0.114,
+          "used": 40,
+          "total": 40
+        }
+      },
+      {
+        "target_fraction": 0.55,
+        "ref_lba": 15414,
+        "target_lba": 169563,
+        "read_end_lba": 169564,
+        "nominal_turns_between": 10874.49,
+        "target_durations": {
+          "n": 40,
+          "p50_us": 133967.3,
+          "p95_us": 143419.3,
+          "p99_us": 143613.7,
+          "min_us": 109876.0,
+          "max_us": 143613.7,
+          "failed": 0
+        },
+        "read_end_bits": 9771019440,
+        "read_tail_frames": 108,
+        "ref": {
+          "period_ms": 18.60932,
+          "rpm": 3224.19,
+          "coherence": 0.9996,
+          "jitter_us": 85.95,
+          "jitter_deg": 1.663,
+          "used": 40,
+          "total": 40
+        },
+        "phase": {
+          "mean_deg": 270.307,
+          "std_deg": 0.526,
+          "sem_deg": 0.083,
+          "used": 40,
+          "total": 40
+        }
+      },
+      {
+        "target_fraction": 0.75,
+        "ref_lba": 15414,
+        "target_lba": 231222,
+        "read_end_lba": 231223,
+        "nominal_turns_between": 14183.92,
+        "target_durations": {
+          "n": 40,
+          "p50_us": 147955.4,
+          "p95_us": 158275.3,
+          "p99_us": 162003.6,
+          "min_us": 126098.5,
+          "max_us": 162003.6,
+          "failed": 0
+        },
+        "read_end_bits": 13324057656,
+        "read_tail_frames": 108,
+        "ref": {
+          "period_ms": 18.60949,
+          "rpm": 3224.16,
+          "coherence": 0.9978,
+          "jitter_us": 48.01,
+          "jitter_deg": 0.929,
+          "used": 39,
+          "total": 40
+        },
+        "phase": {
+          "mean_deg": 176.435,
+          "std_deg": 1.716,
+          "sem_deg": 0.271,
+          "used": 40,
+          "total": 40
+        }
+      },
+      {
+        "target_fraction": 0.95,
+        "ref_lba": 15414,
+        "target_lba": 292882,
+        "read_end_lba": 292883,
+        "nominal_turns_between": 17175.55,
+        "target_durations": {
+          "n": 40,
+          "p50_us": 162518.3,
+          "p95_us": 171413.0,
+          "p99_us": 174500.5,
+          "min_us": 146066.0,
+          "max_us": 174500.5,
+          "failed": 0
+        },
+        "read_end_bits": 16877153496,
+        "read_tail_frames": 108,
+        "ref": {
+          "period_ms": 18.61093,
+          "rpm": 3223.91,
+          "coherence": 0.9999,
+          "jitter_us": 34.43,
+          "jitter_deg": 0.666,
+          "used": 40,
+          "total": 40
+        },
+        "phase": {
+          "mean_deg": 37.799,
+          "std_deg": 0.814,
+          "sem_deg": 0.129,
+          "used": 40,
+          "total": 40
+        }
+      }
+    ],
+    "note": "phase = spindle phase of target completion minus reference completion; it equals the disc angle between the ends of the two read blocks plus a constant decode-latency term, modulo 360 degrees"
+  },
+  "device": "H:",
+  "args": {
+    "drive": "H:",
+    "sim": null,
+    "seed": 1,
+    "out": "results",
+    "read": "auto",
+    "reps": 40,
+    "period_reads": 60,
+    "targets": null,
+    "ref": 0.05,
+    "speed": 2822,
+    "cav": false,
+    "sectors": 1,
+    "host_delay_ms": 25.0,
+    "evict_sectors": 1024,
+    "media": "cd"
+  }
+}

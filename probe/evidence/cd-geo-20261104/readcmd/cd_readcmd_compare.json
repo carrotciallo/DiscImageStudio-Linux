@@ -1,0 +1,129 @@
+{
+  "rows": [
+    {
+      "lba": 5000,
+      "r_mm": 26.026595640708816,
+      "read12_deg": 326.181,
+      "readcd_deg": 326.683,
+      "diff_deg": 0.5020000000000095,
+      "sigma_deg": 0.282842712474619,
+      "readcd_std_deg": 1.059,
+      "readcd_used": 32
+    },
+    {
+      "lba": 30000,
+      "r_mm": 29.47872527335962,
+      "read12_deg": 293.695,
+      "readcd_deg": 294.019,
+      "diff_deg": 0.3240000000000123,
+      "sigma_deg": 0.3078246253956951,
+      "readcd_std_deg": 1.325,
+      "readcd_used": 32
+    },
+    {
+      "lba": 60000,
+      "r_mm": 33.15009984085883,
+      "read12_deg": 147.02,
+      "readcd_deg": 147.323,
+      "diff_deg": 0.30299999999999727,
+      "sigma_deg": 0.282842712474619,
+      "readcd_std_deg": 1.065,
+      "readcd_used": 32
+    },
+    {
+      "lba": 90000,
+      "r_mm": 36.45357314688926,
+      "read12_deg": 192.068,
+      "readcd_deg": 192.897,
+      "diff_deg": 0.8289999999999793,
+      "sigma_deg": 0.282842712474619,
+      "readcd_std_deg": 1.029,
+      "readcd_used": 32
+    },
+    {
+      "lba": 120000,
+      "r_mm": 39.48160167587307,
+      "read12_deg": 225.952,
+      "readcd_deg": 226.733,
+      "diff_deg": 0.7810000000000059,
+      "sigma_deg": 0.282842712474619,
+      "readcd_std_deg": 1.032,
+      "readcd_used": 32
+    },
+    {
+      "lba": 150000,
+      "r_mm": 42.293388923199345,
+      "read12_deg": 10.615,
+      "readcd_deg": 11.656,
+      "diff_deg": 1.0409999999999968,
+      "sigma_deg": 0.282842712474619,
+      "readcd_std_deg": 0.913,
+      "readcd_used": 32
+    },
+    {
+      "lba": 210000,
+      "r_mm": 47.41938947353072,
+      "read12_deg": 72.086,
+      "readcd_deg": 72.717,
+      "diff_deg": 0.6310000000000002,
+      "sigma_deg": 0.282842712474619,
+      "readcd_std_deg": 0.929,
+      "readcd_used": 32
+    },
+    {
+      "lba": 240000,
+      "r_mm": 49.784860889221065,
+      "read12_deg": 12.335,
+      "readcd_deg": 11.288,
+      "diff_deg": -1.046999999999997,
+      "sigma_deg": 0.48150181723436936,
+      "readcd_std_deg": 1.016,
+      "readcd_used": 32
+    },
+    {
+      "lba": 270000,
+      "r_mm": 52.0429269879759,
+      "read12_deg": 181.02,
+      "readcd_deg": 176.825,
+      "diff_deg": -4.195000000000022,
+      "sigma_deg": 0.282842712474619,
+      "readcd_std_deg": 1.112,
+      "readcd_used": 32
+    },
+    {
+      "lba": 300000,
+      "r_mm": 54.207011771471855,
+      "read12_deg": 185.06,
+      "readcd_deg": 180.274,
+      "diff_deg": -4.786000000000001,
+      "sigma_deg": 0.2849719284420836,
+      "readcd_std_deg": 1.146,
+      "readcd_used": 32
+    },
+    {
+      "lba": 330000,
+      "r_mm": 56.28795609106077,
+      "read12_deg": 100.306,
+      "readcd_deg": 94.8,
+      "diff_deg": -5.506,
+      "sigma_deg": 0.282842712474619,
+      "readcd_std_deg": 0.673,
+      "readcd_used": 31
+    },
+    {
+      "lba": 352000,
+      "r_mm": 57.76635851804027,
+      "read12_deg": 237.797,
+      "readcd_deg": 234.278,
+      "diff_deg": -3.5190000000000055,
+      "sigma_deg": 0.6762514325308302,
+      "readcd_std_deg": 3.596,
+      "readcd_used": 31
+    }
+  ],
+  "C_deg": -7.390196514250636,
+  "dL_mm": 4.396455022437042,
+  "dL_sigma_mm": 1.5785710664046466,
+  "dL_frames": 26.928287012426885,
+  "chi2_dof": 45.38783776738798
+}

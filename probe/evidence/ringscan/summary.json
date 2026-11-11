@@ -1,0 +1,146 @@
+{
+  "warnings": [
+    "levels scatter by more than 0.2 of the reference span: the references barely differ under this lighting, so the levels are unreliable"
+  ],
+  "scans": [
+    {
+      "name": "greyscale_rings_1",
+      "dpi_used": 600.0,
+      "centre_px": [
+        2771.61,
+        2817.98
+      ],
+      "outer_edge_radius_mm": 59.3082,
+      "y_over_x_scale": 1.007409,
+      "edges_found": 10,
+      "edges_used": 10,
+      "edges_expected": 22,
+      "angle_fraction_used": 0.111,
+      "radial_fit": {
+        "r0_mm": 24.1233,
+        "pitch_x_sector_length_vs_nominal": 1.00071,
+        "edge_residual_rms_mm": 0.0323,
+        "note": "radius scale comes from the scanner DPI; compare outer_edge_radius_mm with 60.0"
+      }
+    }
+  ],
+  "levels": {
+    "L": {
+      "A5": 0.0002,
+      "B9": 1.0002,
+      "66": 0.4864,
+      "64": 0.4378,
+      "E4": 0.5063,
+      "92": 0.6984,
+      "RND": 0.5339
+    },
+    "R": {
+      "A5": 0.0002,
+      "B9": 1.0002,
+      "66": 0.4864,
+      "64": 0.4378,
+      "E4": 0.5063,
+      "92": 0.6984,
+      "RND": 0.5339
+    },
+    "G": {
+      "A5": 0.0002,
+      "B9": 1.0002,
+      "66": 0.4864,
+      "64": 0.4378,
+      "E4": 0.5063,
+      "92": 0.6984,
+      "RND": 0.5339
+    },
+    "B": {
+      "A5": 0.0002,
+      "B9": 1.0002,
+      "66": 0.4864,
+      "64": 0.4378,
+      "E4": 0.5063,
+      "92": 0.6984,
+      "RND": 0.5339
+    }
+  },
+  "pooled_std_L": 0.20304,
+  "order_dark_to_bright_L": [
+    "A5",
+    "64",
+    "66",
+    "E4",
+    "RND",
+    "92",
+    "B9"
+  ],
+  "palette_L": [
+    "A5",
+    "92"
+  ],
+  "palette_rule": "neighbouring levels differ by >= 3.0 x the pooled repeat std (scanner separability only; confirm by eye)",
+  "separation_sigmas_L": {
+    "A5": {
+      "A5": 0.0,
+      "64": 2.2,
+      "66": 2.4,
+      "E4": 2.5,
+      "RND": 2.6,
+      "92": 3.4,
+      "B9": 4.9
+    },
+    "64": {
+      "A5": 2.2,
+      "64": 0.0,
+      "66": 0.2,
+      "E4": 0.3,
+      "RND": 0.5,
+      "92": 1.3,
+      "B9": 2.8
+    },
+    "66": {
+      "A5": 2.4,
+      "64": 0.2,
+      "66": 0.0,
+      "E4": 0.1,
+      "RND": 0.2,
+      "92": 1.0,
+      "B9": 2.5
+    },
+    "E4": {
+      "A5": 2.5,
+      "64": 0.3,
+      "66": 0.1,
+      "E4": 0.0,
+      "RND": 0.1,
+      "92": 0.9,
+      "B9": 2.4
+    },
+    "RND": {
+      "A5": 2.6,
+      "64": 0.5,
+      "66": 0.2,
+      "E4": 0.1,
+      "RND": 0.0,
+      "92": 0.8,
+      "B9": 2.3
+    },
+    "92": {
+      "A5": 3.4,
+      "64": 1.3,
+      "66": 1.0,
+      "E4": 0.9,
+      "RND": 0.8,
+      "92": 0.0,
+      "B9": 1.5
+    },
+    "B9": {
+      "A5": 4.9,
+      "64": 2.8,
+      "66": 2.5,
+      "E4": 2.4,
+      "RND": 2.3,
+      "92": 1.5,
+      "B9": 0.0
+    }
+  },
+  "level_scale": "0 = A5, 1 = B9 at the same radius and angle"
+}

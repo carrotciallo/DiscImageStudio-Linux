@@ -1,0 +1,8 @@
+﻿Recorder: HL-DT-ST DVD-RAM GH70N rev NYA2 at H:
+Media type 2 (CD), blank: True, free sectors: 359847, total: 359847
+Supported write speeds: 40x (3000 sectors/s, CLV/ZCLV); 32x (2400 sectors/s, CLV/ZCLV); 24x (1800 sectors/s, CLV/ZCLV); 16x (1199 sectors/s, CLV/ZCLV); 8x (599 sectors/s, CLV/ZCLV); 4x (300 sectors/s, CLV/ZCLV)
+Image: D:\disc-probe\iso\cd-rings-m2f1.iso, 308146 sectors
+Requested write speed: 8x; drive reports 8x
+Writing ... (started 14:52:45)
+Done in 9.4 min
+Tray closed again.

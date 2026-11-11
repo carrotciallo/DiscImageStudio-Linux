@@ -1,0 +1,41 @@
+{
+  "standard_url": "https://ecma-international.org/wp-content/uploads/ECMA-130_2nd_edition_june_1996.pdf",
+  "standard_sha256": "576fb91e38e850b7597767ea48402a33e79a89ae4f7d41290e884142ad47f7b8",
+  "DIS_commit": "46fa699eb482a3915ac754d6d58a981913d9a56d",
+  "DIS_delay_rows_compared": 24,
+  "redumper_source": "https://raw.githubusercontent.com/superg/redumper/fa5d2434c755a2dc26199fee2d20fc246a9e51c9/cd/cd_scrambler.ixx",
+  "redumper_source_sha256": "d46dfbcbf169c32af389630e08a02a1cfd368d692eadd6905772f185991898ba",
+  "scramble_prefix_32": "01 80 00 60 00 28 00 1e 80 08 60 06 a8 02 fe 81 80 60 60 28 28 1e 9e 88 68 66 ae aa fc 7f 01 e0",
+  "raw_sector_layout": {
+    "sync": [
+      0,
+      12
+    ],
+    "header": [
+      12,
+      16
+    ],
+    "user": [
+      16,
+      2064
+    ],
+    "EDC": [
+      2064,
+      2068
+    ],
+    "zero": [
+      2068,
+      2076
+    ],
+    "P": [
+      2076,
+      2248
+    ],
+    "Q": [
+      2248,
+      2352
+    ]
+  },
+  "physical_origin_measured": false,
+  "read_completion_measured": false
+}

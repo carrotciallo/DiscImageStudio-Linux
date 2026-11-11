@@ -1,0 +1,182 @@
+parsers
+  ok    ATIP lead-in time
+  ok    ATIP lead-out = CD80 capacity
+  ok    MSF 00:02:00 is LBA 0
+  ok    GET PERFORMANCE descriptor
+  ok    DVD physical format
+  ok    DVD-R MID from Field IDs 3 and 4
+  ok    WRITE(10) refused
+  ok    WRITE(12) refused
+  ok    CLOSE TRACK refused
+  ok    FORMAT UNIT refused
+period estimation
+  ok    fundamental found among harmonics: 7.10001 ms
+  ok    jitter 49.1 us
+simulated drive: cav, FUA honoured, zero-length flush ignored, 1-sector reads
+  ok    cache strategy fua
+  ok    rotation CAV (period ratio 1.0)
+  ok    zone 0.05: T 6.59993 ms
+  ok    zone 0.5: T 6.59996 ms
+  ok    zone 0.95: T 6.59996 ms
+  ok    target 0.15: measured 262.07, true 262.66, error 0.59 deg (sem 0.61)
+  ok    target 0.35: measured 107.38, true 106.44, error 0.95 deg (sem 0.518)
+  ok    target 0.55: measured 216.85, true 216.94, error 0.09 deg (sem 0.498)
+  ok    target 0.75: measured 81.68, true 80.72, error 0.96 deg (sem 0.681)
+  ok    target 0.95: measured 354.27, true 355.64, error 1.37 deg (sem 0.538)
+  worst phase error 1.37 deg
+simulated drive: cav, FUA honoured, zero-length flush ignored, 16-sector reads
+  ok    cache strategy fua
+  ok    rotation CAV (period ratio 1.0)
+  ok    zone 0.05: T 6.59993 ms
+  ok    zone 0.5: T 6.59996 ms
+  ok    zone 0.95: T 6.59996 ms
+  ok    target 0.15: measured 262.07, true 262.66, error 0.59 deg (sem 0.61)
+  ok    target 0.35: measured 107.38, true 106.44, error 0.95 deg (sem 0.518)
+  ok    target 0.55: measured 216.85, true 216.94, error 0.09 deg (sem 0.498)
+  ok    target 0.75: measured 81.68, true 80.72, error 0.96 deg (sem 0.681)
+  ok    target 0.95: measured 354.27, true 355.64, error 1.37 deg (sem 0.538)
+  worst phase error 1.37 deg
+simulated drive: cav, FUA honoured, zero-length flush ignored, 1-sector reads, 35.0 ms firmware overhead per media read
+  ok    cache strategy fua
+  ok    rotation CAV (period ratio 1.0)
+  ok    zone 0.05: T 6.59993 ms
+  ok    zone 0.5: T 6.5999 ms
+  ok    zone 0.95: T 6.59986 ms
+  ok    target 0.15: measured 262.06, true 262.66, error 0.60 deg (sem 0.611)
+  ok    target 0.35: measured 107.38, true 106.44, error 0.94 deg (sem 0.51)
+  ok    target 0.55: measured 216.86, true 216.94, error 0.08 deg (sem 0.502)
+  ok    target 0.75: measured 81.68, true 80.72, error 0.96 deg (sem 0.684)
+  ok    target 0.95: measured 354.27, true 355.64, error 1.37 deg (sem 0.536)
+  worst phase error 1.37 deg
+simulated drive: cav, FUA ignored, zero-length flush honoured, 1-sector reads
+  ok    cache strategy flush
+  ok    rotation CAV (period ratio 1.0)
+  ok    zone 0.05: T 6.59991 ms
+  ok    zone 0.5: T 6.59986 ms
+  ok    zone 0.95: T 6.60016 ms
+  ok    target 0.15: measured 263.29, true 262.66, error 0.62 deg (sem 0.584)
+  ok    target 0.35: measured 106.11, true 106.44, error 0.33 deg (sem 0.711)
+  ok    target 0.55: measured 214.69, true 216.94, error 2.25 deg (sem 0.686)
+  ok    target 0.75: measured 80.75, true 80.72, error 0.03 deg (sem 0.624)
+  ok    target 0.95: measured 355.19, true 355.64, error 0.45 deg (sem 0.643)
+  worst phase error 2.25 deg
+simulated drive: cav, FUA ignored, zero-length flush ignored, 1-sector reads
+  ok    cache strategy evict
+  ok    rotation CAV (period ratio 0.9999)
+  ok    zone 0.05: T 6.59988 ms
+  ok    zone 0.5: T 6.59973 ms
+  ok    zone 0.95: T 6.59955 ms
+  ok    target 0.15: measured 261.82, true 262.66, error 0.85 deg (sem 0.635)
+  ok    target 0.35: measured 106.51, true 106.44, error 0.07 deg (sem 0.64)
+  ok    target 0.55: measured 216.20, true 216.94, error 0.74 deg (sem 0.564)
+  ok    target 0.75: measured 80.00, true 80.72, error 0.72 deg (sem 0.736)
+  ok    target 0.95: measured 356.33, true 355.64, error 0.68 deg (sem 0.727)
+  worst phase error 0.85 deg
+simulated drive: clv, FUA honoured, zero-length flush ignored, 1-sector reads
+  ok    cache strategy fua
+  ok    rotation CLV (period ratio 2.124)
+ladder geometry measurement on the simulated drive (35 ms re-read overhead)
+  ok    14 rungs, angle error over 0-85 % of the disc 1.035 deg (reported 1 sigma 1.099, chi2/dof 1.84)
+ladder stops on a wrong whole-turn count
+  ok    stopped after 6 rungs: after the rung at LBA 1130464: chi2/dof 363.0, worst residua...
+DiscImageStudio preset export
+  ok    constant-pitch map exports with ~zero cubic terms, max angle difference 0.0011 deg
+EFMPlus modulation with DSV control
+  ok    A5 / 92 code words have 5 / 2 transitions
+  ok    levels and DSV agree, run lengths 3T-14T
+  ok    DSV stays bounded on random data (max |DSV| 14 at frame ends)
+tile palette target
+  ok    all 129 tile IDs and palettes read back from the rasterised design
+  ok    repeated sequences keep their phase along a data-frame row
+  ok    random mixes draw only from their byte list
+CD scrambler and forward/inverse CIRC
+  ok    Annex B 32-byte prefix and 32767-bit period
+  ok    all 2340 scramble bytes agree with redumper formulation
+  ok    scrambler resets after every sector sync
+  ok    clause 16 adjacent swap before CIRC
+  ok    all 24 DIS 46fa699 DelayFor values agree with figure C.4
+  ok    8000 random bytes round-trip value, sector, offset and channel position
+  ok    independent inverse enumeration agrees across sector boundaries
+  ok    parity slots are uncontrollable
+  ok    last raw pair spans frames 202/205; completion includes 108 tail frames
+  ok    last raw-pair B symbol is at frame 205 slot 27
+CD rings and physical-domain image ISO
+  ok    small CD rings: 923 sectors verified
+  ok    CD rings verifier detects a flipped byte
+  ok    every byte inverse-reconstructed: labels, physical sequences, MIX and correction
+  ok    independent CD image reconstruction detects corruption
+  ok    CD output overwrite refused
+  ok    invalid CD capacity 20 rejected
+  ok    invalid CD capacity 359850 rejected
+CD timing ladder: four +/-1% geometries, 35 ms reread overhead
+  ok    u -1%, v -1%: 36 rungs, 0-85% error 0.289 deg
+  ok    CD data READ(12)+FUA and media-tagged fit
+  ok    u -1%, v +1%: 36 rungs, 0-85% error 0.293 deg
+  ok    CD data READ(12)+FUA and media-tagged fit
+  ok    u +1%, v -1%: 36 rungs, 0-85% error 0.285 deg
+  ok    CD data READ(12)+FUA and media-tagged fit
+  ok    u +1%, v +1%: 36 rungs, 0-85% error 0.289 deg
+  ok    CD data READ(12)+FUA and media-tagged fit
+CD synthetic ringscan
+  ok    CD ring edges and reference-normalised levels: max error 0.009
+CD EFM reference modulation (not a hardware encoder prediction)
+  ok    588 bits/frame, NRZI sum = DSV, runs 3T-11T
+CD timing CAV/CLV, sector sizes and READ CD rejection
+  ok    CD cav: rotation recognised, 2048-byte READ(12)+FUA, one-sector units
+  ok    CD CAV phase matches completion-tail model: worst 0.448 deg
+  ok    CD clv: rotation recognised, 2048-byte READ(12)+FUA, one-sector units
+  ok    READ CD rejected for CD timing
+synthetic scan: mirrored=False, inverted=False
+  ok    mirror detected as False
+  ok    rings used 640 of 781 (23.6-58.4 mm)
+  ok    bending over -3..220 deg: max error 0.234 deg, rms 0.037 deg, noise/ring 0.0264
+  ok    scanner y/x scale 1.003015
+  ok    6 markers, max radius error 0.0140 mm
+synthetic scan: mirrored=True, inverted=True
+  ok    mirror detected as True
+  ok    rings used 639 of 781 (23.6-58.4 mm)
+  ok    bending over -3..220 deg: max error 0.220 deg, rms 0.038 deg, noise/ring 0.0257
+  ok    scanner y/x scale 1.003015
+  ok    6 markers, max radius error 0.0160 mm
+DVD scrambler
+  ok    x^15 + x^4 + 1 register period 32767
+  ok    sequences start with the preset low byte
+  ok    16 distinct preset sequences
+  ok    preset follows PSN bits 7..4 (one per ECC block)
+  ok    payload descrambles to the chosen byte
+ring ISO round trip
+  ok    6336 sectors written and verified
+  ok    a flipped byte is reported
+  ok    default layout: 21 rings, 1962016 sectors
+synthetic ring scan
+  ok    ring edges used 22 of 22
+  ok    radial fit r0 23.9597 mm (true 23.96), pitch x length 1.00797 (true 1.008), edge rms 0.0009 mm
+  ok    levels within 0.010 of truth (66 -0.010, A5 -0.000, 64 0.330, E4 0.392, B9 0.550, RND 0.617, 92 1.000)
+  ok    palette 66 64 E4 B9 RND 92 (pooled std 0.01526)
+  ok    colour channels analysed
+calibration disc layout
+  ok    39 bands, 2200448 sectors
+  ok    small calibration ISO (108304 sectors) verified
+synthetic scan of the bracketing disc: mirrored=False, inverted=False
+  ok    mirror detected as False (score 0.871)
+  ok    guard edges 79/80, radius map error 1.3 um
+  ok    readable bands 9: +0.2%@30.9mm, +0.4%@31.7mm, +0.6%@32.5mm, +0.6%@38.2mm, +0.4%@39.0mm, +0.2%@39.8mm, +0.2%@52.0mm, +0.4%@52.8mm, +0.6%@53.7mm
+  ok    two-parameter fit produced
+  info  coarse fit angle error over 24-58 mm: 13.0 deg
+  ok    fine fit with 9 bands: angle error over 24-58 mm 1.261 deg (reported 1 sigma 2.349; nominal layout was off 63820 deg)
+synthetic scan of the bracketing disc: mirrored=True, inverted=True
+  ok    mirror detected as True (score -0.888)
+  ok    guard edges 79/80, radius map error 6.8 um
+  ok    readable bands 9: +0.2%@30.9mm, +0.4%@31.7mm, +0.6%@32.5mm, +0.6%@38.2mm, +0.4%@39.0mm, +0.2%@39.8mm, +0.2%@52.0mm, +0.4%@52.9mm, +0.6%@53.7mm
+  ok    two-parameter fit produced
+  info  coarse fit angle error over 24-58 mm: 11.9 deg
+  ok    fine fit with 9 bands: angle error over 24-58 mm 4.709 deg (reported 1 sigma 2.276; nominal layout was off 63815 deg)
+synthetic scan of the refinement disc: mirrored=True, inverted=False
+  ok    mirror detected as True (score -0.998)
+  ok    guard edges 41/42, radius map error 0.6 um
+  ok    readable bands 20: +0.0%@25.3mm, +0.0%@26.9mm, +0.0%@28.4mm, +0.0%@30.0mm, +0.0%@31.6mm, +0.0%@33.2mm, +0.0%@34.8mm, +0.0%@36.4mm, +0.0%@38.0mm, +0.0%@39.6mm, +0.0%@41.2mm, +0.0%@42.8mm, +0.0%@44.4mm, +0.0%@46.0mm, +0.0%@47.6mm, +0.0%@49.2mm, +0.0%@50.8mm, +0.0%@52.3mm, +0.0%@53.9mm, +0.0%@55.5mm
+  ok    two-parameter fit produced
+  info  coarse fit angle error over 24-58 mm: 0.9 deg
+  ok    fine fit with 20 bands: angle error over 24-58 mm 0.080 deg (reported 1 sigma 0.023; nominal layout was off 1 deg)
+
+all checks passed

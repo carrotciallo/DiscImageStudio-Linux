@@ -1,0 +1,33 @@
+{
+  "preset": {
+    "id": "ritekf1-dvd-r-discprobe",
+    "displayName": "Ritek F1 DVD-R (drive-timing calibration + scan correction)",
+    "description": "Drive-timing calibration (discprobe) + grid-scan angle correction; fitted over 25.8-54.4 mm, max angle difference to the measured map 0.011 deg",
+    "totalSectors": 2298496,
+    "innerRadiusMm": 24.06311005229875,
+    "outerRadiusMm": 58.23373779844293,
+    "channelBitLengthNm": 133.3,
+    "pitchLinear": 5.667353192759332e-07,
+    "pitchQuadratic": 9.71862780411402e-08,
+    "pitchCubic": -2.6948387304314523e-07
+  },
+  "fit": {
+    "innerRadiusMm": 24.06311005229875,
+    "outerRadiusMm": 58.23373779844293,
+    "pitchLinear": 5.667353192759332e-07,
+    "pitchQuadratic": 9.71862780411402e-08,
+    "pitchCubic": -2.6948387304314523e-07,
+    "p0_um": 0.7453079085919063,
+    "fit_range_mm": [
+      25.8,
+      54.4
+    ],
+    "max_angle_diff_deg": 0.011234250133518284,
+    "rms_angle_diff_deg": 0.0036201834863934298,
+    "peak_to_peak_angle_diff_deg": 0.017108249516258757
+  },
+  "source": {
+    "geo": "random_disc_summary.json",
+    "correction": "angle_correction.json"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "scan": "grid3_p7.png",
+  "mirrored_relative_to_design": false,
+  "mirror_scores": {
+    "design": 8.23,
+    "mirrored": 8.23
+  },
+  "picture_rotation_deg": 301.262,
+  "rings": 258,
+  "rings_good": 122,
+  "phi_range_deg": 0.2742,
+  "phi_rms_deg": 0.0456,
+  "trend_deg_per_mm": -0.00301,
+  "trend_over_25_55_mm_deg": -0.0903,
+  "curvature_deg_per_mm2": -6.9e-05,
+  "noise_per_ring_deg": 0.0335,
+  "y_over_x_scale": 0.999688
+}

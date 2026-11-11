@@ -1,0 +1,95 @@
+{
+ "pairs": {
+  "A old s1 vs old s2": {
+   "ncc": 0.594,
+   "shift_px": [
+    0,
+    0
+   ]
+  },
+  "A new s1 vs new s2": {
+   "ncc": 0.412,
+   "shift_px": [
+    0,
+    0
+   ]
+  },
+  "A old s1 vs new s1": {
+   "ncc": 0.225,
+   "shift_px": [
+    3,
+    0
+   ]
+  },
+  "A old s2 vs new s2": {
+   "ncc": 0.322,
+   "shift_px": [
+    2,
+    0
+   ]
+  },
+  "A old s1 vs new s2": {
+   "ncc": 0.333,
+   "shift_px": [
+    2,
+    0
+   ]
+  },
+  "A old s2 vs new s1": {
+   "ncc": 0.191,
+   "shift_px": [
+    2,
+    1
+   ]
+  },
+  "B old s1 vs old s2": {
+   "ncc": 0.518,
+   "shift_px": [
+    1,
+    -2
+   ]
+  },
+  "B new s1 vs new s2": {
+   "ncc": 0.276,
+   "shift_px": [
+    1,
+    1
+   ]
+  },
+  "B old s1 vs new s1": {
+   "ncc": 0.233,
+   "shift_px": [
+    -4,
+    -2
+   ]
+  },
+  "B old s2 vs new s2": {
+   "ncc": 0.224,
+   "shift_px": [
+    -2,
+    2
+   ]
+  },
+  "B old s1 vs new s2": {
+   "ncc": 0.279,
+   "shift_px": [
+    -3,
+    0
+   ]
+  },
+  "B old s2 vs new s1": {
+   "ncc": 0.205,
+   "shift_px": [
+    -3,
+    1
+   ]
+  }
+ },
+ "paired_contrast": {
+  "n": 24,
+  "old": 0.17490382492542267,
+  "new": 0.125340074300766,
+  "new_minus_old": -0.04956373944878578,
+  "sem": 0.02766032709488714
+ }
+}

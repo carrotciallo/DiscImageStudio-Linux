@@ -1,0 +1,7 @@
+{
+  "existing_files_checked": 309,
+  "changed": [],
+  "method": "size and mtime_ns, no content-hash claim",
+  "scsi_whitelist_source_unchanged": true,
+  "branch": "codex/cd-support"
+}

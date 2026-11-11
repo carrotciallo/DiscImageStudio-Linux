@@ -1,0 +1,44 @@
+=== speed 5540
+Spindle settled: T = 21.1929 ms (2831.1 rpm), jitter 15.5 us
+lba  527968  r 35.000 mm  residual   -0.09 deg  +/- 0.20
+lba  834480  r 40.000 mm  residual   -0.15 deg  +/- 0.20
+lba 1109104  r 44.000 mm  residual   -0.10 deg  +/- 0.20
+lba 1332240  r 47.000 mm  residual   +0.00 deg  +/- 0.20
+lba 1489168  r 49.000 mm  residual   +0.06 deg  +/- 0.20
+lba 1570096  r 50.000 mm  residual   +0.03 deg  +/- 0.20
+lba 1652640  r 51.000 mm  residual   +0.09 deg  +/- 0.20
+lba 1736832  r 52.000 mm  residual   -0.01 deg  +/- 0.20
+lba 1779536  r 52.500 mm  residual   +0.35 deg  +/- 0.20
+lba 1822656  r 53.000 mm  residual   +0.15 deg  +/- 0.20
+lba 1866176  r 53.500 mm  residual   +0.01 deg  +/- 0.20
+lba 1910112  r 54.000 mm  residual   +0.10 deg  +/- 0.20
+lba 1954448  r 54.500 mm  residual   +0.13 deg  +/- 0.20
+lba 1999200  r 55.000 mm  residual   +0.05 deg  +/- 0.20
+lba 2044352  r 55.500 mm  residual   -0.09 deg  +/- 0.20
+lba 2089920  r 56.000 mm  residual   +0.16 deg  +/- 0.20
+lba 2135904  r 56.500 mm  residual   -0.07 deg  +/- 0.20
+lba 2182288  r 57.000 mm  residual   -0.01 deg  +/- 0.20
+lba 2229088  r 57.500 mm  residual   -0.19 deg  +/- 0.20
+lba 2276288  r 58.000 mm  residual   +0.17 deg  +/- 0.20
+=== speed 11080
+Spindle settled: T = 12.7056 ms (4722.3 rpm), jitter 21.3 us
+lba  527968  r 35.000 mm  residual   -0.15 deg  +/- 0.20
+lba  834480  r 40.000 mm  residual   +0.00 deg  +/- 0.20
+lba 1109104  r 44.000 mm  residual   -0.09 deg  +/- 0.20
+lba 1332240  r 47.000 mm  residual   -0.03 deg  +/- 0.20
+lba 1489168  r 49.000 mm  residual   +0.50 deg  +/- 0.20
+lba 1570096  r 50.000 mm  residual   +0.26 deg  +/- 0.20
+lba 1652640  r 51.000 mm  residual   -0.01 deg  +/- 0.20
+lba 1736832  r 52.000 mm  residual   +0.00 deg  +/- 0.20
+lba 1779536  r 52.500 mm  residual   +0.52 deg  +/- 0.22
+lba 1822656  r 53.000 mm  residual   +0.53 deg  +/- 0.20
+lba 1866176  r 53.500 mm  residual   +0.36 deg  +/- 0.20
+lba 1910112  r 54.000 mm  residual   -0.14 deg  +/- 0.21
+lba 1954448  r 54.500 mm  residual   +0.11 deg  +/- 0.20
+lba 1999200  r 55.000 mm  residual   +0.00 deg  +/- 0.20
+lba 2044352  r 55.500 mm  residual   +0.28 deg  +/- 0.20
+lba 2089920  r 56.000 mm  residual   +0.08 deg  +/- 0.20
+lba 2135904  r 56.500 mm  residual   +0.40 deg  +/- 0.20
+lba 2182288  r 57.000 mm  residual   +0.14 deg  +/- 0.20
+lba 2229088  r 57.500 mm  residual   +0.37 deg  +/- 0.20
+lba 2276288  r 58.000 mm  residual   +0.86 deg  +/- 0.21

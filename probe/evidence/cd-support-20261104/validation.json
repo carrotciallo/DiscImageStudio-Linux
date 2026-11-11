@@ -1,0 +1,88 @@
+{
+  "physical_drive_commands": 0,
+  "burns": 0,
+  "geometry_measured": false,
+  "dvd_writer_regression": {
+    "rings": {
+      "identical": true,
+      "sha256": "43679cd1acf04859ab710ba36aad46daa9db258adcfe31ae8f84361602e77773"
+    },
+    "randomdisc": {
+      "identical": true,
+      "sha256": "5b9bc93309c3e1fcd1259f833fc01afcd0e33d5252c568f674ca3df2299814ba"
+    },
+    "imagedisc": {
+      "identical": true,
+      "sha256": "bb9dcdbc209fce8253d739f4987e3470df4a3590c86de209696d61973875c75c"
+    }
+  },
+  "images": {
+    "rings": {
+      "path": "D:\\disc-probe\\iso\\cd-support-20261104-rings.iso",
+      "sectors": 308146,
+      "bytes": 631083008,
+      "sha256": "3a6219834737a4849668b3a720ee26076aa79d5a871b3a50f2f1bfd6aaea1b7b",
+      "command": [
+        "rings",
+        "--media",
+        "cd",
+        "--output",
+        "D:\\disc-probe\\iso\\cd-support-20261104-rings.iso"
+      ]
+    },
+    "random": {
+      "path": "D:\\disc-probe\\iso\\cd-support-20261104-random.iso",
+      "sectors": 359849,
+      "bytes": 736970752,
+      "sha256": "400319257c10760de6dfbe62ffa245f58a6be1fc6c10adef44ed8940f0208928",
+      "command": [
+        "random",
+        "--media",
+        "cd",
+        "--output",
+        "D:\\disc-probe\\iso\\cd-support-20261104-random.iso"
+      ]
+    },
+    "grid": {
+      "path": "D:\\disc-probe\\iso\\cd-support-20261104-grid.iso",
+      "sectors": 316436,
+      "bytes": 648060928,
+      "sha256": "07bfce85c35f9f95d02e8eb188adff71e6bce0dfeee199351ecb656a2932fc06",
+      "command": [
+        "image",
+        "--media",
+        "cd",
+        "--geo",
+        "D:\\disc-probe\\evidence\\cd-support-20261104\\nominal-geometry.json",
+        "--output",
+        "D:\\disc-probe\\iso\\cd-support-20261104-grid.iso"
+      ]
+    },
+    "tiles": {
+      "path": "D:\\disc-probe\\iso\\cd-support-20261104-tiles.iso",
+      "sectors": 330451,
+      "bytes": 676763648,
+      "sha256": "f368ea0163999d21fa680dcbb1fad7913d64e88eeea70b4bce78d1bfe3b885e3",
+      "command": [
+        "tiles",
+        "--media",
+        "cd",
+        "--geo",
+        "D:\\disc-probe\\evidence\\cd-support-20261104\\nominal-geometry.json",
+        "--output",
+        "D:\\disc-probe\\iso\\cd-support-20261104-tiles.iso"
+      ]
+    }
+  },
+  "grid_full_inverse": {
+    "all_payload_bytes_match": true,
+    "checked_bytes": 648050688,
+    "excluded_filesystem_sectors": [
+      16,
+      17,
+      18,
+      19,
+      20
+    ]
+  }
+}

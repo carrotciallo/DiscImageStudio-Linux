@@ -1,0 +1,20 @@
+single bytes, fraction of power at 1/16 and 1/32:
+  87  P16 0.82  P32 0.00  runs (np.float64(7.978021978021978), np.int64(3), np.int64(8))
+  83  P16 0.82  P32 0.00  runs (np.float64(7.978021978021978), np.int64(2), np.int64(8))
+  8D  P16 0.82  P32 0.00  runs (np.float64(7.978021978021978), np.int64(3), np.int64(8))
+  60  P16 0.82  P32 0.00  runs (np.float64(7.978021978021978), np.int64(1), np.int64(8))
+  8B  P16 0.00  P32 0.36  runs (np.float64(5.324770642201835), np.int64(3), np.int64(10))
+  00  P16 0.00  P32 0.36  runs (np.float64(5.337614678899082), np.int64(3), np.int64(10))
+  24  P16 0.00  P32 0.34  runs (np.float64(5.302919708029197), np.int64(3), np.int64(10))
+  1A  P16 0.00  P32 0.31  runs (np.float64(5.337614678899082), np.int64(3), np.int64(10))
+  88  P16 0.00  P32 0.25  runs (np.float64(5.326605504587156), np.int64(3), np.int64(9))
+  90  P16 0.00  P32 0.25  runs (np.float64(5.326605504587156), np.int64(3), np.int64(9))
+time 0.6
+pairs, P32: [('8B8B', np.float64(0.357)), ('0000', np.float64(0.357)), ('2424', np.float64(0.341)), ('1A1A', np.float64(0.312)), ('918A', np.float64(0.303)), ('8A91', np.float64(0.303)), ('8B88', np.float64(0.303)), ('888B', np.float64(0.303))]
+pairs, P64: [('5002', np.float64(0.247)), ('ED00', np.float64(0.241)), ('00ED', np.float64(0.241)), ('1600', np.float64(0.241)), ('8E02', np.float64(0.241)), ('9504', np.float64(0.239)), ('0495', np.float64(0.239)), ('B501', np.float64(0.236))]
+pairs time 87
+triples, P48: [('00048B', np.float64(0.258)), ('2AE304', np.float64(0.23)), ('FB0702', np.float64(0.225)), ('00087C', np.float64(0.223)), ('0A05B5', np.float64(0.206)), ('40E502', np.float64(0.195)), ('0C3F11', np.float64(0.194)), ('B70700', np.float64(0.19))]
+triples, P96: [('1200AB', np.float64(0.173)), ('DE2F06', np.float64(0.17)), ('2624FC', np.float64(0.166)), ('580404', np.float64(0.161)), ('BB06FC', np.float64(0.157)), ('DC0402', np.float64(0.157)), ('4701F4', np.float64(0.151)), ('D01902', np.float64(0.151))]
+triples time 196
+
+[exited with code 0]

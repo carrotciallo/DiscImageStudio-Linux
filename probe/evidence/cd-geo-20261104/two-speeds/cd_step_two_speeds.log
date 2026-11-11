@@ -1,0 +1,112 @@
+=== speed 2822
+Spindle settled: T = 18.5951 ms (3226.7 rpm), jitter 14.4 us
+lba  120000  r 39.482 mm  residual   +0.78 deg  +/- 0.20
+lba  150000  r 42.293 mm  residual   -0.02 deg  +/- 0.20
+lba  225000  r 48.617 mm  residual   -2.36 deg  +/- 0.20
+lba  226000  r 48.695 mm  residual   -1.67 deg  +/- 0.34
+lba  227000  r 48.774 mm  residual   -1.92 deg  +/- 0.34
+lba  228000  r 48.852 mm  residual   -1.61 deg  +/- 0.35
+lba  229000  r 48.931 mm  residual   -2.12 deg  +/- 0.35
+lba  230000  r 49.009 mm  residual   -1.85 deg  +/- 0.29
+lba  231000  r 49.087 mm  residual   -1.94 deg  +/- 0.31
+lba  232000  r 49.165 mm  residual   -2.06 deg  +/- 0.25
+lba  233000  r 49.243 mm  residual   -2.45 deg  +/- 0.20
+lba  234000  r 49.321 mm  residual   -2.59 deg  +/- 0.20
+lba  235000  r 49.398 mm  residual   -1.92 deg  +/- 0.27
+lba  236000  r 49.476 mm  residual   -2.27 deg  +/- 0.20
+  LBA 237000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 18.6039 ms (3225.1 rpm), jitter 6.2 us
+lba  237000  r 49.553 mm  residual   -2.37 deg  +/- 0.25
+lba  238000  r 49.631 mm  residual   -2.29 deg  +/- 0.31
+  LBA 239000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 18.6016 ms (3225.5 rpm), jitter 14.7 us
+lba  239000  r 49.708 mm  residual   -2.56 deg  +/- 0.20
+lba  240000  r 49.785 mm  residual   -1.95 deg  +/- 0.34
+lba  241000  r 49.862 mm  residual   +2.06 deg  +/- 0.55
+lba  242000  r 49.939 mm  residual   +1.83 deg  +/- 0.20
+lba  243000  r 50.015 mm  residual   +1.73 deg  +/- 0.20
+lba  244000  r 50.092 mm  residual   +1.74 deg  +/- 0.20
+lba  245000  r 50.168 mm  residual   +5.85 deg  +/- 2.23
+  LBA 246000: spindle unsteady or reads failing; settling and retrying
+246000 the spindle speed never settled; is the read speed fixed (--speed)?
+Spindle settled: T = 18.6000 ms (3225.8 rpm), jitter 12.7 us
+lba  247000  r 50.321 mm  residual   +1.73 deg  +/- 0.20
+lba  248000  r 50.397 mm  residual   +2.12 deg  +/- 0.36
+lba  249000  r 50.473 mm  residual   +2.34 deg  +/- 0.58
+lba  250000  r 50.549 mm  residual   +1.84 deg  +/- 0.20
+  LBA 251000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 18.5994 ms (3225.9 rpm), jitter 13.3 us
+lba  251000  r 50.625 mm  residual   +2.12 deg  +/- 0.39
+lba  252000  r 50.700 mm  residual   +1.59 deg  +/- 0.20
+  LBA 253000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 18.5980 ms (3226.2 rpm), jitter 18.6 us
+lba  253000  r 50.776 mm  residual   +1.69 deg  +/- 0.20
+lba  254000  r 50.851 mm  residual   +1.35 deg  +/- 0.20
+lba  255000  r 50.926 mm  residual   +1.60 deg  +/- 0.20
+lba  256000  r 51.002 mm  residual   +1.53 deg  +/- 0.20
+lba  257000  r 51.077 mm  residual   +1.56 deg  +/- 0.20
+lba  258000  r 51.152 mm  residual   +1.53 deg  +/- 0.20
+lba  259000  r 51.227 mm  residual   +1.68 deg  +/- 0.20
+lba  260000  r 51.301 mm  residual   +2.12 deg  +/- 0.44
+lba  261000  r 51.376 mm  residual   +1.55 deg  +/- 0.20
+lba  262000  r 51.450 mm  residual   +1.96 deg  +/- 0.47
+lba  300000  r 54.207 mm  residual   +5.92 deg  +/- 2.39
+  LBA 330000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 18.5989 ms (3226.0 rpm), jitter 20.4 us
+330000 failed
+=== speed 1411
+Spindle settled: T = 29.7793 ms (2014.8 rpm), jitter 12.5 us
+lba  120000  r 39.482 mm  residual   +0.79 deg  +/- 0.20
+lba  150000  r 42.293 mm  residual   -0.06 deg  +/- 0.20
+lba  225000  r 48.617 mm  residual   -2.14 deg  +/- 0.20
+lba  226000  r 48.695 mm  residual   -2.36 deg  +/- 0.20
+lba  227000  r 48.774 mm  residual   -2.36 deg  +/- 0.20
+lba  228000  r 48.852 mm  residual   -2.45 deg  +/- 0.20
+lba  229000  r 48.931 mm  residual   -2.41 deg  +/- 0.20
+lba  230000  r 49.009 mm  residual   -2.50 deg  +/- 0.20
+lba  231000  r 49.087 mm  residual   -2.52 deg  +/- 0.20
+lba  232000  r 49.165 mm  residual   -2.49 deg  +/- 0.20
+lba  233000  r 49.243 mm  residual   -2.47 deg  +/- 0.20
+lba  234000  r 49.321 mm  residual   -2.57 deg  +/- 0.20
+lba  235000  r 49.398 mm  residual   -2.52 deg  +/- 0.20
+  LBA 236000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 29.7811 ms (2014.7 rpm), jitter 14.2 us
+lba  236000  r 49.476 mm  residual   -2.58 deg  +/- 0.20
+lba  237000  r 49.553 mm  residual   -2.64 deg  +/- 0.20
+lba  238000  r 49.631 mm  residual   -2.65 deg  +/- 0.20
+lba  239000  r 49.708 mm  residual   -2.52 deg  +/- 0.20
+lba  240000  r 49.785 mm  residual   -2.68 deg  +/- 0.20
+lba  241000  r 49.862 mm  residual   -2.69 deg  +/- 0.20
+lba  242000  r 49.939 mm  residual   -2.66 deg  +/- 0.20
+  LBA 243000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 29.7754 ms (2015.1 rpm), jitter 16.1 us
+lba  243000  r 50.015 mm  residual   -2.71 deg  +/- 0.20
+lba  244000  r 50.092 mm  residual   -2.72 deg  +/- 0.20
+lba  245000  r 50.168 mm  residual   -2.75 deg  +/- 0.20
+lba  246000  r 50.245 mm  residual   -2.73 deg  +/- 0.20
+lba  247000  r 50.321 mm  residual   -2.74 deg  +/- 0.20
+  LBA 248000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 29.7744 ms (2015.2 rpm), jitter 11.7 us
+lba  248000  r 50.397 mm  residual   -2.69 deg  +/- 0.20
+  LBA 249000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 29.7764 ms (2015.0 rpm), jitter 14.5 us
+lba  249000  r 50.473 mm  residual   -2.84 deg  +/- 0.20
+lba  250000  r 50.549 mm  residual   -2.86 deg  +/- 0.20
+lba  251000  r 50.625 mm  residual   -2.84 deg  +/- 0.20
+  LBA 252000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 29.7734 ms (2015.2 rpm), jitter 11.3 us
+lba  252000  r 50.700 mm  residual   -2.86 deg  +/- 0.20
+lba  253000  r 50.776 mm  residual   -2.89 deg  +/- 0.20
+lba  254000  r 50.851 mm  residual   -2.95 deg  +/- 0.20
+lba  255000  r 50.926 mm  residual   -2.91 deg  +/- 0.20
+lba  256000  r 51.002 mm  residual   -2.88 deg  +/- 0.20
+lba  257000  r 51.077 mm  residual   -2.99 deg  +/- 0.20
+lba  258000  r 51.152 mm  residual   -2.84 deg  +/- 0.20
+lba  259000  r 51.227 mm  residual   -2.88 deg  +/- 0.20
+lba  260000  r 51.301 mm  residual   -2.99 deg  +/- 0.20
+lba  261000  r 51.376 mm  residual   -3.02 deg  +/- 0.20
+  LBA 262000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 29.7792 ms (2014.8 rpm), jitter 11.9 us
+262000 failed
+lba  300000  r 54.207 mm  residual   -3.71 deg  +/- 0.20
+lba  330000  r 56.288 mm  residual   -4.63 deg  +/- 0.20

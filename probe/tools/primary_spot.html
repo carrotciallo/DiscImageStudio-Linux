@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>基色光点</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; cursor: none; }
+  #spot { position: absolute; }
+  #help { position: absolute; left: 12px; top: 10px; color: #444; font: 13px/1.6 sans-serif; white-space: pre; }
+</style>
+</head>
+<body>
+<div id="spot"></div>
+<div id="help"></div>
+<script>
+// A small single-primary light on a black screen, stepped over a grid, for angle scans of
+// the colour target (fixed disc and camera, the light moves). Spot centres are reported in
+// mm from the screen's bottom-left corner; MM_PER_PX assumes a 27" 16:9 1920 px panel at
+// 100 % browser zoom and 100 % Windows scaling (change it for another screen).
+const MM_PER_PX = 597.7 / 1920;
+const COLOURS = { "1": ["R", "#f00"], "2": ["G", "#0f0"], "3": ["B", "#00f"], "4": ["W", "#fff"] };
+let colour = "1", sizeMm = 4, cols = 9, rows = 5, index = 0, showHelp = true;
+const spot = document.getElementById("spot"), help = document.getElementById("help");
+
+function centre(i) {
+  const W = innerWidth, H = innerHeight, m = 40;
+  const c = i % cols, r = Math.floor(i / cols);
+  return [m + (W - 2 * m) * (cols > 1 ? c / (cols - 1) : 0.5), m + (H - 2 * m) * (rows > 1 ? r / (rows - 1) : 0.5)];
+}
+
+function draw() {
+  const s = Math.max(1, Math.round(sizeMm / MM_PER_PX));
+  const [x, y] = centre(index);
+  Object.assign(spot.style, { width: s + "px", height: s + "px", left: Math.round(x - s / 2) + "px",
+                              top: Math.round(y - s / 2) + "px", background: COLOURS[colour][1] });
+  const xmm = (x * MM_PER_PX).toFixed(0), ymm = ((innerHeight - y) * MM_PER_PX).toFixed(0);
+  help.textContent = showHelp
+    ? `第 ${index + 1} / ${cols * rows} 点  颜色 ${COLOURS[colour][0]}  光点 ${sizeMm} mm\n` +
+      `中心距屏幕左下角：x ${xmm} mm, y ${ymm} mm\n` +
+      `空格 / → 下一点 · ← 上一点 · 1 2 3 4 = 红 绿 蓝 白 · + − 光点大小\n` +
+      `[ ] 列数 ${cols} · { } 行数 ${rows} · 0 回到第 1 点 · H 隐藏文字（拍摄时隐藏）· F11 全屏`
+    : "";
+}
+
+function step(d) {
+  index = (index + d + cols * rows) % (cols * rows);
+  draw();
+}
+
+addEventListener("keydown", e => {
+  if (e.key === " " || e.key === "ArrowRight") step(1);
+  else if (e.key === "ArrowLeft") step(-1);
+  else if (e.key in COLOURS) colour = e.key;
+  else if (e.key === "+" || e.key === "=") sizeMm = Math.min(30, sizeMm + 1);
+  else if (e.key === "-") sizeMm = Math.max(1, sizeMm - 1);
+  else if (e.key === "]") { cols = Math.min(30, cols + 1); index = 0; }
+  else if (e.key === "[") { cols = Math.max(1, cols - 1); index = 0; }
+  else if (e.key === "}") { rows = Math.min(20, rows + 1); index = 0; }
+  else if (e.key === "{") { rows = Math.max(1, rows - 1); index = 0; }
+  else if (e.key === "0") index = 0;
+  else if (e.key === "h" || e.key === "H") showHelp = !showHelp;
+  else return;
+  e.preventDefault();
+  draw();
+});
+addEventListener("resize", draw);
+draw();
+</script>
+</body>
+</html>

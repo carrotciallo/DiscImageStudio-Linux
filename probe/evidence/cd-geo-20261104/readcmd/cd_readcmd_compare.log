@@ -1,0 +1,21 @@
+READ(12): cache strategy fua
+READ CD: cache strategy evict
+Spindle settled: T = 18.5990 ms (3226.0 rpm), jitter 14.0 us
+lba    5000  r  26.03 mm  READ CD - READ(12)   +0.502 deg  +/- 0.28  (READ CD std 1.06, n 32)
+lba   30000  r  29.48 mm  READ CD - READ(12)   +0.324 deg  +/- 0.31  (READ CD std 1.32, n 32)
+  LBA 60000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 18.5913 ms (3227.3 rpm), jitter 59.8 us
+lba   60000  r  33.15 mm  READ CD - READ(12)   +0.303 deg  +/- 0.28  (READ CD std 1.06, n 32)
+lba   90000  r  36.45 mm  READ CD - READ(12)   +0.829 deg  +/- 0.28  (READ CD std 1.03, n 32)
+lba  120000  r  39.48 mm  READ CD - READ(12)   +0.781 deg  +/- 0.28  (READ CD std 1.03, n 32)
+lba  150000  r  42.29 mm  READ CD - READ(12)   +1.041 deg  +/- 0.28  (READ CD std 0.91, n 32)
+lba  210000  r  47.42 mm  READ CD - READ(12)   +0.631 deg  +/- 0.28  (READ CD std 0.93, n 32)
+lba  240000  r  49.78 mm  READ CD - READ(12)   -1.047 deg  +/- 0.48  (READ CD std 1.02, n 32)
+lba  270000  r  52.04 mm  READ CD - READ(12)   -4.195 deg  +/- 0.28  (READ CD std 1.11, n 32)
+lba  300000  r  54.21 mm  READ CD - READ(12)   -4.786 deg  +/- 0.28  (READ CD std 1.15, n 32)
+  LBA 330000: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 18.5894 ms (3227.6 rpm), jitter 70.4 us
+lba  330000  r  56.29 mm  READ CD - READ(12)   -5.506 deg  +/- 0.28  (READ CD std 0.67, n 31)
+lba  352000  r  57.77 mm  READ CD - READ(12)   -3.519 deg  +/- 0.68  (READ CD std 3.60, n 31)
+
+fit dphi = C + dL/r: C -7.390 deg, dL +4.396 +/- 1.579 mm = +26.93 +/- 9.67 frames; chi2/dof 45.39, rms after fit 1.774 deg

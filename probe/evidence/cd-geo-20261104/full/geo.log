@@ -1,0 +1,49 @@
+Reference LBA 179000; readable ranges [(2000, 356000)]
+Spindle settled: T = 18.5984 ms (3226.1 rpm), jitter 31.3 us
+  rung  1: LBA   179008 (+0.5 turns) phase  163.383 +/- 0.200 deg
+  rung  2: LBA   179026 (+1.5 turns) phase  171.748 +/- 0.200 deg
+  rung  3: LBA   180127 predicted +/-  17.50 deg, whole turns      64, residual  -0.003 deg, chi2/dof 2.02
+  rung  4: LBA   181259 predicted +/-   4.55 deg, whole turns     128, residual  +0.004 deg, chi2/dof 2.11
+  rung  5: LBA   188094 predicted +/-  16.49 deg, whole turns     512, residual  +0.002 deg, chi2/dof 1.21
+  rung  6: LBA   219845 predicted +/-  17.90 deg, whole turns    2236, residual  -0.004 deg, chi2/dof 1.73
+  rung  7: LBA   355999 predicted +/-  15.45 deg, whole turns    8763, residual  +0.002 deg, chi2/dof 1.34
+  rung  8: LBA     2000 predicted +/-   9.25 deg, whole turns  -12800, residual  -0.035 deg, chi2/dof 10.69
+  rung  9: LBA    29230 predicted +/-   0.48 deg, whole turns  -10277, residual  +0.959 deg, chi2/dof 14.84
+  rung 10: LBA   101845 predicted +/-   0.43 deg, whole turns   -4762, residual  +1.459 deg, chi2/dof 22.73
+  rung 11: LBA    38307 predicted +/-   0.51 deg, whole turns   -9505, residual  +0.748 deg, chi2/dof 22.13
+  rung 12: LBA    20153 predicted +/-   0.53 deg, whole turns  -11080, residual  +0.203 deg, chi2/dof 19.82
+  rung 13: LBA   292460 predicted +/-   0.53 deg, whole turns    5866, residual  +1.632 deg, chi2/dof 26.89
+  rung 14: LBA   294009 predicted +/-   0.54 deg, whole turns    5939, residual  +1.260 deg, chi2/dof 29.03
+  LBA 11076: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 18.6014 ms (3225.6 rpm), jitter 43.4 us
+  rung 15: LBA    11076 predicted +/-   0.63 deg, whole turns  -11919, residual  -0.143 deg, chi2/dof 26.65
+  LBA 138153: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 18.6002 ms (3225.8 rpm), jitter 21.4 us
+  rung 16: LBA   138153 predicted +/-   0.43 deg, whole turns   -2418, residual  +0.939 deg, chi2/dof 26.59
+  rung 17: LBA   301537 predicted +/-   0.50 deg, whole turns    6294, residual  +0.925 deg, chi2/dof 26.58
+  rung 18: LBA   310614 predicted +/-   0.48 deg, whole turns    6717, residual  +0.700 deg, chi2/dof 25.80
+  rung 19: LBA   256153 predicted +/-   0.31 deg, whole turns    4099, residual  +1.930 deg, chi2/dof 30.55
+  rung 20: LBA    47384 predicted +/-   0.42 deg, whole turns   -8762, residual  +0.830 deg, chi2/dof 29.91
+  rung 21: LBA   283383 predicted +/-   0.37 deg, whole turns    5432, residual  +0.964 deg, chi2/dof 29.68
+  rung 22: LBA    74615 predicted +/-   0.41 deg, whole turns   -6675, residual  +1.324 deg, chi2/dof 30.75
+  rung 23: LBA   274306 predicted +/-   0.33 deg, whole turns    4994, residual  +0.832 deg, chi2/dof 30.16
+  rung 24: LBA   265230 predicted +/-   0.30 deg, whole turns    4549, residual  +1.378 deg, chi2/dof 31.16
+  rung 25: LBA   119999 predicted +/-   0.40 deg, whole turns   -3563, residual  +0.632 deg, chi2/dof 30.26
+  rung 26: LBA    54566 predicted +/-   0.35 deg, whole turns   -8192, residual  +1.037 deg, chi2/dof 30.23
+  rung 27: LBA   256089 predicted +/-   0.28 deg, whole turns    4096, residual  +1.236 deg, chi2/dof 30.66
+  rung 28: LBA   156307 predicted +/-   0.33 deg, whole turns   -1318, residual  -0.405 deg, chi2/dof 29.62
+  rung 29: LBA    56461 predicted +/-   0.33 deg, whole turns   -8044, residual  +0.619 deg, chi2/dof 28.88
+  rung 30: LBA   247076 predicted +/-   0.25 deg, whole turns    3643, residual  +1.519 deg, chi2/dof 30.07
+  rung 31: LBA   328768 predicted +/-   0.43 deg, whole turns    7549, residual  -0.591 deg, chi2/dof 29.35
+  rung 32: LBA   237999 predicted +/-   0.24 deg, whole turns    3181, residual  -2.856 deg, chi2/dof 35.71
+  rung 33: LBA   228922 predicted +/-   0.25 deg, whole turns    2711, residual  -1.941 deg, chi2/dof 36.01
+  rung 34: LBA   201691 predicted +/-   0.27 deg, whole turns    1262, residual  -1.764 deg, chi2/dof 37.49
+  LBA 65538: spindle unsteady or reads failing; settling and retrying
+Spindle settled: T = 18.6000 ms (3225.8 rpm), jitter 11.9 us
+  rung 35: LBA    65538 predicted +/-   0.35 deg, whole turns   -7349, residual  +1.111 deg, chi2/dof 37.36
+  rung 36: LBA   216305 predicted +/-   0.26 deg, whole turns    2048, residual  -1.702 deg, chi2/dof 38.42
+
+u = r0/b = 91043.559, v = p/b = 5.4199467  (chi2/dof 38.42, residual rms 1.210 deg)
+With bit length 277.66208524226016 nm: r0 25.27934 mm, pitch 1.504914 um
+Angle uncertainty across the measured span 25.581-58.031 mm: 0.766 deg (1 sigma); across 25-58 mm: 0.79 deg
+targets.csv, summary.json, events.csv: D:\disc-probe\results\geo-H-20261104-124213

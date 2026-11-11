@@ -1,0 +1,1238 @@
+{
+  "photos\\grid_darkfield_IMG_6903.jpeg": [
+    1968965,
+    1793754493014303800
+  ],
+  "photos\\portrait_ritekf1_darkfield_IMG_6913.jpeg": [
+    1652439,
+    1793754492944750500
+  ],
+  "photos\\portrait_ritekf1_phone_1.jpg": [
+    363365,
+    1793740029000523600
+  ],
+  "photos\\rings_ritekf1_isoburn_phone.jpg": [
+    309162,
+    1793727553165286500
+  ],
+  "photos\\triad_B_darkfield_IMG_6915.jpeg": [
+    664852,
+    1793754492981367000
+  ],
+  "photos\\triad_B_IMG_6899.jpg": [
+    2385718,
+    1793742933611332100
+  ],
+  "photos\\triad_B_IMG_6900.jpg": [
+    2150397,
+    1793742933785488200
+  ],
+  "photos\\triad_B_shelf_close_IMG_6925.jpeg": [
+    1368704,
+    1793755516081615900
+  ],
+  "photos\\triad_B_shelf_IMG_6919.jpeg": [
+    1402114,
+    1793755516051745400
+  ],
+  "scans\\greyscale_rings_1.png": [
+    11414009,
+    1793735632181304100
+  ],
+  "scans\\grid2_p1.png": [
+    42498619,
+    1793739436151356200
+  ],
+  "scans\\grid2_p2.png": [
+    42457028,
+    1793739444956164600
+  ],
+  "scans\\grid2_p3.png": [
+    42481487,
+    1793739453797294900
+  ],
+  "scans\\grid2_p4.png": [
+    42613214,
+    1793739462826943500
+  ],
+  "scans\\grid3_p1.png": [
+    42509000,
+    1793749768983942800
+  ],
+  "scans\\grid3_p2.png": [
+    42493926,
+    1793749777339989400
+  ],
+  "scans\\grid3_p3.png": [
+    42522397,
+    1793749786454935500
+  ],
+  "scans\\grid3_p4.png": [
+    42559396,
+    1793749794541471100
+  ],
+  "scans\\grid3_p5.png": [
+    42652616,
+    1793749802569667600
+  ],
+  "scans\\grid3_p6.png": [
+    42728733,
+    1793749810585689500
+  ],
+  "scans\\grid3_p7.png": [
+    56391613,
+    1793749817381322600
+  ],
+  "scans\\grid3_p8.png": [
+    42539422,
+    1793749825506836500
+  ],
+  "scans\\grid_p1.png": [
+    42498421,
+    1793737574478164600
+  ],
+  "scans\\grid_p2.png": [
+    42462246,
+    1793737583580128700
+  ],
+  "scans\\grid_p3.png": [
+    42483808,
+    1793737592555521300
+  ],
+  "scans\\grid_p4.png": [
+    42493520,
+    1793737601526538300
+  ],
+  "scans\\grid_p5.png": [
+    42470066,
+    1793737610610507500
+  ],
+  "scans\\grid_p6.png": [
+    42482728,
+    1793737619425043700
+  ],
+  "results\\angle_correction.json": [
+    784,
+    1793738175059029700
+  ],
+  "results\\colour_map_0_60_200.png": [
+    158502,
+    1793786757805941000
+  ],
+  "results\\colour_map_0_80_150.png": [
+    152924,
+    1793786756537280800
+  ],
+  "results\\synth_k004.png": [
+    2607478,
+    1793780048805483100
+  ],
+  "results\\synth_photo_test.txt": [
+    450,
+    1793782045145802200
+  ],
+  "results\\timing-H-20261103-130559\\events.csv": [
+    42703,
+    1793729159327377000
+  ],
+  "results\\timing-H-20261103-130559\\summary.json": [
+    6741,
+    1793729159328191500
+  ],
+  "results\\timing-H-20261103-130249\\events.csv": [
+    48400,
+    1793728969810443000
+  ],
+  "results\\timing-H-20261103-130249\\summary.json": [
+    7466,
+    1793728969811447000
+  ],
+  "results\\timing-H-20261103-125452\\events.csv": [
+    48361,
+    1793728492863572500
+  ],
+  "results\\timing-H-20261103-125452\\summary.json": [
+    7422,
+    1793728492864077100
+  ],
+  "results\\timing-H-20261103-124846\\events.csv": [
+    48771,
+    1793728126447370900
+  ],
+  "results\\timing-H-20261103-124846\\summary.json": [
+    7428,
+    1793728126448371900
+  ],
+  "results\\tilescan\\cl_p3\\summary.json": [
+    1088,
+    1793761936586218500
+  ],
+  "results\\tilescan\\cl_p3\\tiles.csv": [
+    52182,
+    1793761936584601800
+  ],
+  "results\\tilescan\\cl_p2\\summary.json": [
+    1083,
+    1793761923353476800
+  ],
+  "results\\tilescan\\cl_p2\\tiles.csv": [
+    52169,
+    1793761923352847900
+  ],
+  "results\\tilescan\\cl_p1\\summary.json": [
+    1082,
+    1793761910644515100
+  ],
+  "results\\tilescan\\cl_p1\\tiles.csv": [
+    52068,
+    1793761910644515100
+  ],
+  "results\\tilescan\\cl_p0\\summary.json": [
+    1086,
+    1793761897980028100
+  ],
+  "results\\tilescan\\cl_p0\\tiles.csv": [
+    52241,
+    1793761897978854800
+  ],
+  "results\\tilephoto\\swatch_chart.png": [
+    19443,
+    1793766388829439200
+  ],
+  "results\\tilephoto\\IMG_6964\\overlay.jpg": [
+    615400,
+    1793766363272474200
+  ],
+  "results\\tilephoto\\IMG_6964\\summary.json": [
+    468,
+    1793766363105761000
+  ],
+  "results\\tilephoto\\IMG_6964\\tiles.csv": [
+    51263,
+    1793766363104412600
+  ],
+  "results\\tilephoto\\IMG_6963\\overlay.jpg": [
+    581583,
+    1793766063293755400
+  ],
+  "results\\tilephoto\\IMG_6963\\summary.json": [
+    466,
+    1793766063120378600
+  ],
+  "results\\tilephoto\\IMG_6963\\tiles.csv": [
+    51343,
+    1793766063120378600
+  ],
+  "results\\tilephoto\\IMG_6962\\overlay.jpg": [
+    541956,
+    1793765725634104000
+  ],
+  "results\\tilephoto\\IMG_6962\\summary.json": [
+    470,
+    1793765725477013000
+  ],
+  "results\\tilephoto\\IMG_6962\\tiles.csv": [
+    50525,
+    1793765725476548300
+  ],
+  "results\\tilephoto\\IMG_6961\\overlay.jpg": [
+    588957,
+    1793765380147725400
+  ],
+  "results\\tilephoto\\IMG_6961\\summary.json": [
+    470,
+    1793765379968207900
+  ],
+  "results\\tilephoto\\IMG_6961\\tiles.csv": [
+    52005,
+    1793765379968207900
+  ],
+  "results\\tilephoto\\IMG_6940\\overlay.jpg": [
+    501547,
+    1793764029760521000
+  ],
+  "results\\tilephoto\\IMG_6940\\summary.json": [
+    461,
+    1793764029523658200
+  ],
+  "results\\tilephoto\\IMG_6940\\tiles.csv": [
+    48942,
+    1793764029522649900
+  ],
+  "results\\rosettes\\IMG_6996\\chart.png": [
+    16507,
+    1793769932542526300
+  ],
+  "results\\rosettes\\IMG_6996\\fit.json": [
+    140,
+    1793769932520529900
+  ],
+  "results\\rosettes\\IMG_6996\\rosettes.csv": [
+    13671,
+    1793769932520529900
+  ],
+  "results\\rosettes\\IMG_6994\\chart.png": [
+    15708,
+    1793769649008659100
+  ],
+  "results\\rosettes\\IMG_6994\\fit.json": [
+    140,
+    1793769648987444500
+  ],
+  "results\\rosettes\\IMG_6994\\rosettes.csv": [
+    13071,
+    1793769648987444500
+  ],
+  "results\\ringscan-20261103-145609\\rings.csv": [
+    7059,
+    1793735774295788400
+  ],
+  "results\\ringscan-20261103-145609\\summary.json": [
+    2905,
+    1793735774297794000
+  ],
+  "results\\ringscan-20261103-145609\\textures.csv": [
+    649,
+    1793735774297482500
+  ],
+  "results\\ringscan-20261103-145609\\unrolled_greyscale_rings_1.png": [
+    601736,
+    1793735774293277500
+  ],
+  "results\\ringscan-20261103-145506\\rings.csv": [
+    7059,
+    1793735711000393700
+  ],
+  "results\\ringscan-20261103-145506\\summary.json": [
+    2905,
+    1793735711001280400
+  ],
+  "results\\ringscan-20261103-145506\\textures.csv": [
+    653,
+    1793735711000735100
+  ],
+  "results\\ringscan-20261103-145506\\unrolled_greyscale_rings_1.png": [
+    601736,
+    1793735710997629200
+  ],
+  "results\\ringscan-20261103-145402\\rings.csv": [
+    7063,
+    1793735647384639900
+  ],
+  "results\\ringscan-20261103-145402\\summary.json": [
+    2581,
+    1793735647385660000
+  ],
+  "results\\ringscan-20261103-145402\\textures.csv": [
+    653,
+    1793735647385091700
+  ],
+  "results\\ringscan-20261103-145402\\unrolled_greyscale_rings_1.png": [
+    601903,
+    1793735647382195200
+  ],
+  "results\\recheck_7028\\overlay.jpg": [
+    263879,
+    1793781027860559600
+  ],
+  "results\\recheck_7028\\summary.json": [
+    519,
+    1793781027709830400
+  ],
+  "results\\recheck_7028\\tiles.csv": [
+    58804,
+    1793781027708958000
+  ],
+  "results\\info-H-20261104-011855\\info.json": [
+    39308,
+    1793773135264104200
+  ],
+  "results\\info-H-20261103-234545\\info.json": [
+    39309,
+    1793767545628480900
+  ],
+  "results\\info-H-20261103-230057\\info.json": [
+    39308,
+    1793764857184397500
+  ],
+  "results\\info-H-20261103-220742\\info.json": [
+    39308,
+    1793761662579364100
+  ],
+  "results\\info-H-20261103-215858\\info.json": [
+    47032,
+    1793761138294172200
+  ],
+  "results\\info-H-20261103-212112\\info.json": [
+    39309,
+    1793758873002055300
+  ],
+  "results\\info-H-20261103-212047\\info.json": [
+    47032,
+    1793758847047727000
+  ],
+  "results\\info-H-20261103-203721\\info.json": [
+    39308,
+    1793756241197530300
+  ],
+  "results\\info-H-20261103-182944\\info.json": [
+    39308,
+    1793748584598002300
+  ],
+  "results\\info-H-20261103-181513\\info.json": [
+    39309,
+    1793747713006792000
+  ],
+  "results\\info-H-20261103-164443\\info.json": [
+    39308,
+    1793742283565783400
+  ],
+  "results\\info-H-20261103-155551\\info.json": [
+    39308,
+    1793739351129511900
+  ],
+  "results\\info-H-20261103-154742\\info.json": [
+    39308,
+    1793738862773555200
+  ],
+  "results\\info-H-20261103-153753\\info.json": [
+    39308,
+    1793738273641267800
+  ],
+  "results\\info-H-20261103-150351\\info.json": [
+    39310,
+    1793736231612876400
+  ],
+  "results\\info-H-20261103-144152\\info.json": [
+    35797,
+    1793734912002917000
+  ],
+  "results\\info-H-20261103-144101\\info.json": [
+    47032,
+    1793734861695774600
+  ],
+  "results\\info-H-20261103-142952\\info.json": [
+    39308,
+    1793734192044399000
+  ],
+  "results\\info-H-20261103-124300\\info.json": [
+    35579,
+    1793727780613465700
+  ],
+  "results\\info-H-20261103-122648\\info.json": [
+    39308,
+    1793726808787377700
+  ],
+  "results\\info-H-20261103-122208\\info.json": [
+    47033,
+    1793726528397189700
+  ],
+  "results\\info-H-20261103-121958\\info.json": [
+    47032,
+    1793726398603853000
+  ],
+  "results\\info-H-20261103-121702\\info.json": [
+    47032,
+    1793726222273266100
+  ],
+  "results\\info-H-20261103-121621\\info.json": [
+    47032,
+    1793726181139521000
+  ],
+  "results\\gridscan-p6\\phi.csv": [
+    5594,
+    1793737825961549600
+  ],
+  "results\\gridscan-p6\\summary.json": [
+    465,
+    1793737825962895000
+  ],
+  "results\\gridscan-p5\\phi.csv": [
+    5591,
+    1793737824283918000
+  ],
+  "results\\gridscan-p5\\summary.json": [
+    466,
+    1793737824283918000
+  ],
+  "results\\gridscan-p4\\phi.csv": [
+    5576,
+    1793737822619216600
+  ],
+  "results\\gridscan-p4\\summary.json": [
+    464,
+    1793737822619216600
+  ],
+  "results\\gridscan-p3\\phi.csv": [
+    5577,
+    1793737820991195400
+  ],
+  "results\\gridscan-p3\\summary.json": [
+    465,
+    1793737820991195400
+  ],
+  "results\\gridscan-p2\\phi.csv": [
+    5577,
+    1793737819383921100
+  ],
+  "results\\gridscan-p2\\summary.json": [
+    464,
+    1793737819383921100
+  ],
+  "results\\gridscan-p1\\phi.csv": [
+    5600,
+    1793737817789052500
+  ],
+  "results\\gridscan-p1\\summary.json": [
+    466,
+    1793737817789407500
+  ],
+  "results\\gridscan-grid_p6\\phi.csv": [
+    5594,
+    1793739498587875600
+  ],
+  "results\\gridscan-grid_p6\\summary.json": [
+    465,
+    1793739498587875600
+  ],
+  "results\\gridscan-grid_p5\\phi.csv": [
+    5591,
+    1793739496918906100
+  ],
+  "results\\gridscan-grid_p5\\summary.json": [
+    466,
+    1793739496924923400
+  ],
+  "results\\gridscan-grid_p4\\phi.csv": [
+    5576,
+    1793739495225330200
+  ],
+  "results\\gridscan-grid_p4\\summary.json": [
+    464,
+    1793739495225674500
+  ],
+  "results\\gridscan-grid_p3\\phi.csv": [
+    5577,
+    1793739493514024100
+  ],
+  "results\\gridscan-grid_p3\\summary.json": [
+    465,
+    1793739493514024100
+  ],
+  "results\\gridscan-grid_p2\\phi.csv": [
+    5577,
+    1793739491783249700
+  ],
+  "results\\gridscan-grid_p2\\summary.json": [
+    464,
+    1793739491783764900
+  ],
+  "results\\gridscan-grid_p1\\phi.csv": [
+    5600,
+    1793739490083438600
+  ],
+  "results\\gridscan-grid_p1\\summary.json": [
+    466,
+    1793739490089695700
+  ],
+  "results\\gridscan-grid3_p8\\phi.csv": [
+    5612,
+    1793749864028783000
+  ],
+  "results\\gridscan-grid3_p8\\summary.json": [
+    466,
+    1793749864029324700
+  ],
+  "results\\gridscan-grid3_p7\\phi.csv": [
+    5595,
+    1793749861242645700
+  ],
+  "results\\gridscan-grid3_p7\\summary.json": [
+    468,
+    1793749861249215500
+  ],
+  "results\\gridscan-grid3_p6\\phi.csv": [
+    5616,
+    1793749858508792700
+  ],
+  "results\\gridscan-grid3_p6\\summary.json": [
+    466,
+    1793749858509403300
+  ],
+  "results\\gridscan-grid3_p5\\phi.csv": [
+    5604,
+    1793749855853319200
+  ],
+  "results\\gridscan-grid3_p5\\summary.json": [
+    467,
+    1793749855854013800
+  ],
+  "results\\gridscan-grid3_p4\\phi.csv": [
+    5590,
+    1793749853112181900
+  ],
+  "results\\gridscan-grid3_p4\\summary.json": [
+    466,
+    1793749853112687700
+  ],
+  "results\\gridscan-grid3_p3\\phi.csv": [
+    5579,
+    1793749850521709000
+  ],
+  "results\\gridscan-grid3_p3\\summary.json": [
+    468,
+    1793749850527866500
+  ],
+  "results\\gridscan-grid3_p2\\phi.csv": [
+    5581,
+    1793749847919506800
+  ],
+  "results\\gridscan-grid3_p2\\summary.json": [
+    465,
+    1793749847919506800
+  ],
+  "results\\gridscan-grid3_p1\\phi.csv": [
+    5613,
+    1793749845231484900
+  ],
+  "results\\gridscan-grid3_p1\\summary.json": [
+    463,
+    1793749845231987000
+  ],
+  "results\\gridscan-grid2_p4\\phi.csv": [
+    5560,
+    1793739518957616700
+  ],
+  "results\\gridscan-grid2_p4\\summary.json": [
+    463,
+    1793739518957616700
+  ],
+  "results\\gridscan-grid2_p3\\phi.csv": [
+    5629,
+    1793739517222590200
+  ],
+  "results\\gridscan-grid2_p3\\summary.json": [
+    464,
+    1793739517228248200
+  ],
+  "results\\gridscan-grid2_p2\\phi.csv": [
+    5595,
+    1793739515536962300
+  ],
+  "results\\gridscan-grid2_p2\\summary.json": [
+    466,
+    1793739515537524100
+  ],
+  "results\\gridscan-grid2_p1\\phi.csv": [
+    5618,
+    1793739513857339400
+  ],
+  "results\\gridscan-grid2_p1\\summary.json": [
+    462,
+    1793739513857791100
+  ],
+  "results\\geo-H-20261103-181720\\events.csv": [
+    177951,
+    1793748148714424800
+  ],
+  "results\\geo-H-20261103-181720\\summary.json": [
+    2227,
+    1793748148701868800
+  ],
+  "results\\geo-H-20261103-181720\\targets.csv": [
+    3483,
+    1793748148700852200
+  ],
+  "results\\geo-H-20261103-145334\\events.csv": [
+    106716,
+    1793735781350665800
+  ],
+  "results\\geo-H-20261103-145334\\summary.json": [
+    2222,
+    1793735781336115200
+  ],
+  "results\\geo-H-20261103-145334\\targets.csv": [
+    2549,
+    1793735781334335000
+  ],
+  "results\\geo-H-20261103-144156\\events.csv": [
+    494433,
+    1793735573373486000
+  ],
+  "results\\geo-H-20261103-144156\\summary.json": [
+    2222,
+    1793735573333121600
+  ],
+  "results\\geo-H-20261103-144156\\targets.csv": [
+    633,
+    1793735573332272000
+  ],
+  "results\\geo-H-20261103-131003\\events.csv": [
+    113616,
+    1793729606688490200
+  ],
+  "results\\geo-H-20261103-131003\\summary.json": [
+    2229,
+    1793729606670764000
+  ],
+  "results\\geo-H-20261103-131003\\targets.csv": [
+    2065,
+    1793729606670453100
+  ],
+  "results\\flash_test7028\\overlay.jpg": [
+    263879,
+    1793774958502124000
+  ],
+  "results\\flash_test7028\\summary.json": [
+    468,
+    1793774958335291100
+  ],
+  "results\\flash_test7028\\tiles.csv": [
+    58804,
+    1793774958334789300
+  ],
+  "results\\flash_test\\overlay.jpg": [
+    336872,
+    1793774399255523000
+  ],
+  "results\\flash_test\\summary.json": [
+    453,
+    1793774399200873300
+  ],
+  "results\\flash_test\\tiles.csv": [
+    58415,
+    1793774399200873300
+  ],
+  "results\\flash_lut_tiles_v2\\lut_chart_all.png": [
+    25267,
+    1793786470070931200
+  ],
+  "results\\flash_lut_tiles_v2\\lut_chart_verified.png": [
+    23943,
+    1793786470038412900
+  ],
+  "results\\flash_lut_tiles_v2\\swatch_colours_vs_delta.csv": [
+    195997,
+    1793786470007000300
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7039\\overlay.jpg": [
+    241180,
+    1793786467427833500
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7039\\summary.json": [
+    586,
+    1793786467268096100
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7039\\tiles.csv": [
+    58949,
+    1793786467267395000
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7038\\overlay.jpg": [
+    197458,
+    1793786285455113200
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7038\\summary.json": [
+    581,
+    1793786285302046700
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7038\\tiles.csv": [
+    58660,
+    1793786285301666900
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7037\\overlay.jpg": [
+    203646,
+    1793785230030183500
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7037\\summary.json": [
+    544,
+    1793785229862736900
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7037\\tiles.csv": [
+    58154,
+    1793785229856739400
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7036\\overlay.jpg": [
+    216751,
+    1793784932804351600
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7036\\summary.json": [
+    543,
+    1793784932642989400
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7036\\tiles.csv": [
+    58578,
+    1793784932642313400
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7035\\overlay.jpg": [
+    258510,
+    1793784687490009900
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7035\\summary.json": [
+    542,
+    1793784687337960700
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7035\\tiles.csv": [
+    58867,
+    1793784687336942400
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7034\\overlay.jpg": [
+    300083,
+    1793784421778993400
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7034\\summary.json": [
+    544,
+    1793784421610797400
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7034\\tiles.csv": [
+    58405,
+    1793784421609635500
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7033\\overlay.jpg": [
+    287050,
+    1793784158236740300
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7033\\summary.json": [
+    546,
+    1793784158068677600
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7033\\tiles.csv": [
+    59240,
+    1793784158067897700
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7032\\overlay.jpg": [
+    278208,
+    1793783872163173300
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7032\\summary.json": [
+    546,
+    1793783871989206300
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7032\\tiles.csv": [
+    59128,
+    1793783871988811200
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7031\\overlay.jpg": [
+    284267,
+    1793786129766299800
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7031\\summary.json": [
+    582,
+    1793786129605548600
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7031\\tiles.csv": [
+    58525,
+    1793786129605068800
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7030\\overlay.jpg": [
+    278022,
+    1793785949361337300
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7030\\summary.json": [
+    579,
+    1793785949199588900
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7030\\tiles.csv": [
+    58364,
+    1793785949199588900
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7029\\overlay.jpg": [
+    263757,
+    1793783017505195400
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7029\\summary.json": [
+    542,
+    1793783017336781500
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7029\\tiles.csv": [
+    58510,
+    1793783017330425900
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7028\\overlay.jpg": [
+    263930,
+    1793782708260719300
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7028\\summary.json": [
+    547,
+    1793782708105362100
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7028\\tiles.csv": [
+    58542,
+    1793782708105045600
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7027\\overlay.jpg": [
+    283784,
+    1793782377861240100
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7027\\summary.json": [
+    544,
+    1793782377701382600
+  ],
+  "results\\flash_lut_tiles_v2\\IMG_7027\\tiles.csv": [
+    59141,
+    1793782377700414400
+  ],
+  "results\\flash_lut_tiles\\lut_chart.png": [
+    23425,
+    1793778096967782100
+  ],
+  "results\\flash_lut_tiles\\lut_chart_all.png": [
+    24673,
+    1793779499675966700
+  ],
+  "results\\flash_lut_tiles\\lut_chart_verified.png": [
+    23430,
+    1793779499642100300
+  ],
+  "results\\flash_lut_tiles\\lut_scatter.png": [
+    380180,
+    1793786519033434100
+  ],
+  "results\\flash_lut_tiles\\swatch_colours_vs_delta.csv": [
+    275000,
+    1793779499615223300
+  ],
+  "results\\flash_lut_tiles\\IMG_7039\\overlay.jpg": [
+    240468,
+    1793779497346567900
+  ],
+  "results\\flash_lut_tiles\\IMG_7039\\summary.json": [
+    557,
+    1793779497185707900
+  ],
+  "results\\flash_lut_tiles\\IMG_7039\\tiles.csv": [
+    58527,
+    1793779497185204400
+  ],
+  "results\\flash_lut_tiles\\IMG_7038\\overlay.jpg": [
+    197867,
+    1793779324844560900
+  ],
+  "results\\flash_lut_tiles\\IMG_7038\\summary.json": [
+    554,
+    1793779324693452700
+  ],
+  "results\\flash_lut_tiles\\IMG_7038\\tiles.csv": [
+    58500,
+    1793779324693452700
+  ],
+  "results\\flash_lut_tiles\\IMG_7037\\overlay.jpg": [
+    202906,
+    1793777694723733200
+  ],
+  "results\\flash_lut_tiles\\IMG_7037\\summary.json": [
+    465,
+    1793777694558746100
+  ],
+  "results\\flash_lut_tiles\\IMG_7037\\tiles.csv": [
+    58382,
+    1793777694558746100
+  ],
+  "results\\flash_lut_tiles\\IMG_7036\\overlay.jpg": [
+    216094,
+    1793777497620439000
+  ],
+  "results\\flash_lut_tiles\\IMG_7036\\summary.json": [
+    465,
+    1793777497453475600
+  ],
+  "results\\flash_lut_tiles\\IMG_7036\\tiles.csv": [
+    59029,
+    1793777497453475600
+  ],
+  "results\\flash_lut_tiles\\IMG_7035\\overlay.jpg": [
+    258473,
+    1793777256975916100
+  ],
+  "results\\flash_lut_tiles\\IMG_7035\\summary.json": [
+    468,
+    1793777256814490100
+  ],
+  "results\\flash_lut_tiles\\IMG_7035\\tiles.csv": [
+    59011,
+    1793777256814107100
+  ],
+  "results\\flash_lut_tiles\\IMG_7034\\overlay.jpg": [
+    299142,
+    1793779172798657300
+  ],
+  "results\\flash_lut_tiles\\IMG_7034\\summary.json": [
+    558,
+    1793779172648245500
+  ],
+  "results\\flash_lut_tiles\\IMG_7034\\tiles.csv": [
+    58851,
+    1793779172646417400
+  ],
+  "results\\flash_lut_tiles\\IMG_7033\\overlay.jpg": [
+    288089,
+    1793778996460685500
+  ],
+  "results\\flash_lut_tiles\\IMG_7033\\summary.json": [
+    559,
+    1793778996302373800
+  ],
+  "results\\flash_lut_tiles\\IMG_7033\\tiles.csv": [
+    58489,
+    1793778996302008600
+  ],
+  "results\\flash_lut_tiles\\IMG_7032\\overlay.jpg": [
+    277538,
+    1793778834149705300
+  ],
+  "results\\flash_lut_tiles\\IMG_7032\\summary.json": [
+    557,
+    1793778833995601800
+  ],
+  "results\\flash_lut_tiles\\IMG_7032\\tiles.csv": [
+    58359,
+    1793778833995601800
+  ],
+  "results\\flash_lut_tiles\\IMG_7031\\overlay.jpg": [
+    284615,
+    1793778654600470900
+  ],
+  "results\\flash_lut_tiles\\IMG_7031\\summary.json": [
+    555,
+    1793778654452971400
+  ],
+  "results\\flash_lut_tiles\\IMG_7031\\tiles.csv": [
+    58839,
+    1793778654452971400
+  ],
+  "results\\flash_lut_tiles\\IMG_7030\\overlay.jpg": [
+    277520,
+    1793778477105009000
+  ],
+  "results\\flash_lut_tiles\\IMG_7030\\summary.json": [
+    551,
+    1793778476942335800
+  ],
+  "results\\flash_lut_tiles\\IMG_7030\\tiles.csv": [
+    58513,
+    1793778476942335800
+  ],
+  "results\\flash_lut_tiles\\IMG_7029\\overlay.jpg": [
+    263780,
+    1793775832480883900
+  ],
+  "results\\flash_lut_tiles\\IMG_7029\\summary.json": [
+    470,
+    1793775832309200300
+  ],
+  "results\\flash_lut_tiles\\IMG_7029\\tiles.csv": [
+    59114,
+    1793775832308200800
+  ],
+  "results\\flash_lut_tiles\\IMG_7028\\overlay.jpg": [
+    263879,
+    1793775523077743900
+  ],
+  "results\\flash_lut_tiles\\IMG_7028\\summary.json": [
+    468,
+    1793775522905109900
+  ],
+  "results\\flash_lut_tiles\\IMG_7028\\tiles.csv": [
+    58804,
+    1793775522904762600
+  ],
+  "results\\flash_lut_tiles\\IMG_7027\\overlay.jpg": [
+    282613,
+    1793778311910364500
+  ],
+  "results\\flash_lut_tiles\\IMG_7027\\summary.json": [
+    556,
+    1793778311758820200
+  ],
+  "results\\flash_lut_tiles\\IMG_7027\\tiles.csv": [
+    58588,
+    1793778311757281800
+  ],
+  "results\\flash_lut\\lut_chart.png": [
+    6049,
+    1793771921261536000
+  ],
+  "results\\flash_lut\\rosette_colours_vs_delta.csv": [
+    114319,
+    1793771921248806300
+  ],
+  "results\\cdr_info\\info-H-20261104-083240\\info.json": [
+    43469,
+    1793799160141651800
+  ],
+  "iso\\cal1.cal.json": [
+    9445,
+    1793651218710702600
+  ],
+  "iso\\cal1.iso": [
+    4506517504,
+    1793726979995885300
+  ],
+  "iso\\dense.image.json": [
+    382,
+    1793757076568972800
+  ],
+  "iso\\dense.iso": [
+    4700372992,
+    1793757076568472100
+  ],
+  "iso\\dense.preview.png": [
+    236841,
+    1793757076881947700
+  ],
+  "iso\\grid.image.json": [
+    292,
+    1793736031704054000
+  ],
+  "iso\\grid.iso": [
+    4393271296,
+    1793736031698300200
+  ],
+  "iso\\grid.preview.png": [
+    106507,
+    1793736032006249400
+  ],
+  "iso\\grid2.image.json": [
+    373,
+    1793738267787780100
+  ],
+  "iso\\grid2.iso": [
+    4393271296,
+    1793738267787780100
+  ],
+  "iso\\grid2.preview.png": [
+    104815,
+    1793738268071640300
+  ],
+  "iso\\grid3.image.json": [
+    333,
+    1793748332499994000
+  ],
+  "iso\\grid3.iso": [
+    4393271296,
+    1793748332499310500
+  ],
+  "iso\\grid3.preview.png": [
+    104815,
+    1793748332771783700
+  ],
+  "iso\\lut2.image.json": [
+    660,
+    1793773048289233300
+  ],
+  "iso\\lut2.iso": [
+    4681269248,
+    1793773048289233300
+  ],
+  "iso\\lut2.preview.png": [
+    154631,
+    1793773048867433000
+  ],
+  "iso\\lut2.tiles.json": [
+    1341,
+    1793773048427994800
+  ],
+  "iso\\portrait.image.json": [
+    381,
+    1793739339596887000
+  ],
+  "iso\\portrait.iso": [
+    4393271296,
+    1793739339596366300
+  ],
+  "iso\\portrait.preview.png": [
+    114543,
+    1793739339818179400
+  ],
+  "iso\\qmsht.image.json": [
+    382,
+    1793763751605822300
+  ],
+  "iso\\qmsht.iso": [
+    4700372992,
+    1793763751605385500
+  ],
+  "iso\\qmsht.preview.png": [
+    617475,
+    1793763751921762200
+  ],
+  "iso\\qmsht_yang.image.json": [
+    382,
+    1793763832879189700
+  ],
+  "iso\\qmsht_yang.iso": [
+    4700372992,
+    1793763832879189700
+  ],
+  "iso\\qmsht_yang.preview.png": [
+    617475,
+    1793763833198192600
+  ],
+  "iso\\random.iso": [
+    4700372992,
+    1793729803676676100
+  ],
+  "iso\\rings.iso": [
+    4018208768,
+    1793726979994883900
+  ],
+  "iso\\rings.rings.json": [
+    4204,
+    1793649929300831400
+  ],
+  "iso\\rosettes.image.json": [
+    416,
+    1793767474639345300
+  ],
+  "iso\\rosettes.iso": [
+    4700372992,
+    1793767474638843900
+  ],
+  "iso\\rosettes.preview.png": [
+    91114,
+    1793767475175013400
+  ],
+  "iso\\rosettes_design.npy": [
+    36000128,
+    1793767268352853500
+  ],
+  "iso\\rosettes_preview.png": [
+    313641,
+    1793767268856528300
+  ],
+  "iso\\rosettes_scale_zoom.png": [
+    35179,
+    1793767269116499600
+  ],
+  "iso\\rosettes_zoom.png": [
+    40939,
+    1793767268912597200
+  ],
+  "iso\\tiles.image.json": [
+    473,
+    1793757111450994500
+  ],
+  "iso\\tiles.iso": [
+    4584407040,
+    1793757111450994500
+  ],
+  "iso\\tiles.preview.png": [
+    154448,
+    1793757112021947400
+  ],
+  "iso\\tiles.tiles.json": [
+    913,
+    1793757111555053200
+  ],
+  "iso\\triad_B.image.json": [
+    380,
+    1793742278347384100
+  ],
+  "iso\\triad_B.iso": [
+    4681269248,
+    1793742278346867100
+  ],
+  "iso\\triad_B.preview.png": [
+    176622,
+    1793742278649035700
+  ]
+}

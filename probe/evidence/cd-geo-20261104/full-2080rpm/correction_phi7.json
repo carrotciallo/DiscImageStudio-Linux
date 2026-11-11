@@ -1,0 +1,22 @@
+{
+  "kind": "angle-correction",
+  "meaning": "a byte placed at model angle theta appears at theta + phi(r) (degrees, counter-clockwise in data-side view); draw with the design sampled at theta + phi(r)",
+  "radius_valid_mm": [
+    25.58099674915936,
+    58.03114885971727
+  ],
+  "poly_in_x": [
+    -3.663111166723534,
+    4.75755550636358,
+    7.050358482944002,
+    -8.558399811206884,
+    -4.9139832779347845,
+    4.375403809759955,
+    1.2886673785016038,
+    -0.40839681766731506
+  ],
+  "x": "(r_mm - 40) / 15",
+  "source": "tools/geo_polyfit.py evidence/cd-geo-20261104/full-2080rpm",
+  "pitch_model": "phi polynomial, degree 7",
+  "peak_to_peak_deg": 0.9483346551462349
+}

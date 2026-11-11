@@ -1,0 +1,6 @@
+head-on, contrast 0.30         IDs 75/75  max reprojection error    0.1 px
+head-on, contrast 0.10         IDs 75/75  max reprojection error    0.1 px
+head-on, contrast 0.04         IDs 75/75  max reprojection error    0.1 px
+offset 60 mm, contrast 0.10    IDs 75/75  max reprojection error    0.4 px
+offset 60 mm, contrast 0.04    IDs 75/75  max reprojection error    0.6 px
+offset 100 mm, contrast 0.10   IDs 75/75  max reprojection error    0.1 px

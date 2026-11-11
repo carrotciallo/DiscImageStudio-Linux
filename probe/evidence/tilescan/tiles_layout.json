@@ -1,0 +1,48 @@
+{
+  "kind": "tile-palette-target",
+  "ring_edges_mm": [
+    25.0,
+    33.0,
+    41.0,
+    49.0,
+    57.0
+  ],
+  "sectors_per_ring": [
+    23,
+    29,
+    35,
+    42
+  ],
+  "gap_mm": 0.5,
+  "rows": 6,
+  "cols": 7,
+  "id_cols": 4,
+  "palette": [
+    "A5",
+    "92",
+    "B9",
+    "66",
+    "MIX:A5,62,B1,61,65,A7",
+    "MIX:92,87,83,8D,60",
+    "8B",
+    "2AE304",
+    "ED00"
+  ],
+  "background": "RND",
+  "angle": "counter-clockwise from +x in the data-side view, y up",
+  "id_bits": "ring(2) sector(6) parity(all) parity(0,2,4,6); 1 = A5 inner / 92 outer",
+  "slots": "slot = 3 * column + pair; slot 0 = A5/A5, slot 11 = 92/92, slots 1-10 = ID bits",
+  "swatch": "index = 3 * (column - id_cols) + pair",
+  "textures": [
+    "RND",
+    "A5",
+    "92",
+    "B9",
+    "66",
+    "MIX:A5,62,B1,61,65,A7",
+    "MIX:92,87,83,8D,60",
+    "8B",
+    "2AE304",
+    "ED00"
+  ]
+}

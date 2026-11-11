@@ -1,0 +1,78 @@
+{
+  "fit": {
+    "u": 90937.87735330567,
+    "v": 5.704775858048436,
+    "coarse_u": 90937.87735330567,
+    "coarse_v": 5.704775858048436,
+    "r0_mm_at_bit": 25.250000653423754,
+    "pitch_um_at_bit": 1.5839999605854325,
+    "bit_nm_assumed": 277.66208524226016,
+    "note": "angles depend only on u and v; any bit length with r0 = u*b and pitch = v*b gives the same image",
+    "dis_equivalent": {
+      "bit_nm": 277.66208524226016,
+      "inner_radius_mm": 25.250000653423758,
+      "outer_radius_mm_for_total_sectors": {
+        "359849": 59.50254430369368
+      },
+      "note": "CD forward CIRC reference origin, hardware origin unmeasured; not a DVD preset"
+    },
+    "angle_span_mm": [
+      25.0,
+      58.0
+    ],
+    "nominal_error_deg": 15060.543057603585,
+    "angle_sigma_deg": 0.18291261389993363,
+    "u_sigma": 0.017291561037748246,
+    "v_sigma": 1.491734547733775e-06,
+    "media": "cd",
+    "sector_bits": 57624,
+    "read_tail_frames": 108,
+    "read_completion_model_measured": false,
+    "measured_span_mm": [
+      26.92,
+      55.723
+    ],
+    "angle_sigma_measured_span_deg": 0.1538743072262099,
+    "c_deg": 0.031447649997890015,
+    "chi2_per_dof": 1.4268641577391792,
+    "residual_rms_deg": 0.2788476446735349,
+    "period_ms": 19.994935038727196,
+    "reference_lba": 158332
+  },
+  "cache": {
+    "lba": 179924,
+    "sectors": 1,
+    "plain": {
+      "n": 40,
+      "p50_us": 88.0,
+      "p95_us": 99.3,
+      "p99_us": 72502.7,
+      "min_us": 82.2,
+      "max_us": 72502.7,
+      "failed": 0
+    },
+    "fua": {
+      "n": 40,
+      "p50_us": 19973.3,
+      "p95_us": 20100.0,
+      "p99_us": 20147.5,
+      "min_us": 15817.4,
+      "max_us": 20147.5,
+      "failed": 0
+    },
+    "plain_served_from_cache": true,
+    "fua_reads_media": true,
+    "flush_then_read_media": false,
+    "strategy": "fua"
+  },
+  "setup": {
+    "profile": "0x0008",
+    "profile_name": "CD-ROM",
+    "family": "cd",
+    "block_sectors": 1,
+    "last_lba": 359848,
+    "first_track_audio": false,
+    "read_method": "read12"
+  },
+  "set_cd_speed": null
+}

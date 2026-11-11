@@ -1,0 +1,13 @@
+{
+  "python": "3.13.14",
+  "selftest_passed": true,
+  "selftest_ok_count": 144,
+  "dvd_selftest_output_identical": true,
+  "mounts_passed": 4,
+  "doc_links_passed": true,
+  "utf8_without_bom": true,
+  "physical_drive_commands": 0,
+  "burns": 0,
+  "pushes": 0,
+  "all_user_grid_bytes_match": 648050688
+}

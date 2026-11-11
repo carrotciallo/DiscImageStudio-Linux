@@ -1,0 +1,1 @@
+bins 15, p-p 0.106 deg (<= 0.2), rms 0.032 deg (<= 0.06), U component 0.003 deg (<= 0.1) -> PASS

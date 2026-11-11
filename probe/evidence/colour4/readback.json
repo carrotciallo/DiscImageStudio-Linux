@@ -1,0 +1,22 @@
+{
+ "match": 4000,
+ "mismatch": 0,
+ "read_error": 1,
+ "blocks_tried": 4001,
+ "last_lba": 2294381,
+ "total_sectors": 2295104,
+ "seconds": 206.9,
+ "problems": [
+  {
+   "lba": 1387699,
+   "kind": "read_error",
+   "code": 23
+  }
+ ],
+ "note": "Read-only spot check of iso/colour4.iso on the burned disc, 16-sector blocks, 2026-11-05. The one failed block was reread sector by sector afterwards: all 16 sectors matched the ISO on the first try.",
+ "retry": {
+  "lba": 1387699,
+  "sectors": 16,
+  "match": 16
+ }
+}

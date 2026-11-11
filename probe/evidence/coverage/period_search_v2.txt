@@ -1,0 +1,9 @@
+P  20T (2.67 um)  8A92BDCB96        fraction at 1/P: robust 0.32
+P  24T (3.20 um)  05938E            fraction at 1/P: robust 0.32
+P  28T (3.73 um)  113BA43DF7601B    fraction at 1/P: robust 0.13
+P  40T (5.33 um)  3620ABCE3C        fraction at 1/P: robust 0.09
+P  56T (7.46 um)  99F059BC166B1B    fraction at 1/P: robust 0.09
+P  80T (10.66 um)  F0EC2D0395        fraction at 1/P: robust 0.11
+P  96T (12.80 um)  BE343FD7A713      fraction at 1/P: robust 0.06
+P 112T (14.93 um)  02F0C38330068A    fraction at 1/P: robust 0.07
+P 128T (17.06 um)  B34BEEBAF7AC02D6  fraction at 1/P: robust 0.06

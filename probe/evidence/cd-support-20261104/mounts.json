@@ -1,0 +1,34 @@
+[
+    {
+        "kind":  "rings",
+        "path":  "D:\\disc-probe\\iso\\cd-support-20261104-rings.iso",
+        "file_system":  "CDFS",
+        "label":  "DISCPROBE_CD_RINGS",
+        "access":  "ReadOnly",
+        "passed":  true
+    },
+    {
+        "kind":  "random",
+        "path":  "D:\\disc-probe\\iso\\cd-support-20261104-random.iso",
+        "file_system":  "CDFS",
+        "label":  "DISCPROBE_RANDOM",
+        "access":  "ReadOnly",
+        "passed":  true
+    },
+    {
+        "kind":  "grid",
+        "path":  "D:\\disc-probe\\iso\\cd-support-20261104-grid.iso",
+        "file_system":  "CDFS",
+        "label":  "DISCPROBE_CD_IMAGE",
+        "access":  "ReadOnly",
+        "passed":  true
+    },
+    {
+        "kind":  "tiles",
+        "path":  "D:\\disc-probe\\iso\\cd-support-20261104-tiles.iso",
+        "file_system":  "CDFS",
+        "label":  "DISCPROBE_CD_IMAGE",
+        "access":  "ReadOnly",
+        "passed":  true
+    }
+]

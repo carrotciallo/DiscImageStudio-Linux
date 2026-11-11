@@ -1,0 +1,37 @@
+{
+  "model": "ECMA-130 Annex E reference EFM, random parity/subcode placeholders",
+  "hardware_verified": false,
+  "samples_per_texture": 60,
+  "textures": {
+    "0D": {
+      "None": 12,
+      "34": 48
+    },
+    "AA": {
+      "34": 60
+    },
+    "10": {
+      "None": 31,
+      "34": 29
+    },
+    "63": {
+      "17": 60
+    },
+    "0DAA": {
+      "None": 21,
+      "68": 39
+    },
+    "00FF": {
+      "None": 10,
+      "68": 50
+    },
+    "1063": {
+      "None": 20,
+      "34": 2,
+      "68": 38
+    },
+    "0D10AA": {
+      "None": 60
+    }
+  }
+}

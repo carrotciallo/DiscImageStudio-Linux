@@ -1,0 +1,13 @@
+269 verified tile observations, |delta| up to 0.62
+A5  P 0.85 um (75 % of power)  first order visible for |delta| 0.47-0.82
+    hue: n  10  median error  42.3 deg  shuffled  34.6  p = 0.975
+    brightness / tile median: in band 1.19 (n 10), no visible order 0.84 (n 259)
+66  P 1.06 um (79 % of power)  first order visible for |delta| 0.38-0.66
+    hue: n  77  median error  50.2 deg  shuffled  73.1  p = 0.000
+    brightness / tile median: in band 0.88 (n 77), no visible order 0.86 (n 192)
+B9  P 1.42 um (74 % of power)  first order visible for |delta| 0.28-0.49
+    hue: n 156  median error 103.3 deg  shuffled 103.0  p = 0.524
+    brightness / tile median: in band 0.85 (n 156), no visible order 0.83 (n 104)
+92  P 2.13 um (74 % of power)  first order visible for |delta| 0.19-0.33
+    hue: n 101  median error  59.0 deg  shuffled  71.0  p = 0.054
+    brightness / tile median: in band 1.77 (n 101), no visible order 1.53 (n 91)

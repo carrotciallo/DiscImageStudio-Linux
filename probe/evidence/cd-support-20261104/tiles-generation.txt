@@ -1,0 +1,11 @@
+129 tiles, palette 0D AA 10 63 RND 0DAA 00FF 1063 0D10AA; geometry u 90037.500, v 5.7624000 from D:\disc-probe\evidence\cd-support-20261104\nominal-geometry.json; 330451 sectors (0.68 GB)
+    0.6 %
+   20.5 %
+   40.3 %
+   60.1 %
+   80.6 %
+  100.0 %
+Verified: sampled sectors match the design
+Spec: D:\disc-probe\iso\cd-support-20261104-tiles.image.json
+Layout: D:\disc-probe\iso\cd-support-20261104-tiles.tiles.json
+Preview (data-side view, false colours): D:\disc-probe\iso\cd-support-20261104-tiles.preview.png

@@ -1,0 +1,18 @@
+scan 1 mirror False: best L  +33.50 mm =  +205.2 frames, peak/std 8.5, rotation  302.2 deg, median score 3.3
+scan 1 mirror True : best L  +33.55 mm =  +205.5 frames, peak/std 8.3, rotation  122.1 deg, median score 3.3
+scan 2 mirror False: best L  +31.45 mm =  +192.6 frames, peak/std 4.7, rotation  276.3 deg, median score 2.8
+scan 2 mirror True : best L  +31.45 mm =  +192.6 frames, peak/std 4.7, rotation   96.3 deg, median score 2.9
+scan 3 mirror False: best L  +33.60 mm =  +205.8 frames, peak/std 7.4, rotation  224.6 deg, median score 2.9
+scan 3 mirror True : best L  +33.60 mm =  +205.8 frames, peak/std 7.2, rotation   44.6 deg, median score 2.9
+scan 4 mirror False: best L  +33.90 mm =  +207.6 frames, peak/std 4.6, rotation  274.4 deg, median score 2.9
+scan 4 mirror True : best L  +33.90 mm =  +207.6 frames, peak/std 4.6, rotation   94.4 deg, median score 2.9
+scan 5 mirror False: best L  +27.85 mm =  +170.6 frames, peak/std 6.8, rotation  151.8 deg, median score 3.9
+scan 5 mirror True : best L  +17.70 mm =  +108.4 frames, peak/std 6.9, rotation  241.9 deg, median score 3.9
+scan 6 mirror False: best L  +31.65 mm =  +193.9 frames, peak/std 4.4, rotation  271.9 deg, median score 3.1
+scan 6 mirror True : best L  +31.65 mm =  +193.9 frames, peak/std 4.3, rotation  271.9 deg, median score 3.1
+scan 7 mirror False: best L  +33.60 mm =  +205.8 frames, peak/std 7.3, rotation  138.2 deg, median score 3.2
+scan 7 mirror True : best L  +28.15 mm =  +172.4 frames, peak/std 7.5, rotation  228.8 deg, median score 3.2
+scan 8 mirror False: best L  +33.90 mm =  +207.6 frames, peak/std 4.4, rotation  268.2 deg, median score 2.9
+scan 8 mirror True : best L  -38.25 mm =  -234.3 frames, peak/std 4.4, rotation   14.9 deg, median score 2.9
+
+[exited with code 0]

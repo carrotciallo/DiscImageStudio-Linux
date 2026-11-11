@@ -1,0 +1,78 @@
+{
+  "fit": {
+    "u": 90937.82192578255,
+    "v": 5.704778614629331,
+    "coarse_u": 90937.82192578255,
+    "coarse_v": 5.704778614629331,
+    "r0_mm_at_bit": 25.249985263302108,
+    "pitch_um_at_bit": 1.584000725983432,
+    "bit_nm_assumed": 277.66208524226016,
+    "note": "angles depend only on u and v; any bit length with r0 = u*b and pitch = v*b gives the same image",
+    "dis_equivalent": {
+      "bit_nm": 277.66208524226016,
+      "inner_radius_mm": 25.24998526330211,
+      "outer_radius_mm_for_total_sectors": {
+        "359849": 59.50254956011451
+      },
+      "note": "CD forward CIRC reference origin, hardware origin unmeasured; not a DVD preset"
+    },
+    "angle_span_mm": [
+      24.0,
+      58.0
+    ],
+    "nominal_error_deg": 15059.497360947726,
+    "angle_sigma_deg": 0.5169170115044619,
+    "u_sigma": 0.04567995708249618,
+    "v_sigma": 3.8162641284144216e-06,
+    "media": "cd",
+    "sector_bits": 57624,
+    "read_tail_frames": 108,
+    "read_completion_model_measured": false,
+    "measured_span_mm": [
+      26.92,
+      55.723
+    ],
+    "angle_sigma_measured_span_deg": 0.4322396793892882,
+    "c_deg": 0.2781218867564172,
+    "chi2_per_dof": 1.1294792798676516,
+    "residual_rms_deg": 0.6783136560063876,
+    "period_ms": 6.597917460584572,
+    "reference_lba": 158332
+  },
+  "cache": {
+    "lba": 179924,
+    "sectors": 1,
+    "plain": {
+      "n": 40,
+      "p50_us": 88.0,
+      "p95_us": 99.3,
+      "p99_us": 56888.3,
+      "min_us": 82.2,
+      "max_us": 56888.3,
+      "failed": 0
+    },
+    "fua": {
+      "n": 40,
+      "p50_us": 6573.4,
+      "p95_us": 6700.1,
+      "p99_us": 6747.5,
+      "min_us": 2417.4,
+      "max_us": 6747.5,
+      "failed": 0
+    },
+    "plain_served_from_cache": true,
+    "fua_reads_media": true,
+    "flush_then_read_media": false,
+    "strategy": "fua"
+  },
+  "setup": {
+    "profile": "0x0008",
+    "profile_name": "CD-ROM",
+    "family": "cd",
+    "block_sectors": 1,
+    "last_lba": 359848,
+    "first_track_audio": false,
+    "read_method": "read12"
+  },
+  "set_cd_speed": null
+}

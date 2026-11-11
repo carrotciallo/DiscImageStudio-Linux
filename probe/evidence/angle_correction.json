@@ -1,0 +1,26 @@
+{
+  "kind": "angle-correction",
+  "meaning": "a byte placed at model angle theta appears at theta + phi(r) (degrees, counter-clockwise in data-side view); draw with the design sampled at theta + phi(r)",
+  "radius_valid_mm": [
+    25.5,
+    55.5
+  ],
+  "poly_in_x": [
+    -0.07000073746540829,
+    0.004836984405921221,
+    0.30403081134140325,
+    -0.09432900534567151,
+    -0.07549547424493615
+  ],
+  "x": "(r_mm - 40) / 15",
+  "source": [
+    "results/gridscan-p1/phi.csv",
+    "results/gridscan-p2/phi.csv",
+    "results/gridscan-p3/phi.csv",
+    "results/gridscan-p4/phi.csv",
+    "results/gridscan-p5/phi.csv",
+    "results/gridscan-p6/phi.csv"
+  ],
+  "geometry": "results/geo-H-20261103-145334/summary.json",
+  "residual_rms_deg": 0.03568956705609423
+}

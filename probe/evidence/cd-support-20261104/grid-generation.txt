@@ -1,0 +1,10 @@
+grid, 0.6 mm lines, geometry u 90037.500, v 5.7624000 from D:\disc-probe\evidence\cd-support-20261104\nominal-geometry.json; 316436 sectors (0.65 GB), dark 0D, light AA
+    0.6 %
+   20.1 %
+   40.1 %
+   60.2 %
+   80.3 %
+  100.0 %
+Verified: sampled sectors match the design
+Spec: D:\disc-probe\iso\cd-support-20261104-grid.image.json
+Preview (data-side view): D:\disc-probe\iso\cd-support-20261104-grid.preview.png

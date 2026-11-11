@@ -1,0 +1,38 @@
+ring group texture     radius mm                 LBA
+   0     0      0D  26.00- 28.00      6259-19512    
+   1     0      AA  28.00- 30.00     19512-33748    
+   2     0      10  30.00- 32.00     33748-48965    
+   3     0      63  32.00- 34.00     48965-65164    
+   4     0     RND  34.00- 36.00     65164-82344    
+   5     1      10  36.00- 38.00     82344-100506   
+   6     1      AA  38.00- 40.00    100506-119651   
+   7     1      0D  40.00- 42.00    119651-139776   
+   8     1     RND  42.00- 44.00    139776-160884   
+   9     1      63  44.00- 46.00    160884-182973   
+  10     2      AA  46.00- 48.00    182973-206044   
+  11     2      10  48.00- 50.00    206044-230097   
+  12     2      63  50.00- 52.00    230097-255132   
+  13     2     RND  52.00- 54.00    255132-281148   
+  14     2      0D  54.00- 56.00    281148-308146   
+308146 sectors (0.63 GB), filler AA below 26.0 mm; nominal geometry r0 25.0 mm, pitch 1.6 um, bit 277.66208524226016 nm
+
+Writing D:\disc-probe\iso\cd-support-20261104-rings.iso
+    2.0 %
+    6.3 %
+   11.0 %
+   15.9 %
+   21.1 %
+   26.7 %
+   32.6 %
+   38.8 %
+   45.4 %
+   52.2 %
+   59.4 %
+   66.9 %
+   74.7 %
+   82.8 %
+   91.2 %
+  100.0 %
+Verified: sampled sectors in every ring record the intended byte
+Layout: D:\disc-probe\iso\cd-support-20261104-rings.rings.json  (needed by ringscan)
+Burn with any image burner (Windows Disc Image Burner works) and note the speed. The file system is an empty ISO 9660 placeholder.

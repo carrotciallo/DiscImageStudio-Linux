@@ -1,4 +1,4 @@
-discimagestudio-gui is an independent Linux GUI frontend for
+discimagestudio-linux is an independent Linux GUI frontend for
 DiscImageStudio. It is not affiliated with or endorsed by the
 upstream DiscImageStudio project.
 
@@ -6,11 +6,30 @@ Upstream project: DiscImageStudio by JiaFeiMiao-K-Cat
 (https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio), licensed
 under the GNU General Public License v3.0.
 
-This frontend contains no upstream code. It drives the official
-DiscImageStudio command-line program as a subprocess (solve /
-simulate / selftest) and renders none of the disc mathematics
-itself. Calibration drives the separate disc-probe tool, also as
-a subprocess.
+The frontend drives the official DiscImageStudio command-line
+program as a subprocess (solve / simulate / selftest) and renders
+none of the disc mathematics itself. Calibration drives the
+separate disc-probe tool, also as a subprocess.
 
 This project is licensed under the GNU General Public License
 v3.0; see the LICENSE file.
+
+Vendored components
+-------------------
+This repository vendors its two backends so a checkout is
+self-contained. Both are unmodified.
+
+official/ — the official DiscImageStudio CLI v1.5.0 (linux-x64)
+binary from the upstream release tarball
+DiscImageStudio-CLI-v1.5.0-linux-x64.tar.gz, with the tarball's
+LICENSE and THIRD-PARTY-NOTICES.txt. Provenance and sha256
+hashes are recorded in official/VERSION.json; the tarball hash
+matches upstream's published SHA256SUMS.txt for v1.5.0.
+
+probe/ — disc-probe by bczhc (https://github.com/bczhc/disc-probe),
+GPL-3.0, vendored from commit
+e0a07fd9bdaf63dac5adcf161c72218df4cafb4c. The photo gallery
+under docs/showcase (22 MB) is omitted; see the upstream
+repository for it. Files added by this project: fit_cubic.py,
+phase_fit*.py, cmp_sectors.py, compare_models.py, and the
+preset-*.json geometry presets.

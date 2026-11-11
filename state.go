@@ -1,9 +1,12 @@
 package main
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"image"
+	"io"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -103,19 +106,100 @@ func settingsPath() string {
 	return filepath.Join(dir, "dis-gui", "settings.json")
 }
 
+// bundledDir is the directory holding the running executable — the
+// repository root when launched via run.sh — or "" when unknown. The
+// repository vendors the official CLI under official/ and disc-probe
+// under probe/, so a checkout is self-contained.
+func bundledDir() string {
+	exe, err := os.Executable()
+	if err != nil {
+		return ""
+	}
+	return filepath.Dir(exe)
+}
+
+// firstExisting returns the first path that exists, else the last one,
+// so a machine without the bundled copies still gets a stable,
+// editable default.
+func firstExisting(paths ...string) string {
+	for _, p := range paths {
+		if _, err := os.Stat(p); err == nil {
+			return p
+		}
+	}
+	return paths[len(paths)-1]
+}
+
 func loadSettings() Settings {
+	home := os.Getenv("HOME")
+	cliPath := filepath.Join(home, "muse/discimagestudio/official/disc-image-studio")
+	probeDir := filepath.Join(home, "muse/discimagestudio/probe")
+	if bd := bundledDir(); bd != "" {
+		cliPath = firstExisting(filepath.Join(bd, "official", "disc-image-studio"), cliPath)
+		probeDir = firstExisting(filepath.Join(bd, "probe"), probeDir)
+	}
 	s := Settings{
-		CLIPath:   filepath.Join(os.Getenv("HOME"), "muse/discimagestudio/official/disc-image-studio"),
-		WorkDir:   filepath.Join(os.Getenv("HOME"), "muse/discimagestudio/work"),
+		CLIPath:   cliPath,
+		WorkDir:   filepath.Join(home, "muse/discimagestudio/work"),
 		BurnSpeed: 8,
 		Device:    "/dev/sr0",
-		ProbeDir:  filepath.Join(os.Getenv("HOME"), "muse/discimagestudio/probe"),
+		ProbeDir:  probeDir,
 		Python:    "python3",
 	}
 	if b, err := os.ReadFile(settingsPath()); err == nil {
 		_ = json.Unmarshal(b, &s)
 	}
 	return s
+}
+
+// cliPin is official/VERSION.json: the vendored official CLI release
+// and its binary hash.
+type cliPin struct {
+	Version      string `json:"version"`
+	BinarySha256 string `json:"binarySha256"`
+}
+
+// cliPinWarning is "" when the configured CLI is the bundled copy or
+// matches the bundled pin, and a short note otherwise. Pin directory
+// and CLI path are parameters so tests can drive it with fixtures.
+// Informational only — it never blocks work.
+func cliPinWarning(bundled, cliPath string) string {
+	if bundled == "" {
+		return ""
+	}
+	bundledCLI := filepath.Join(bundled, "official", "disc-image-studio")
+	if abs, err := filepath.Abs(cliPath); err == nil && abs == bundledCLI {
+		return ""
+	}
+	raw, err := os.ReadFile(filepath.Join(bundled, "official", "VERSION.json"))
+	if err != nil {
+		return ""
+	}
+	var pin cliPin
+	if json.Unmarshal(raw, &pin) != nil || pin.BinarySha256 == "" {
+		return ""
+	}
+	sum, err := sha256File(cliPath)
+	if err != nil {
+		return ""
+	}
+	if sum != pin.BinarySha256 {
+		return fmt.Sprintf("外部 CLI 与仓内钉版 %s 不一致（sha256 不同）", pin.Version)
+	}
+	return ""
+}
+
+func sha256File(path string) (string, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return "", err
+	}
+	defer f.Close()
+	h := sha256.New()
+	if _, err := io.Copy(h, f); err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(h.Sum(nil)), nil
 }
 
 func (s Settings) save() {
@@ -140,6 +224,8 @@ type App struct {
 	set  Settings
 	proj Project
 	geo  GeoPreset
+
+	cliWarn string // bundled-CLI pin mismatch note, "" when in sync
 
 	mu       sync.Mutex
 	logs     []string
@@ -216,6 +302,7 @@ func newApp() *App {
 	a.speedSel = strconv.Itoa(a.set.BurnSpeed)
 	a.calibSpeed = "4x"
 	a.calibSectorsF = float64(a.geo.TotalSectors)
+	a.cliWarn = cliPinWarning(bundledDir(), a.set.CLIPath)
 	a.loadLatestCalib()
 	return a
 }

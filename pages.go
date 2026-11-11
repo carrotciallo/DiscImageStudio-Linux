@@ -36,6 +36,9 @@ func (a *App) pageHome(c *ui.Context) {
 				}
 			}
 			a.statusCard(c, "③ 刻录", discStatus, discOK, "去刻录", 4)
+			if a.cliWarn != "" {
+				a.statusCard(c, "CLI 版本", a.cliWarn, false, "去设置", 5)
+			}
 		})
 		// Geometry preset tiles, the local counterpart of the official
 		// GUI's home template tiles: one click applies the preset and

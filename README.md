@@ -1,11 +1,12 @@
-# discimagestudio-gui
+# discimagestudio-linux
 
 A Linux GUI for DiscImageStudio: compose a picture, solve it with the
 official CLI, and burn it onto a DVD — with a burn-safety pass that
 makes any picture burnable.
 
 DiscImageStudio 官方 GUI 的 Linux 前端：功能对齐官方 WPF 版的操作面，
-后端全部走官方 CLI，投影与求解数学不在本工程重写。
+后端全部走官方 CLI，投影与求解数学不在本工程重写。官方 CLI 与
+disc-probe 均随仓自带（见下「自带后端」），clone 下来即完整。
 
 ## 架构
 
@@ -17,6 +18,17 @@ DiscImageStudio 官方 GUI 的 Linux 前端：功能对齐官方 WPF 版的操�
 - 成像：图层合成在 Go 侧实现（golang.org/x/image）；画布预处理复刻
   定版 PIL 管线（YCbCr 的 Y 通道 autocontrast cutoff=1 +
   UnsharpMask r6/80%/2），与参考产物视觉等价
+
+## 自带后端
+
+- `official/`：官方 CLI v1.5.0（linux-x64）原版二进制，含其
+  LICENSE 与 THIRD-PARTY-NOTICES；版本与 sha256 钉在
+  `official/VERSION.json`（与上游发布的 SHA256SUMS 核对一致）。
+  GUI 默认使用仓内副本；设置里改指外部 CLI 时，若其 sha256 与
+  钉版不一致，首页会给出提示（只提示，不拦截）。
+- `probe/`：disc-probe（bczhc 的移植，GPL-3.0），校准页以
+  `python3 -m discprobe` 在此目录运行；同目录附本工程的拟合
+  脚本与预设 JSON。来源与取舍见 NOTICE。
 
 ## 页面
 
@@ -51,8 +63,8 @@ DiscImageStudio 官方 GUI 的 Linux 前端：功能对齐官方 WPF 版的操�
 
 ## 构建与运行
 
-依赖：Go ≥ 1.24、官方 DiscImageStudio CLI 二进制（需自行准备，
-在设置页指定路径）、xorriso、dvd+rw-tools（探盘）、eject（弹盘）。
+依赖：Go ≥ 1.24、xorriso、dvd+rw-tools（探盘）、eject（弹盘）。
+后端已随仓自带，无需另备。
 
 ```sh
 ./run.sh          # 构建并启动
@@ -60,7 +72,8 @@ go test ./...     # 测试（与参考产物的对照测试需 DIS_FIXTURE_DIR�
 ```
 
 设置存于 `~/.config/dis-gui/settings.json`；产物（canvas.png /
-disc.iso / simulate.png）落在设置里指定的工作目录。
+disc.iso / simulate.png）落在设置里指定的工作目录。设置里的
+CLI/probe 路径留空（用默认）时优先解析到仓内副本。
 
 环境钩子：`DISGUI_OPEN=<图片路径>` 启动即载入该图为图层并落在
 设计页。
@@ -68,6 +81,8 @@ disc.iso / simulate.png）落在设置里指定的工作目录。
 ## 已知限制
 
 - 仅覆盖 DVD 线；官方 GUI 的 CD / Blu-ray 档位未复刻
+- 自带 CLI 为 linux-x64 版；其他平台请在设置里改指本平台的
+  官方 CLI（版本不一致会有提示）
 - 校准页的 timing/geo 需要驱动器里有一张已刻录的盘
 - 本工程是前端：几何、求解与读回渲染都由官方 CLI 负责，其版本
   行为变化会直接影响产物

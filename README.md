@@ -1,5 +1,7 @@
 # discimagestudio-linux
 
+简体中文 | [English](README.en.md)
+
 A Linux GUI for DiscImageStudio: compose a picture, solve it with the
 official CLI, and burn it onto a DVD — with a burn-safety pass that
 makes any picture burnable.

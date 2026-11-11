@@ -47,6 +47,8 @@ DiscImageStudio 官方 GUI 的 Linux 前端：功能对齐官方 WPF 版的操�
   亮度等参数回归纯观感用途；带真实细节（有阈上高光）的区域一
   像素不碰
 
+实测驱动器与介质的笔记见 [附录](APPENDIX.md)：Apple USB SuperDrive A1379（GX40N 机芯）＋ CMC MAG. AM3 的唤醒与供电、标定值，以及这台驱动器对数据形态的兼容性边界。
+
 ## 构建与运行
 
 依赖：Go ≥ 1.24、官方 DiscImageStudio CLI 二进制（需自行准备，

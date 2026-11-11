@@ -1,55 +1,75 @@
-# Disc Image Studio — Linux 图形前端（gui-port）
+# discimagestudio-gui
 
-DiscImageStudio 官方 GUI 的 Linux 移植：功能对齐官方 WPF 版的操作面，
-后端全部走官方 CLI（`disc-image-studio` v1.5.0），投影数学一行不在本
-工程重写。只留本地使用，本地 git 管理，无远程仓库。
+A Linux GUI for DiscImageStudio: compose a picture, solve it with the
+official CLI, and burn it onto a DVD — with a burn-safety pass that
+makes any picture burnable.
+
+DiscImageStudio 官方 GUI 的 Linux 前端：功能对齐官方 WPF 版的操作面，
+后端全部走官方 CLI，投影与求解数学不在本工程重写。
 
 ## 架构
 
-- 壳：MyGo（github.com/egoist/mygo v0.8.3）原生绘制，控件层用 Onevra
-  （github.com/oneo-me/onevra v0.2026.18）组件与亮色主题（暖纸面＋蜜桃橙）
-- 后端：子进程调官方 CLI 的 `solve` / `simulate` / `selftest`，
-  刻录走 `xorriso -as cdrecord -dao`（与定版刻录流程同一命令面），
-  探盘走 `dvd+rw-mediainfo`，弹盘走 `eject`；校准子进程调
-  disc-probe（`python3 -m discprobe`，目录见设置）
-- 成像：图层合成与定版画布预处理在 Go 侧实现（x/image）；
-  预处理为 PIL 管线（YCbCr 的 Y 通道 autocontrast cutoff=1 +
-  UnsharpMask r6/80%/2）的复刻，与当晚定版产物的像素平均绝对差
-  约 0.24（视觉等价、非字节级一致，残差来自 PIL 高斯模糊内部量化）
+- 壳：MyGo（github.com/egoist/mygo）原生绘制，控件层用 Onevra 组件
+  与亮色主题
+- 后端：子进程调用官方 DiscImageStudio CLI（`solve` / `simulate` /
+  `selftest`）；刻录走 `xorriso -as cdrecord -dao`；探盘
+  `dvd+rw-mediainfo`；校准子进程调用 disc-probe
+- 成像：图层合成在 Go 侧实现（golang.org/x/image）；画布预处理复刻
+  定版 PIL 管线（YCbCr 的 Y 通道 autocontrast cutoff=1 +
+  UnsharpMask r6/80%/2），与参考产物视觉等价
 
 ## 页面
 
-- 首页：后端路径、几何预设、产物一览
-- 设计：多图层（添加/删除/排序）、X/Y(mm)/高度/旋转滑杆+数字输入、
-  居中/适合宽度/铺满高度、盘面画布实时预览、定版预处理开关
-- 读回预览：对生成的 ISO 跑官方 simulate 并显示读回图
-- 导出：几何预设与全部 solve 参数可编辑，生成 ISO 带进度与日志
-- 刻录：探盘状态、速度选择（默认定版 8×）、刻前确认、弹盘
-- 校准：驱动 disc-probe 做 timing（转速/CAV 判定）与 geo（几何拟合，
-  带精度判定），disexport 把拟合导成求解预设存入设置，导出页可直接
-  选用；打开页面自动载入 disc-probe 最近一次结果
-- 设置：CLI 路径、工作目录、设备、速度、自检、disc-probe 目录、保存
+- 首页：流程状态、几何预设与当前参数总览
+- 设计：多图层合成（位置/高度/旋转，滑杆＋数字输入＋画布拖动与
+  滚轮缩放），固定视图场，所见即所得
+- 校准：驱动 disc-probe 做 timing（转速/CAV 判定）与 geo（几何
+  拟合），拟合结果可导出为求解预设
+- 导出：几何与全部 solve 参数可编辑，生成 ISO 并可读回预览
+  （官方 simulate 渲染）
+- 刻录：探盘状态、速度选择、刻录与弹盘
+- 设置：CLI 路径、工作目录、刻录设备与速度
 
-设置存 `~/.config/dis-gui/settings.json`；产物默认落在
-`~/muse/discimagestudio/work/`（canvas.png / disc.iso / simulate.png）。
+## 刻录安全（burn safety）
+
+大面积平坦暗场是刻录杀手：经求解器色调处理后，它们变成 ECC 块
+尺度的大片单一坑型板块，会让刻录机在盘面中途以介质写错误停机；
+平坦亮场（稀疏坑型）则天然安全。本工程在导出管线里内置一道固定
+的单遍构造（`burnsafe.go`），让任何图片都可刻：
+
+- 画布未被图片覆盖的区域默认为白（稀疏坑型），不再是黑
+- 导出合成的最后一步逐格扫描画布：局部平均亮度过低、且几乎没有
+  阈上白像素的格子（平坦暗场在类别层面的确切形态），在同一遍里
+  按精确配额把像素以分散点序翻白，把格均值抬到安全地板——标定
+  实验表明求解器实现的暗类占比只由局部平均亮度决定，地板值对
+  应该占比约 0.75，低于 0.80 的危险线
+- 一遍完成：没有事后检查、没有重解、没有需要用户操心的开关，
+  亮度等参数回归纯观感用途；带真实细节（有阈上高光）的区域一
+  像素不碰
 
 ## 构建与运行
 
+依赖：Go ≥ 1.24、官方 DiscImageStudio CLI 二进制（需自行准备，
+在设置页指定路径）、xorriso、dvd+rw-tools（探盘）、eject（弹盘）。
+
 ```sh
 ./run.sh          # 构建并启动
-go test ./...     # 单元与对齐测试（夹具对照需 DIS_FIXTURE_DIR）
+go test ./...     # 测试（与参考产物的对照测试需 DIS_FIXTURE_DIR）
 ```
 
-依赖：Go ≥ 1.24、官方 CLI 二进制、xorriso、dvd+rw-tools、eject。
+设置存于 `~/.config/dis-gui/settings.json`；产物（canvas.png /
+disc.iso / simulate.png）落在设置里指定的工作目录。
 
-环境钩子：`DISGUI_OPEN=<图片路径>` 启动即载入该图为图层并落在设计页。
+环境钩子：`DISGUI_OPEN=<图片路径>` 启动即载入该图为图层并落在
+设计页。
 
-## 与官方 GUI 的差距（已知）
+## 已知限制
 
-- 画布不支持鼠标拖拽定位，图层位置由滑杆/数字输入控制
-  （官方 WPF 版同样以数值输入为主）。
-- 仅覆盖 DVD 线（solve/simulate + xorriso 刻录 + disc-probe 校准）；
-  官方 GUI 的 CD/Blu-ray 档位未复刻。标定页走 disc-probe
-  （timing/geo/disexport），需要驱动器里有一张已刻过的盘。
-- GUI 内首刻尚未实测：刻录按钮调用的 xorriso 命令与 2026-11-09
-  两张定版盘的手工刻录命令一致，探盘与确认框已验。
+- 仅覆盖 DVD 线；官方 GUI 的 CD / Blu-ray 档位未复刻
+- 校准页的 timing/geo 需要驱动器里有一张已刻录的盘
+- 本工程是前端：几何、求解与读回渲染都由官方 CLI 负责，其版本
+  行为变化会直接影响产物
+
+## 许可
+
+GPL-3.0，见 LICENSE。与上游项目的关系见 NOTICE。

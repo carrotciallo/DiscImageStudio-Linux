@@ -1,0 +1,16 @@
+discimagestudio-gui is an independent Linux GUI frontend for
+DiscImageStudio. It is not affiliated with or endorsed by the
+upstream DiscImageStudio project.
+
+Upstream project: DiscImageStudio by JiaFeiMiao-K-Cat
+(https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio), licensed
+under the GNU General Public License v3.0.
+
+This frontend contains no upstream code. It drives the official
+DiscImageStudio command-line program as a subprocess (solve /
+simulate / selftest) and renders none of the disc mathematics
+itself. Calibration drives the separate disc-probe tool, also as
+a subprocess.
+
+This project is licensed under the GNU General Public License
+v3.0; see the LICENSE file.

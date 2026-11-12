@@ -55,6 +55,32 @@ complete.
 - Burn: media status, speed selection, burning and eject
 - Settings: CLI path, work directory, burner device and speed
 
+## Canvas preprocessing (sharpness)
+
+A burned picture is rendered by pit-pattern density, and its
+detail first has to survive the solver's tone processing and
+dither quantization — fine contrast is what gets eaten first.
+The compositing pipeline therefore applies a fixed luminance
+preprocessing (`PreprocessImage` in imaging.go, replicating the
+reference pipeline):
+
+- The image is converted to YCbCr and only the luminance (Y)
+  channel is processed; the chroma channels pass through
+  untouched — disc detail is carried by luminance, so there is
+  nothing to gain by touching chroma
+- The Y channel gets autocontrast (cutoff=1: the outer 1% at
+  both ends is clipped, then the range is stretched to full
+  scale), opening up mid-tone separation
+- Then an unsharp mask (radius 6, percent 80, threshold 2)
+  pre-emphasizes edge contrast, compensating for the smoothing
+  that tone processing and dithering apply to fine lines
+
+The parameters are calibrated, fixed values, and the Go replica
+is visually equivalent to the reference output. Like the
+burn-safety pass below, this is a fixed pipeline step with no
+knob: preprocessing owns sharpness, the safety construction
+owns burnability.
+
 ## Burn safety
 
 Large flat dark areas are burn killers: after the solver's tone

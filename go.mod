@@ -3,7 +3,7 @@ module dis-gui
 go 1.27.3
 
 require (
-	github.com/egoist/mygo v0.8.3
+	github.com/egoist/mygo v0.9.0
 	github.com/oneo-me/onevra/source v0.2026.18
 	golang.org/x/image v0.47.0
 )
